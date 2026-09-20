@@ -1,0 +1,2404 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Kishore Jayakumar Ishwar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --void:#04050a;
+  --panel:#090c15;
+  --panel2:#0e1322;
+  --rule:#1b2236;
+  --rule2:#2a3350;
+  --ink:#e8eefc;
+  --dim:#8d99b8;
+  --faint:#5d688a;
+  --cyan:#22f0ff;
+  --lime:#b6ff2e;
+  --mint:#2effc0;
+  --amber:#ffc21f;
+  --magenta:#ff35c8;
+  --violet:#8b5cff;
+  --rose:#ff5470;
+  --orange:#ff8a1f;
+  --spring:#4dff88;
+  --a:var(--cyan);
+  --display:'Chakra Petch','Trebuchet MS',sans-serif;
+  --pix:'IBM Plex Mono',ui-monospace,'Courier New',monospace;
+  --body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--void);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:15px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:3;
+  background:radial-gradient(130% 85% at 50% 0%, transparent 46%, rgba(4,5,10,.62) 100%);
+  opacity:.55;
+}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;letter-spacing:.01em}
+p{margin:0}
+sub,sup{font-size:.72em}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+.wrap{width:100%;max-width:1140px;margin-inline:auto;padding-inline:20px}
+section[id]{scroll-margin-top:64px}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:rgba(4,5,10,.88);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-in{display:flex;align-items:center;gap:22px;height:52px;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.mark{font-family:var(--pix);font-size:12.5px;font-weight:500;letter-spacing:.1em;text-decoration:none;white-space:nowrap;flex:none}
+.mark b{color:var(--cyan);font-weight:400}
+.nav-links{display:flex;gap:16px;margin-left:auto;flex:none}
+.nav-links a{
+  font-family:var(--pix);font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--faint);
+  text-decoration:none;white-space:nowrap;padding:4px 0;border-bottom:1px solid transparent;
+  transition:color .15s,border-color .15s;
+}
+.nav-links a:hover,.nav-links a.on{color:var(--ink);border-bottom-color:var(--cyan)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:44px 52px;border-bottom:1px solid var(--rule)}
+.hero-grid{display:grid;gap:30px;align-items:center}
+@media(min-width:900px){.hero-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:44px}}
+.eyebrow{font-family:var(--pix);font-size:11px;font-weight:500;letter-spacing:.14em;color:var(--cyan);margin-bottom:14px}
+h1{font-size:clamp(2.1rem,6.4vw,3.5rem);line-height:1.02;font-weight:700}
+h1 .sub{display:block;font-size:.4em;color:var(--dim);font-weight:400;margin-top:12px;letter-spacing:.02em}
+.hero p.lede{color:var(--dim);margin-top:20px;max-width:46ch}
+.hero p.lede em{color:var(--ink);font-style:normal}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{
+  font-family:var(--mono);font-size:11px;font-variant-numeric:tabular-nums;
+  color:var(--ink);background:var(--panel2);border:1px solid var(--rule2);padding:5px 9px;
+}
+.chip span{color:var(--faint)}
+.stage{
+  position:relative;background:linear-gradient(180deg,#070a12 0%,#04050a 100%);
+  border:1px solid var(--rule2);height:clamp(300px,46vh,470px);overflow:hidden;
+  cursor:grab;touch-action:pan-y;
+}
+.stage:active{cursor:grabbing}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.grain{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(4,5,10,.55) 100%)}
+.stage .tagline{position:absolute;left:12px;bottom:10px;font-family:var(--pix);font-size:10px;letter-spacing:.14em;color:var(--faint)}
+.stage .hint{position:absolute;right:12px;bottom:10px;font-family:var(--pix);font-size:10px;letter-spacing:.14em;color:var(--faint);opacity:.8}
+
+/* ---------- research brief ---------- */
+.brief{padding-block:56px;border-bottom:1px solid var(--rule)}
+.brief-grid{display:grid;gap:34px}
+@media(min-width:900px){.brief-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:52px}}
+.brief h2{font-size:clamp(1.5rem,3.6vw,2.15rem);line-height:1.12;margin-bottom:18px}
+.brief p{color:var(--dim);max-width:62ch}
+.brief p + p{margin-top:14px}
+.brief strong{color:var(--ink);font-weight:600}
+.threads{display:flex;flex-direction:column;gap:2px}
+.thread{border-left:2px solid var(--a);background:var(--panel);padding:14px 16px}
+.thread h3{font-family:var(--pix);font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--a);margin-bottom:8px}
+.thread p{font-size:13.5px;color:var(--dim);margin:0}
+.thread .who{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:8px;display:block}
+
+/* ---------- stream divider ---------- */
+.stream{padding-block:52px 10px}
+.stream-rule{display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--rule2);padding-top:16px}
+.stream-no{font-family:var(--pix);font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--a)}
+.stream h2{font-size:clamp(1.15rem,2.6vw,1.5rem);color:var(--ink)}
+.stream p{color:var(--faint);font-family:var(--mono);font-size:11.5px;margin-top:8px}
+
+/* ---------- unit sections ---------- */
+.unit{padding-block:46px;border-bottom:1px solid var(--rule)}
+.unit-head{max-width:72ch}
+.tag{font-family:var(--pix);font-size:11px;font-weight:500;letter-spacing:.14em;color:var(--a);display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.tag::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--a),transparent);opacity:.45}
+.unit h2{font-size:clamp(1.4rem,3.4vw,2.05rem);line-height:1.14}
+.unit .lede{color:var(--dim);margin-top:16px;max-width:64ch}
+
+/* ---------- figures ---------- */
+figure{margin:30px 0 0}
+.fig-scroll{overflow-x:auto;border:1px solid var(--rule2);background:var(--panel)}
+.pfd-stage{position:relative;min-width:700px;height:270px}
+.pfd-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pfd-labels{position:absolute;inset:0;pointer-events:none}
+.pfd-labels span{
+  position:absolute;transform:translate(-50%,0);
+  font-family:var(--pix);font-size:11px;font-weight:500;line-height:1.35;letter-spacing:.03em;
+  color:var(--dim);white-space:nowrap;text-align:center;
+}
+.pfd-labels span.key{color:var(--a)}
+.pfd-labels span small{display:block;font-size:10px;font-weight:400;color:var(--faint);letter-spacing:0}
+figcaption{font-family:var(--mono);font-size:12px;letter-spacing:0;color:var(--faint);margin-top:10px;line-height:1.6;text-transform:none}
+
+/* superstructure */
+.ss-stage{min-width:660px;height:372px}
+.fig-controls{display:flex;gap:8px;padding:10px 12px;border-bottom:1px solid var(--rule);flex-wrap:wrap;align-items:center}
+.fig-controls button{
+  font-family:var(--pix);font-size:11px;font-weight:500;letter-spacing:.1em;
+  background:transparent;color:var(--faint);border:1px solid var(--rule2);
+  padding:6px 10px;cursor:pointer;transition:color .15s,border-color .15s,background .15s;
+}
+.fig-controls button:hover{color:var(--ink)}
+.fig-controls button[aria-pressed="true"]{color:var(--void);background:var(--a);border-color:var(--a)}
+.fig-note{font-family:var(--mono);font-size:11px;color:var(--faint);margin-left:auto}
+
+/* cfd */
+.cfd-stage{min-width:620px;height:420px}
+.cfd-legend{display:flex;flex-wrap:wrap;gap:18px;padding:10px 12px;border-top:1px solid var(--rule);align-items:center}
+.ramp{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--faint)}
+.ramp i{display:block;width:88px;height:8px;border:1px solid var(--rule2)}
+.ramp.div i{background:linear-gradient(90deg,#ff35c8,#5b1d55,#07090f,#0c3f46,#22f0ff)}
+.ramp.seq i{background:linear-gradient(90deg,#07090f,#3b1a6b,#a02597,#ff6a2a,#ffe9b0)}
+
+/* ---------- data blocks ---------- */
+.unit-body{display:grid;gap:28px;margin-top:34px}
+@media(min-width:820px){.unit-body{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px}}
+.block-title{font-family:var(--pix);font-size:11px;font-weight:500;letter-spacing:.14em;color:var(--faint);margin-bottom:14px}
+.specs{margin:0;display:grid;gap:0}
+.specs > div{display:grid;grid-template-columns:minmax(96px,34%) 1fr;gap:12px;padding:7px 0;border-bottom:1px solid var(--rule)}
+.specs dt{font-family:var(--pix);font-size:10.5px;font-weight:500;letter-spacing:.08em;color:var(--faint);padding-top:3px}
+.specs dd{margin:0;font-family:var(--mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums}
+.specs dd b{color:var(--a);font-weight:500}
+.result{border-left:2px solid var(--a);background:var(--panel);padding:18px 20px}
+.result p{color:var(--dim);font-size:14.5px}
+.result p + p{margin-top:12px}
+.result strong{color:var(--ink);font-weight:600}
+.result .num{font-family:var(--mono);color:var(--a);font-variant-numeric:tabular-nums}
+.byline{margin-top:16px;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.6}
+
+/* ---------- bar charts ---------- */
+.chart{margin-top:6px}
+.chart h4{font-family:var(--body);font-size:13px;font-weight:600;color:var(--ink);margin:0 0 3px}
+.chart .axis-note{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-bottom:12px}
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar-row{display:grid;grid-template-columns:minmax(72px,30%) 1fr auto;gap:10px;align-items:center}
+.bar-row .lab{font-family:var(--mono);font-size:11.5px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{height:9px;background:var(--panel2);border:1px solid var(--rule);position:relative}
+.bar-fill{position:absolute;left:0;top:0;bottom:0;background:var(--a);border-radius:0 2px 2px 0}
+.bar-fill.neg{background:var(--rose)}
+.bar-fill.dot{border-radius:50%;box-shadow:0 0 0 2px var(--panel)}
+.bar-row .val{font-family:var(--mono);font-size:11.5px;color:var(--ink);font-variant-numeric:tabular-nums;min-width:52px;text-align:right}
+.bar-row .val em{color:var(--faint);font-style:normal;font-size:10.5px}
+
+/* ---------- stack ---------- */
+.stack-grid{display:grid;gap:26px;margin-top:30px}
+@media(min-width:720px){.stack-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}}
+.stack-col h3{font-family:var(--pix);font-size:11px;letter-spacing:.14em;color:var(--a);margin-bottom:14px;font-weight:600}
+.stack-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.stack-col li{font-family:var(--mono);font-size:12.5px;color:var(--dim);display:flex;gap:9px}
+.stack-col li::before{content:"▪";color:var(--a);font-size:9px;line-height:1.9}
+
+/* ---------- contact ---------- */
+.contact{padding-block:56px 70px}
+.contact h2{font-size:clamp(1.4rem,3.4vw,2rem)}
+.contact p{color:var(--dim);margin-top:14px;max-width:54ch}
+.mailto{
+  display:inline-block;margin-top:24px;font-family:var(--mono);font-size:14px;
+  color:var(--void);background:var(--cyan);padding:11px 18px;text-decoration:none;
+  border:1px solid var(--cyan);transition:background .15s,color .15s;
+}
+.mailto:hover{background:transparent;color:var(--cyan)}
+footer{
+  border-top:1px solid var(--rule);padding-block:20px 34px;
+  font-family:var(--pix);font-size:11px;letter-spacing:.14em;color:var(--faint);
+  display:flex;flex-wrap:wrap;gap:8px 20px;
+}
+
+/* ---------- report plates ---------- */
+.plates{margin-top:38px;padding-top:26px;border-top:1px solid var(--rule)}
+.plate-grid{display:grid;gap:18px}
+@media(min-width:820px){.plate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.plate{margin:0}
+.plate.wide{grid-column:1/-1}
+.plate-btn{
+  display:block;width:100%;padding:0;border:1px solid var(--rule2);background:var(--panel);
+  cursor:zoom-in;line-height:0;transition:border-color .15s;
+}
+.plate-btn:hover{border-color:var(--a)}
+.plate-btn img{width:100%;height:auto;display:block}
+.badge{
+  display:inline-block;margin-right:8px;padding:1px 6px;border:1px solid var(--rule2);
+  font-family:var(--pix);font-size:9.5px;font-weight:600;letter-spacing:.1em;color:var(--faint);
+  vertical-align:1px;
+}
+.badge.redrawn{color:var(--a);border-color:var(--a)}
+.plate figcaption{margin-top:9px;font-family:var(--mono);font-size:12px;line-height:1.55;letter-spacing:0;color:var(--faint);text-transform:none}
+/* lightbox */
+#lb{
+  position:fixed;inset:0;z-index:60;background:rgba(4,5,10,.96);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px 16px;
+}
+#lb[hidden]{display:none!important}
+#lb img{max-width:96vw;max-height:80vh;object-fit:contain;cursor:zoom-in;border:1px solid var(--rule2)}
+#lb.zoomed{display:block;overflow:auto;justify-content:flex-start}
+#lb.zoomed img{max-width:none;max-height:none;width:auto;cursor:zoom-out}
+#lb p{font-family:var(--mono);font-size:12px;color:var(--dim);max-width:70ch;text-align:center}
+#lb .close{
+  position:fixed;top:14px;right:16px;font-family:var(--pix);font-size:11px;font-weight:500;letter-spacing:.12em;
+  color:var(--ink);background:transparent;border:1px solid var(--rule2);padding:8px 12px;cursor:pointer;z-index:61;
+}
+#lb .close:hover{border-color:var(--cyan);color:var(--cyan)}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="mark" href="#top">KISHORE J. ISHWAR <b>▮</b></a>
+    <div class="nav-links">
+      <a href="#research">RESEARCH</a>
+      <a href="#optimization">OPTIMIZATION</a>
+      <a href="#design">DESIGN</a>
+      <a href="#computation">COMPUTATION</a>
+      <a href="#stack">METHODS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap" id="top">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">DEPARTMENT OF CHEMICAL ENGINEERING · CARNEGIE MELLON UNIVERSITY</p>
+      <h1>Kishore<br>Jayakumar<br>Ishwar<span class="sub">Process systems engineering</span></h1>
+      <p class="lede">A portfolio of nine projects in optimization, process design and numerical simulation, comprising mixed-integer and nonlinear programming, rigorous flowsheet development in Aspen Plus, exergetic and techno-economic assessment, and finite-volume transport modeling. Each entry states the model formulation, the conditions assumed and the results obtained, together with the figures reproduced from the original reports.</p>
+      <div class="chips">
+        <span class="chip">9 <span>projects</span></span>
+        <span class="chip"><span>MAPE</span> 0.03%</span>
+        <span class="chip">76,610 <span>t/yr PLA</span></span>
+        <span class="chip"><span>η</span><sub>ex</sub> 57 / 60%</span>
+      </div>
+    </div>
+    <div class="stage" id="plant">
+      <canvas></canvas>
+      <div class="grain"></div>
+      <p class="tagline">PROCESS PLANT · ISOMETRIC VIEW</p>
+      <p class="hint">DRAG TO ROTATE</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ RESEARCH BACKGROUND ============ -->
+<section class="brief wrap" id="research" style="--a:var(--cyan)">
+  <p class="eyebrow">RESEARCH BACKGROUND</p>
+  <div class="brief-grid">
+    <div>
+      <h2>Selecting process configurations under uncertain data</h2>
+      <p>Chemical engineering problems of industrial relevance generally admit many feasible process configurations, each with a distinct capital cost, thermodynamic efficiency and emissions profile, and the data required to discriminate between them is rarely complete. My work addresses this class of problem within <strong>process systems engineering</strong>, in which a plant is represented as a system of equations and the engineering question becomes which solution of that system justifies capital investment.</p>
+      <p>Three categories of model recur across the projects presented here. <strong>Mathematical programs</strong> — mixed-integer linear, mixed-integer quadratically constrained and mixed-integer nonlinear formulations — select among candidate configurations: the daily selection of copper concentrate lots, the activation of a pooling network, and the sizing of an electrolyzer against an intermittent power surplus. <strong>Rigorous flowsheet models</strong>, developed in Aspen Plus and MATLAB, predict reactor and separation performance together with the associated cost of operation; these have been applied to sustainable aviation fuel synthesis from carbon dioxide, polylactic acid production from lignocellulosic biomass, hydrogen production by reforming and by electrolysis, and the recovery of low-grade waste heat. <strong>Numerical and statistical methods</strong> address what the first two cannot reach: a finite-volume solver for pollutant dispersion, and supervised learning for molecular screening where quantum chemical evaluation is computationally prohibitive.</p>
+      <p>A theme common to all of this work is <strong>uncertainty in the model inputs</strong>. Lot assays carry measurement error; surplus power profiles are forecasts; binding energies inferred from inexpensive descriptors approximate calculations that were never performed. The substantive engineering contribution in each case lies less in increasing model fidelity than in rendering the resulting decision robust to input data that is known to be imperfect.</p>
+    </div>
+    <div class="threads">
+      <div class="thread" style="--a:var(--violet)">
+        <h3>AREA 01 · OPTIMIZATION</h3>
+        <p>Mixed-integer formulations for blending, pooling and capacity sizing, together with a calibration layer that addresses uncertainty in the input analyses.</p>
+        <span class="who">Pyomo · GAMS · CPLEX · SCIP · DICOPT · KNITRO</span>
+      </div>
+      <div class="thread" style="--a:var(--cyan)">
+        <h3>AREA 02 · PROCESS DESIGN</h3>
+        <p>Rigorous simulation, capital cost estimation and sustainability assessment of low-carbon fuels, bio-based polymers and hydrogen production routes.</p>
+        <span class="who">Aspen Plus · MATLAB · Cantera · CoolProp · GREENSCOPE</span>
+      </div>
+      <div class="thread" style="--a:var(--orange)">
+        <h3>AREA 03 · COMPUTATION</h3>
+        <p>Finite-volume transport solvers and supervised learning applied where first-principles calculation is computationally prohibitive.</p>
+        <span class="who">Fractional-step CFD · scikit-learn · RDKit · morFeus · xTB</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART I · OPTIMIZATION ============ -->
+<section class="stream wrap" id="optimization" style="--a:var(--violet)">
+  <div class="stream-rule">
+    <span class="stream-no">PART I</span>
+    <h2>Optimization under uncertainty</h2>
+  </div>
+  <p>CU-BLEND · POOL-MINLP · H2-OPT</p>
+</section>
+
+<!-- UNIT: COPPER -->
+<section class="unit wrap" id="cu" style="--a:var(--magenta)">
+  <div class="unit-head">
+    <p class="tag">CU-BLEND · MILP / MIQCP / QCP · WITH AURUBIS AG</p>
+    <h2>Optimal lot selection and calibration for copper blending and smelting</h2>
+    <p class="lede">Copper concentrate is delivered by sea from numerous mines and no two lots share the same assay. An optimization model selects the daily combination of lots that maximizes blend tonnage subject to every blend and product specification, including upper bounds on arsenic and other hazardous elements reporting to the flue dust. A second model layer addresses the uncertainty that the optimization cannot observe.</p>
+  </div>
+  <figure>
+    <div class="fig-scroll"><div class="pfd-stage" data-pfd="cu"><canvas></canvas><div class="pfd-labels"></div></div></div>
+    <figcaption>Fig. 1 — the material path in solid lines; the model layers in dashed lines above it.</figcaption>
+  </figure>
+  <div class="unit-body">
+    <div>
+      <p class="block-title">MODEL LAYERS</p>
+      <dl class="specs">
+        <div><dt>MODEL 1</dt><dd>MILP · fixed distribution coefficients</dd></div>
+        <div><dt>MODEL 2</dt><dd>MIQCP · composition-dependent DC<sub>p,e</sub></dd></div>
+        <div><dt>MODEL 3</dt><dd>QCP calibration · ridge and lasso, classifier-gated</dd></div>
+        <div><dt>STRATEGIES</dt><dd>cumulative · rolling horizon · <b>hybrid</b></dd></div>
+        <div><dt>HORIZON</dt><dd>50 forecast days of plant assay data</dd></div>
+        <div><dt>ERROR</dt><dd>MAPE 0.80% → <b>≈0.03%</b></dd></div>
+      </dl>
+    </div>
+    <div>
+      <p class="block-title">RESULTS</p>
+      <div class="result">
+        <p>Lot analyses are subject to sampling bias, moisture variation, inaccurate weighing and assays performed infrequently over a limited set of elements. This uncertainty propagates through the blend composition and the distribution coefficients, so that the predicted product analyses deviate systematically from those subsequently reported by the plant.</p>
+        <p>Further refinement of the model does not address this, since the error originates in the input data. The calibration layer instead estimates the deviation from the historical record of previous predictions and applies the resulting correction to the following day's forecast, with a linear classifier determining whether a correction is warranted.</p>
+        <p>The mean absolute percentage error of the predicted product analyses decreases from <span class="num">0.80%</span> to <span class="num">≈0.03%</span> over a 50-day forecast horizon. The hybrid horizon strategy, in which the training pool grows within each forecast cycle before the base window is advanced, has not previously been reported.</p>
+        <p class="byline">With B. Springub, S. Onyshkevych, C. Galanopoulos (Aurubis AG, Hamburg), J. Wassick and I. E. Grossmann, Department of Chemical Engineering, Carnegie Mellon University.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="plates">
+  <p class="block-title">FIGURES FROM THE REPORT</p>
+  <div class="plate-grid">
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="The lot-selection model, redrawn: candidate lots feed the blender, the blend feeds the smelter, and the products must stay in spec." aria-label="Enlarge: The lot-selection model, redrawn: candidate lots feed the blender, the blend feeds the smelter, and the products must st">
+        <img src="fig/cu_model.webp" width="1500" height="847" loading="lazy" decoding="async" alt="The lot-selection model, redrawn: candidate lots feed the blender, the blend feeds the smelter, and the products must st">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>The lot-selection model, redrawn: candidate lots feed the blender, the blend feeds the smelter, and the products must stay in spec.</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="Figure 1 — the copper supply chain, redrawn: maritime vessels, port piles, daily arrivals, bins, blending unit and smelter." aria-label="Enlarge: the copper supply chain, redrawn: maritime vessels, port piles, daily arrivals, bins, blending unit and smelter.">
+        <img src="fig/cu_chain.webp" width="1500" height="761" loading="lazy" decoding="async" alt="the copper supply chain, redrawn: maritime vessels, port piles, daily arrivals, bins, blending unit and smelter.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>Figure 1 — the copper supply chain, redrawn: maritime vessels, port piles, daily arrivals, bins, blending unit and smelter.</figcaption>
+    </figure>
+  </div>
+</div>
+</section>
+
+<!-- UNIT: POOLING -->
+<section class="unit wrap" id="pool" style="--a:var(--violet)">
+  <div class="unit-head">
+    <p class="tag">POOL-MINLP · PYOMO · SCIP</p>
+    <h2>The generalized pooling problem</h2>
+    <p class="lede">Five feed streams, four intermediate pools, three products, and the complete set of connections between them. The selection of active streams and pools constitutes a discrete decision, while blending to a quality specification introduces products of flow and concentration. The resulting formulation is a nonconvex mixed-integer nonlinear program, and the superstructure below defines the search space over which it is solved.</p>
+  </div>
+  <figure>
+    <div class="fig-scroll">
+      <div class="fig-controls">
+        <button type="button" data-ss="1" aria-pressed="true">EXAMPLE 1 · 2 COMPONENTS</button>
+        <button type="button" data-ss="2" aria-pressed="false">EXAMPLE 2 · 3 COMPONENTS</button>
+        <span class="fig-note" data-ss-note>SCIP · obj −4640.082</span>
+      </div>
+      <div class="pfd-stage ss-stage" data-ss-stage><canvas></canvas><div class="pfd-labels"></div></div>
+    </div>
+    <figcaption>Fig. 2 — the full superstructure in dim arcs; the optimal activated network in bright arcs, annotated with flow in kg.</figcaption>
+  </figure>
+  <div class="unit-body">
+    <div>
+      <p class="block-title">FORMULATION</p>
+      <dl class="specs">
+        <div><dt>STRUCTURE</dt><dd>5 feeds → 4 pools → 3 products, fully connected</dd></div>
+        <div><dt>OBJECTIVE</dt><dd>min variable flow cost + fixed activation cost</dd></div>
+        <div><dt>NONLINEARITY</dt><dd>bilinear flow × concentration at each pool</dd></div>
+        <div><dt>DISCRETE</dt><dd>binary activation of feeds and intermediates</dd></div>
+        <div><dt>DEMAND</dt><dd>229 · 173 · 284 kg at 10.5 · 11.2 · 12.5 $/kg</dd></div>
+        <div><dt>PLATFORM</dt><dd>Pyomo · Intel i7, 10 cores, 2.4 GHz</dd></div>
+      </dl>
+      <p class="block-title" style="margin-top:26px">SOLVER COMPARISON</p>
+      <div class="chart">
+        <p class="axis-note">objective value · axis −4,700 to −4,500 · more negative is better</p>
+        <div class="bars" data-bars="solvers"></div>
+      </div>
+    </div>
+    <div>
+      <p class="block-title">RESULTS</p>
+      <div class="result">
+        <p>The same model was submitted to four solvers. SBB, DICOPT and KNITRO each converged to an objective value of <span class="num">−4556.350</span>; SCIP obtained <span class="num">−4640.082</span>, an improvement of approximately 1.8%, at roughly three times the execution time.</p>
+        <p>The agreement of three solvers does not establish global optimality for a nonconvex problem; it indicates convergence to a common local solution. SCIP's spatial branch-and-bound resolves this, at the cost of computation time.</p>
+        <p>The optimum for Example 1 activates feeds 1, 2 and 5 into pools 1 and 3 only, pools 2 and 4 remaining inactive. Example 2 introduces a third quality component and tighter flow bounds; the solution structure changes to four feeds and three pools, with a best objective of <span class="num">−3849.447</span>, again obtained by SCIP.</p>
+        <p>The solutions reproduce, and in places marginally improve upon, the benchmark values reported by Lee and Grossmann (2003).</p>
+        <p class="byline">With Amogh Amonkar. 06-720 Advanced Process Systems Engineering, Carnegie Mellon University.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="plates">
+  <p class="block-title">FIGURES FROM THE REPORT</p>
+  <div class="plate-grid">
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 4.1 — optimum network for Example 1. Feeds 1, 2 and 5 into pools 1 and 3 only." aria-label="Enlarge: optimum network for Example 1. Feeds 1, 2 and 5 into pools 1 and 3 only.">
+        <img src="fig/pool_p16_0.webp" width="1075" height="859" loading="lazy" decoding="async" alt="optimum network for Example 1. Feeds 1, 2 and 5 into pools 1 and 3 only.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Figure 4.1 — optimum network for Example 1. Feeds 1, 2 and 5 into pools 1 and 3 only.</figcaption>
+    </figure>
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 4.2 — optimum network for Example 2, labelled with the optimal flows in kg." aria-label="Enlarge: optimum network for Example 2, labelled with the optimal flows in kg.">
+        <img src="fig/pool_p17_0.webp" width="1074" height="836" loading="lazy" decoding="async" alt="optimum network for Example 2, labelled with the optimal flows in kg.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Figure 4.2 — optimum network for Example 2, labelled with the optimal flows in kg.</figcaption>
+    </figure>
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 2.1 — superstructure for Example 1. Five feeds, four pools, three products, fully connected." aria-label="Enlarge: superstructure for Example 1. Five feeds, four pools, three products, fully connected.">
+        <img src="fig/pool_p6_0.webp" width="1058" height="846" loading="lazy" decoding="async" alt="superstructure for Example 1. Five feeds, four pools, three products, fully connected.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Figure 2.1 — superstructure for Example 1. Five feeds, four pools, three products, fully connected.</figcaption>
+    </figure>
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 2.2 — superstructure for Example 2, with a third quality component." aria-label="Enlarge: superstructure for Example 2, with a third quality component.">
+        <img src="fig/pool_p8_0.webp" width="1123" height="870" loading="lazy" decoding="async" alt="superstructure for Example 2, with a third quality component.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Figure 2.2 — superstructure for Example 2, with a third quality component.</figcaption>
+    </figure>
+  </div>
+</div>
+</section>
+
+<!-- UNIT: H2 OPT -->
+<section class="unit wrap" id="h2" style="--a:var(--rose)">
+  <div class="unit-head">
+    <p class="tag">H2-OPT · LINEAR PROGRAMMING · CPLEX</p>
+    <h2>Hydrogen production from surplus renewable electricity</h2>
+    <p class="lede">Curtailed wind and solar generation represents electricity for which no payment is received. This project determines the appropriate capacity of a PEM electrolyzer intended to absorb it, and demonstrates that the answer depends on the objective adopted. Three formulations share a common model of an electrolyzer and compressor, and yield materially different designs.</p>
+  </div>
+  <figure>
+    <div class="fig-scroll"><div class="pfd-stage" data-pfd="h2"><canvas></canvas><div class="pfd-labels"></div></div></div>
+    <figcaption>Fig. 3 — surplus-driven hydrogen system. Dashed paths denote energy the optimizer elects not to convert.</figcaption>
+  </figure>
+  <div class="unit-body">
+    <div>
+      <p class="block-title">FORMULATIONS</p>
+      <dl class="specs">
+        <div><dt>PROBLEM 1</dt><dd>max NPV at fixed $<sub>H₂</sub></dd></div>
+        <div><dt>PROBLEM 2</dt><dd>max Σ ṁ<sub>H₂,t</sub> subject to NPV ≥ 0</dd></div>
+        <div><dt>PROBLEM 3</dt><dd>min $<sub>H₂</sub> subject to Σ ṁ·Δt ≥ H<sub>2,target</sub></dd></div>
+        <div><dt>VARIABLES</dt><dd>M<sub>H₂</sub> capacity · ṁ<sub>H₂,t</sub> hourly rate</dd></div>
+        <div><dt>KEY CONSTRAINT</dt><dd>(f<sub>pwr,el</sub> + f<sub>pwr,comp</sub>)·ṁ<sub>H₂,t</sub> ≤ RE<sub>t</sub></dd></div>
+        <div><dt>SOLVER</dt><dd>linearized to LP · CPLEX</dd></div>
+      </dl>
+    </div>
+    <div>
+      <p class="block-title">RESULTS</p>
+      <div class="result">
+        <p>Problem 3 is not linear as originally posed, since price and production rate are both decision variables and appear as a product in the revenue term. Imposing the production target as an equality constraint reduces that product to a constant and renders the formulation linear.</p>
+        <p><strong>Problem 1</strong> operates the electrolyzer at a near-constant rate, absorbing a fixed fraction of the available surplus. <strong>Problem 2</strong> follows availability hour by hour, saturates the surplus constraint, and falls to zero during <span class="num">hours 21 and 22</span>, when the surplus is exhausted.</p>
+        <p>Over the price range $5–10/kg, the optimal capacity increases from <span class="num">0 to 3.5 MW</span> under the profit objective and from <span class="num">0.5 to 2.2 MW</span> under the price-minimizing objective. Increasing the annual production target from 35,000 to 140,000 kg reduces the breakeven price from <span class="num">$10.0 to $6.5/kg</span> as fixed costs are distributed over a larger output.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="plates">
+  <p class="block-title">FIGURES FROM THE REPORT</p>
+  <div class="plate-grid">
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 1 — electrolyzer power draw through the day, redrawn from the report&#x27;s data." aria-label="Enlarge: electrolyzer power draw through the day, redrawn from the report&#x27;s data.">
+        <img src="fig/h2_power.webp" width="1500" height="775" loading="lazy" decoding="async" alt="electrolyzer power draw through the day, redrawn from the report&#x27;s data.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>Figure 1 — electrolyzer power draw through the day, redrawn from the report&#x27;s data.</figcaption>
+    </figure>
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 6 — the minimum selling price that still meets a given annual production target, redrawn." aria-label="Enlarge: the minimum selling price that still meets a given annual production target, redrawn.">
+        <img src="fig/h2_price.webp" width="1500" height="900" loading="lazy" decoding="async" alt="the minimum selling price that still meets a given annual production target, redrawn.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>Figure 6 — the minimum selling price that still meets a given annual production target, redrawn.</figcaption>
+    </figure>
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 4 — capacity and surplus utilization against hydrogen selling price, redrawn." aria-label="Enlarge: capacity and surplus utilization against hydrogen selling price, redrawn.">
+        <img src="fig/h2_usage.webp" width="1500" height="900" loading="lazy" decoding="async" alt="capacity and surplus utilization against hydrogen selling price, redrawn.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>Figure 4 — capacity and surplus utilization against hydrogen selling price, redrawn.</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="The smart energy system, redrawn: wind and solar surplus into the electrolyzer, storage, gas grid, fuel cell and battery." aria-label="Enlarge: The smart energy system, redrawn: wind and solar surplus into the electrolyzer, storage, gas grid, fuel cell and battery">
+        <img src="fig/h2_system.webp" width="1500" height="838" loading="lazy" decoding="async" alt="The smart energy system, redrawn: wind and solar surplus into the electrolyzer, storage, gas grid, fuel cell and battery">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>The smart energy system, redrawn: wind and solar surplus into the electrolyzer, storage, gas grid, fuel cell and battery.</figcaption>
+    </figure>
+  </div>
+</div>
+</section>
+
+<!-- ============ PART II · DESIGN ============ -->
+<section class="stream wrap" id="design" style="--a:var(--cyan)">
+  <div class="stream-rule">
+    <span class="stream-no">PART II</span>
+    <h2>Process design and simulation</h2>
+  </div>
+  <p>FT-SAF · PLA-TEA · H2-EXERGY · ORC-WHR</p>
+</section>
+
+<!-- UNIT: SAF -->
+<section class="unit wrap" id="saf" style="--a:var(--cyan)">
+  <div class="unit-head">
+    <p class="tag">FT-SAF · ASPEN PLUS · PR-BM</p>
+    <h2>Sustainable aviation fuel from carbon dioxide by Fischer–Tropsch synthesis</h2>
+    <p class="lede">A complete carbon-dioxide-to-jet-fuel flowsheet developed in Aspen Plus. A reverse water–gas shift reactor converts the carbon dioxide feed to synthesis gas at the hydrogen-to-carbon-monoxide ratio required downstream; a cobalt-catalyzed Fischer–Tropsch reactor produces a broad C1–C44 hydrocarbon distribution; and the resulting wax is hydrocracked and hydrogenated into the C8–C16 aviation range. Vapor–liquid equilibrium is described throughout by the Peng–Robinson equation of state with the Boston–Mathias modification.</p>
+  </div>
+  <figure>
+    <div class="fig-scroll"><div class="pfd-stage" data-pfd="saf"><canvas></canvas><div class="pfd-labels"></div></div></div>
+    <figcaption>Fig. 4 — CO₂ → syngas → Fischer–Tropsch → upgrading. The dashed header denotes the hydrogen recycle, 99% of which is returned following a 1% purge.</figcaption>
+  </figure>
+  <div class="unit-body">
+    <div>
+      <p class="block-title">OPERATING CONDITIONS</p>
+      <dl class="specs">
+        <div><dt>R-WGS</dt><dd>950 °C · 25 bar · Ni catalyst</dd></div>
+        <div><dt>FT-REACT</dt><dd>220 °C · 25 bar · Co catalyst</dd></div>
+        <div><dt>R-CRACK</dt><dd>350 °C · 35 bar · Pt/zeolite</dd></div>
+        <div><dt>R-HYDRO</dt><dd>300 °C · 40 bar · Al₂O₃</dd></div>
+        <div><dt>ASF MODEL</dt><dd>α = <b>0.85</b> · olefin/paraffin c = 0.30</dd></div>
+        <div><dt>CONVERSION</dt><dd>85% CO per pass · 1% CO₂ selectivity</dd></div>
+        <div><dt>FEED</dt><dd>10,000 kg/h CO₂ · 1,402 kg/h H₂</dd></div>
+      </dl>
+    </div>
+    <div>
+      <p class="block-title">RESULTS</p>
+      <div class="result">
+        <p>The Fischer–Tropsch reactor is implemented as an <strong>RStoic</strong> block. The Anderson–Schulz–Flory weight fractions were therefore normalized to C42 for paraffins and C24 for olefins, then converted to molar extents on a 1000 g basis before being specified as stoichiometric conversions.</p>
+        <p>The flowsheet produces <span class="num">194 kg/h</span> of kerosene, <span class="num">330 kg/h</span> of naphtha and <span class="num">203 kg/h</span> of diesel, corresponding to 1,700, 2,890 and 1,781 t/yr respectively.</p>
+        <p>The diesel yield agrees with the reference study; the kerosene and naphtha yields do not, the reference reporting 1,812 and 686 kg/h from an equivalent feed. The product distribution is reproduced correctly while the absolute rates are low. The discrepancy is attributed to the hydrocracking and hydrogenation sections, whose operating conditions were optimized in the reference study but not in the present work.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="plates">
+  <p class="block-title">FIGURES FROM THE REPORT</p>
+  <div class="plate-grid">
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Block diagram of the route: FT synthesis, product separation, hydrogenation and hydrocracking." aria-label="Enlarge: Block diagram of the route: FT synthesis, product separation, hydrogenation and hydrocracking.">
+        <img src="fig/saf_p3_0.webp" width="1200" height="492" loading="lazy" decoding="async" alt="Block diagram of the route: FT synthesis, product separation, hydrogenation and hydrocracking.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Block diagram of the route: FT synthesis, product separation, hydrogenation and hydrocracking.</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="The complete Aspen Plus flowsheet, all sections." aria-label="Enlarge: The complete Aspen Plus flowsheet, all sections.">
+        <img src="fig/saf_p3_1.webp" width="1691" height="567" loading="lazy" decoding="async" alt="The complete Aspen Plus flowsheet, all sections.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>The complete Aspen Plus flowsheet, all sections.</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="Feed compression and the reverse water–gas shift reactor (R-WGS, 950 °C, 25 bar)." aria-label="Enlarge: Feed compression and the reverse water–gas shift reactor (R-WGS, 950 °C, 25 bar).">
+        <img src="fig/saf_p4_0.webp" width="1441" height="450" loading="lazy" decoding="async" alt="Feed compression and the reverse water–gas shift reactor (R-WGS, 950 °C, 25 bar).">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Feed compression and the reverse water–gas shift reactor (R-WGS, 950 °C, 25 bar).</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="Fischer–Tropsch synthesis: syngas cooling through HX-203, FT-REACT and flash F-202." aria-label="Enlarge: Fischer–Tropsch synthesis: syngas cooling through HX-203, FT-REACT and flash F-202.">
+        <img src="fig/saf_p4_1.webp" width="1448" height="628" loading="lazy" decoding="async" alt="Fischer–Tropsch synthesis: syngas cooling through HX-203, FT-REACT and flash F-202.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Fischer–Tropsch synthesis: syngas cooling through HX-203, FT-REACT and flash F-202.</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="Separation: flash drums F-202/F-203, column COL-FT and the hydrocracking feed pumps." aria-label="Enlarge: Separation: flash drums F-202/F-203, column COL-FT and the hydrocracking feed pumps.">
+        <img src="fig/saf_p6_0.webp" width="1691" height="571" loading="lazy" decoding="async" alt="Separation: flash drums F-202/F-203, column COL-FT and the hydrocracking feed pumps.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Separation: flash drums F-202/F-203, column COL-FT and the hydrocracking feed pumps.</figcaption>
+    </figure>
+  </div>
+</div>
+</section>
+
+<!-- UNIT: PLA -->
+<section class="unit wrap" id="pla" style="--a:var(--lime)">
+  <div class="unit-head">
+    <p class="tag">PLA-TEA · GUTHRIE COSTING · GREENSCOPE</p>
+    <h2>Polylactic acid from eucalyptus: techno-economic and sustainability assessment</h2>
+    <p class="lede">Two linked flowsheets. The first converts <em>Eucalyptus grandis</em> to purified lactic acid through pretreatment, enzymatic hydrolysis and <em>Lactobacillus</em> fermentation; the second polymerizes the lactic acid to high-molecular-weight polylactic acid by way of oligomerization and lactide formation. Both were sized and costed in the Aspen Process Economic Analyzer and subsequently evaluated on a gate-to-gate basis against GREENSCOPE sustainability indicators.</p>
+  </div>
+  <figure>
+    <div class="fig-scroll"><div class="pfd-stage" data-pfd="pla"><canvas></canvas><div class="pfd-labels"></div></div></div>
+    <figcaption>Fig. 5 — serpentine train. Upper row: biomass to lactic acid. Lower row, right to left: lactic acid to polylactic acid.</figcaption>
+  </figure>
+  <div class="unit-body">
+    <div>
+      <p class="block-title">CONDITIONS AND COSTING</p>
+      <dl class="specs">
+        <div><dt>HYDROLYSIS</dt><dd>48 °C · atmospheric · cellulase</dd></div>
+        <div><dt>FERM</dt><dd>45 °C · anaerobic · <b>90%</b> yield</dd></div>
+        <div><dt>OLIGOMR</dt><dd>170 °C · 400 mmHg</dd></div>
+        <div><dt>YIELDDP</dt><dd>200 °C · 10 mmHg · tin octanoate</dd></div>
+        <div><dt>PLAREACT</dt><dd>170 °C · 760 mmHg · ring-opening</dd></div>
+        <div><dt>CAPEX</dt><dd>CTBM $17.37 M → FCI $28.66 M → TCI <b>$37.26 M</b></dd></div>
+        <div><dt>BASIS</dt><dd>30 yr · 10% discount · 20% salvage · carbon steel</dd></div>
+      </dl>
+      <p class="block-title" style="margin-top:26px">GREENSCOPE SUSTAINABILITY SCORE</p>
+      <div class="chart">
+        <p class="axis-note">percent of best-case score · 0–100%</p>
+        <div class="bars" data-bars="greenscope"></div>
+      </div>
+    </div>
+    <div>
+      <p class="block-title">RESULTS</p>
+      <div class="result">
+        <p>At a production rate of <span class="num">76,610 t/yr</span> sold at $2,500/t, the plant returns $191.5 M/yr against a total capital investment of $37.26 M. The breakeven selling price solves to <span class="num">$2,460.72/t</span>, leaving a margin of approximately $40 per tonne.</p>
+        <p>The lowest-scoring indicator is chronic human health toxicity at <span class="num">50.54%</span>, attributable to the use of tin octanoate as the depolymerization catalyst. Substitution of this catalyst would improve the sustainability profile more substantially than any degree of additional heat integration.</p>
+        <p>The second-lowest indicator, hazardous material mass at 64.46%, corresponds to 15,384 kg/h of hazardous input, or 1.74 kg per kilogram of product. Both weak indicators originate in the polymerization section rather than the fermentation section.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="plates">
+  <p class="block-title">FIGURES FROM THE REPORT</p>
+  <div class="plate-grid">
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="Figure 1 — lactic acid from Eucalyptus grandis: fermentation, precipitation, esterification, hydrolysis." aria-label="Enlarge: lactic acid from Eucalyptus grandis: fermentation, precipitation, esterification, hydrolysis.">
+        <img src="fig/pla_p2_0.webp" width="1691" height="641" loading="lazy" decoding="async" alt="lactic acid from Eucalyptus grandis: fermentation, precipitation, esterification, hydrolysis.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Figure 1 — lactic acid from Eucalyptus grandis: fermentation, precipitation, esterification, hydrolysis.</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="Figure 2 — polymerization: oligomerization, depolymerization to lactide, ring-opening to PLA." aria-label="Enlarge: polymerization: oligomerization, depolymerization to lactide, ring-opening to PLA.">
+        <img src="fig/pla_p2_1.webp" width="1691" height="655" loading="lazy" decoding="async" alt="polymerization: oligomerization, depolymerization to lactide, ring-opening to PLA.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Figure 2 — polymerization: oligomerization, depolymerization to lactide, ring-opening to PLA.</figcaption>
+    </figure>
+  </div>
+</div>
+</section>
+
+<!-- UNIT: EXERGY -->
+<section class="unit wrap" id="exergy" style="--a:var(--mint)">
+  <div class="unit-head">
+    <p class="tag">H2-EXERGY · MATLAB · CANTERA</p>
+    <h2>Steam methane reforming and PEM electrolysis compared on an exergetic basis</h2>
+    <p class="lede">An energy balance alone does not discriminate between these two hydrogen production routes; an exergy analysis accounts for the available work and charges each irreversibility. Two thermodynamic models — a steam methane reformer with shift conversion and membrane separation, and a proton exchange membrane electrolyzer including its complete overpotential stack — were developed in MATLAB against Cantera property data and evaluated on a common basis.</p>
+  </div>
+  <figure>
+    <div class="fig-scroll"><div class="pfd-stage" data-pfd="esm" style="height:340px;min-width:800px"><canvas></canvas><div class="pfd-labels"></div></div></div>
+    <figcaption>Fig. 6 — upper: steam methane reforming with shift conversion, heat recovery and a metallic membrane. Lower: PEM electrolysis with the hot-water recycle.</figcaption>
+  </figure>
+  <div class="unit-body">
+    <div>
+      <p class="block-title">MODEL PARAMETERS</p>
+      <dl class="specs">
+        <div><dt>REFORMER</dt><dd>900–1200 K · 5–25 bar · Ni catalyst</dd></div>
+        <div><dt>SHIFT</dt><dd>473–673 K, then 400–450 K</dd></div>
+        <div><dt>MEMBRANE</dt><dd>573–873 K · Δp 1–40 atm · metallic</dd></div>
+        <div><dt>PEM CELL</dt><dd>313 K · L = 100 µm · J = 5,000 A/m²</dd></div>
+        <div><dt>OVERPOTENTIAL</dt><dd>Nernst + ohmic + activation (anode and cathode)</dd></div>
+        <div><dt>MEMBRANE λ</dt><dd>λ<sub>a</sub> = 14 → λ<sub>c</sub> = 10, linear in x</dd></div>
+        <div><dt>HX EFFICIENCY</dt><dd>ε = 0.90 · T₀ = 298.15 K</dd></div>
+      </dl>
+      <p class="block-title" style="margin-top:26px">EXERGY EFFICIENCY</p>
+      <div class="chart">
+        <p class="axis-note">η<sub>ex</sub>, percent · common basis and dead state</p>
+        <div class="bars" data-bars="exergy"></div>
+      </div>
+    </div>
+    <div>
+      <p class="block-title">RESULTS</p>
+      <div class="result">
+        <p>The reformer converts 1,000 g/s of methane to <span class="num">262 g/s</span> of hydrogen at an exergy efficiency of <span class="num">57%</span>. The losses are structural rather than the consequence of poor design: high-temperature reforming is inherently irreversible and methane conversion is incomplete.</p>
+        <p>The PEM electrolyzer attains <span class="num">60%</span>, and does so from renewable electricity rather than natural gas. Its efficiency falls as current density increases and is sensitive to membrane thickness: at 15,000 A/m² the computed cell voltage is approximately <span class="num">2.3 V</span> for a 50 µm membrane against <span class="num">3.2 V</span> for 200 µm, the difference arising from the ohmic overpotential.</p>
+        <p>Reforming therefore retains an advantage in throughput and technological maturity, while electrolysis is superior in both exergy efficiency and carbon intensity. The principal design variable for the electrolyzer is the achievable membrane thickness rather than the choice of catalyst.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="plates">
+  <p class="block-title">FIGURES FROM THE REPORT</p>
+  <div class="plate-grid">
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 3 — the PEM electrolysis cell and its three half reactions, redrawn." aria-label="Enlarge: the PEM electrolysis cell and its three half reactions, redrawn.">
+        <img src="fig/esm_cell.webp" width="1500" height="955" loading="lazy" decoding="async" alt="the PEM electrolysis cell and its three half reactions, redrawn.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>Figure 3 — the PEM electrolysis cell and its three half reactions, redrawn.</figcaption>
+    </figure>
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 11 — current density against total cell voltage, recomputed from the model for 50, 100 and 200 µm membranes." aria-label="Enlarge: current density against total cell voltage, recomputed from the model for 50, 100 and 200 µm membranes.">
+        <img src="fig/esm_volt.webp" width="1500" height="982" loading="lazy" decoding="async" alt="current density against total cell voltage, recomputed from the model for 50, 100 and 200 µm membranes.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>Figure 11 — current density against total cell voltage, recomputed from the model for 50, 100 and 200 µm membranes.</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="Figure 4 — the PEM electrolyzer, redrawn: heated feed, anode–membrane–cathode stack, O₂ separator and the hot-water recycle." aria-label="Enlarge: the PEM electrolyzer, redrawn: heated feed, anode–membrane–cathode stack, O₂ separator and the hot-water recycle.">
+        <img src="fig/esm_electro.webp" width="1500" height="727" loading="lazy" decoding="async" alt="the PEM electrolyzer, redrawn: heated feed, anode–membrane–cathode stack, O₂ separator and the hot-water recycle.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>Figure 4 — the PEM electrolyzer, redrawn: heated feed, anode–membrane–cathode stack, O₂ separator and the hot-water recycle.</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="The modelled SMR flowsheet, redrawn with the report&#x27;s stream numbers, unit efficiencies and operating conditions." aria-label="Enlarge: The modelled SMR flowsheet, redrawn with the report&#x27;s stream numbers, unit efficiencies and operating conditions.">
+        <img src="fig/esm_model.webp" width="1500" height="909" loading="lazy" decoding="async" alt="The modelled SMR flowsheet, redrawn with the report&#x27;s stream numbers, unit efficiencies and operating conditions.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>The modelled SMR flowsheet, redrawn with the report&#x27;s stream numbers, unit efficiencies and operating conditions.</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="Figure 2 — steam methane reforming, redrawn: compressor, reformer, shift, three W/S heat exchangers and the metallic membrane." aria-label="Enlarge: steam methane reforming, redrawn: compressor, reformer, shift, three W/S heat exchangers and the metallic membrane.">
+        <img src="fig/esm_pfd.webp" width="1500" height="814" loading="lazy" decoding="async" alt="steam methane reforming, redrawn: compressor, reformer, shift, three W/S heat exchangers and the metallic membrane.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>Figure 2 — steam methane reforming, redrawn: compressor, reformer, shift, three W/S heat exchangers and the metallic membrane.</figcaption>
+    </figure>
+  </div>
+</div>
+</section>
+
+<!-- UNIT: ORC -->
+<section class="unit wrap" id="orc" style="--a:var(--amber)">
+  <div class="unit-head">
+    <p class="tag">ORC-WHR · COOLPROP · IN PROGRESS</p>
+    <h2>Organic Rankine cycles for industrial waste heat recovery</h2>
+    <p class="lede">Industrial waste heat is available over a wide temperature range, from approximately 200 °C at sintering machines to 1,800 °C at electric arc furnaces, and the greater part of it is rejected. An organic Rankine cycle can recover heat below 400 °C, where a conventional steam cycle is not viable. This project develops a component-level thermodynamic model of the cycle and compares working fluids and configurations against the characteristics of the heat source.</p>
+  </div>
+  <figure>
+    <div class="fig-scroll"><div class="pfd-stage" data-pfd="orc" style="height:250px;min-width:640px"><canvas></canvas><div class="pfd-labels"></div></div></div>
+    <figcaption>Fig. 7 — closed ORC loop. 4→1 isobaric heat addition, 1→2 isentropic expansion, 2→3 isobaric heat rejection, 3→4 isentropic compression.</figcaption>
+  </figure>
+  <div class="unit-body">
+    <div>
+      <p class="block-title">MODEL</p>
+      <dl class="specs">
+        <div><dt>COMPONENTS</dt><dd>pump · boiler · turbine · condenser</dd></div>
+        <div><dt>PROPERTIES</dt><dd>CoolProp, per working fluid</dd></div>
+        <div><dt>HEAT CARRIER</dt><dd>air, per unit mass flow of cooled carrier</dd></div>
+        <div><dt>SOURCE BANDS</dt><dd>low &lt; 400 °C · medium 400–700 °C · high &gt; 700 °C</dd></div>
+        <div><dt>OUTPUT METRIC</dt><dd>electric power per unit carrier mass flow</dd></div>
+        <div><dt>PARAMETRIC STUDY</dt><dd>fluids × configurations × source temperature</dd></div>
+      </dl>
+    </div>
+    <div>
+      <p class="block-title">STATUS</p>
+      <div class="result">
+        <p>Thermodynamic equations have been formulated for each component and coupled through CoolProp property calls, permitting a configuration to be evaluated across heat source temperatures and working fluids without manual recalculation of the state points.</p>
+        <p>The problem is one of selection rather than of single-point design: for a given source temperature and required output, which working fluid and which cycle configuration. The case for the organic Rankine cycle rests on its tolerance of a wide source temperature range, its scalability to distributed generation, and the commercial availability of the required equipment.</p>
+        <p><strong>Work in progress.</strong> The module characterization study — heat source temperature, power output and thermal efficiency — remains ongoing, and no efficiency figure is reported here.</p>
+        <p class="byline">With Ekaterina Dragoshanskaia.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="plates">
+  <p class="block-title">FIGURES FROM THE REPORT</p>
+  <div class="plate-grid">
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="The basic Rankine cycle and its temperature–entropy diagram, redrawn with the four state points marked." aria-label="Enlarge: The basic Rankine cycle and its temperature–entropy diagram, redrawn with the four state points marked.">
+        <img src="fig/orc_cycle.webp" width="1500" height="707" loading="lazy" decoding="async" alt="The basic Rankine cycle and its temperature–entropy diagram, redrawn with the four state points marked.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>The basic Rankine cycle and its temperature–entropy diagram, redrawn with the four state points marked.</figcaption>
+    </figure>
+  </div>
+</div>
+</section>
+
+<!-- ============ STREAM III ============ -->
+<section class="stream wrap" id="computation" style="--a:var(--orange)">
+  <div class="stream-rule">
+    <span class="stream-no">PART III</span>
+    <h2>Numerical simulation and machine learning</h2>
+  </div>
+  <p>CFD-PLUME · FLP-ML</p>
+</section>
+
+<!-- UNIT: CFD -->
+<section class="unit wrap" id="cfd" style="--a:var(--orange)">
+  <div class="unit-head">
+    <p class="tag">CFD-PLUME · FRACTIONAL STEP · STAGGERED GRID</p>
+    <h2>Dispersion of transit bus exhaust and the implied safe following distance</h2>
+    <p class="lede">On a per-passenger basis a transit bus is a low-emission mode of transport; on a per-vehicle basis it is not, and a cyclist travelling behind one occupies its wake. A two-dimensional incompressible solver was developed from first principles: the Navier–Stokes equations on a staggered grid with ghost nodes, advanced by the fractional step method, with a scalar transport equation carrying the exhaust plume through the computed velocity field.</p>
+  </div>
+  <figure>
+    <div class="fig-scroll">
+      <div class="pfd-stage cfd-stage" data-cfd><canvas></canvas><div class="pfd-labels"></div></div>
+      <div class="cfd-legend">
+        <span class="ramp div"><i></i> u · −10 ← 0 → +10 m/s</span>
+        <span class="ramp div"><i></i> v · −4 ← 0 → +4 m/s</span>
+        <span class="ramp seq"><i></i> concentration · 0 → 1</span>
+      </div>
+    </div>
+    <figcaption>Fig. 8 — domain 30 × 6 m, inlet 5 m/s, exhaust 10 m/s over the uppermost 0.5 m of the vehicle rear. The scalar transport equation is integrated live within this page; the velocity field is a wake reconstruction rather than the output of the MATLAB solver.</figcaption>
+  </figure>
+  <div class="unit-body">
+    <div>
+      <p class="block-title">NUMERICAL SETUP</p>
+      <dl class="specs">
+        <div><dt>DOMAIN</dt><dd>30 × 6 m · dx = dy = 0.25 m</dd></div>
+        <div><dt>TIME STEP</dt><dd>1 × 10⁻⁴ s · CFL-limited upwinding</dd></div>
+        <div><dt>KIN. VISCOSITY</dt><dd>1.46 × 10⁻⁴ m²/s</dd></div>
+        <div><dt>DIFFUSIVITY</dt><dd>1.39 × 10⁻⁴ m²/s</dd></div>
+        <div><dt>INLET</dt><dd>u = 5 m/s, v = 0 (Dirichlet)</dd></div>
+        <div><dt>EXHAUST</dt><dd>10 m/s · c = 1 over the uppermost 0.5 m</dd></div>
+        <div><dt>VEHICLE</dt><dd>no-slip, ∂p/∂n = 0, zero plume except at the tailpipe</dd></div>
+      </dl>
+      <p class="block-title" style="margin-top:26px">PLUME AT BREATHING-ZONE HEIGHT</p>
+      <div class="chart">
+        <p class="axis-note">normalized concentration 1.5 m above the underside of the vehicle, against distance behind it</p>
+        <div class="fig-scroll" style="background:var(--panel)"><div class="pfd-stage" data-trace style="min-width:340px;height:170px"><canvas></canvas><div class="pfd-labels"></div></div></div>
+      </div>
+    </div>
+    <div>
+      <p class="block-title">RESULTS</p>
+      <div class="result">
+        <p>The velocity field exhibits the expected features: reverse flow at the leading upper corner where the flow separates, an accelerated stream beneath the vehicle in the low-clearance configuration, and a shedding wake downstream. The plume is advected and diffused into that wake rather than rising clear of it.</p>
+        <p>At a height of <span class="num">1.5 m</span> above the underside of the vehicle, taken as representative of a cyclist's breathing zone, the concentration remains elevated over the first several metres, decreases sharply between 5 and 6 m, and is negligible beyond 8 m. A minimum following distance of <span class="num">10 m</span> at low speed is recommended.</p>
+        <p><strong>Limitations.</strong> The pressure solution did not converge to an acceptable tolerance on a grid of this resolution, and that failure is the origin of the numerical instability which ultimately terminates the simulation: scenario 1 remains stable to approximately 1 s and scenario 2 to 1.2 s. Successive over-relaxation, non-uniform or adaptive grid refinement, consistent upwinding and explicit turbulence modeling are identified as the necessary remedies; until these are implemented the model is restricted to travel speeds of approximately 5 m/s.</p>
+        <p class="byline">With Aditya Shailendra Khatu and Miguel Lanus Valdivia, Carnegie Mellon University.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="plates">
+  <p class="block-title">FIGURES FROM THE REPORT</p>
+  <div class="plate-grid">
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 5 — concentration at h = 1.5 m behind the bus, digitised point by point from the report&#x27;s plot." aria-label="Enlarge: concentration at h = 1.5 m behind the bus, digitised point by point from the report&#x27;s plot.">
+        <img src="fig/cfd_conc.webp" width="1500" height="873" loading="lazy" decoding="async" alt="concentration at h = 1.5 m behind the bus, digitised point by point from the report&#x27;s plot.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>Figure 5 — concentration at h = 1.5 m behind the bus, digitised point by point from the report&#x27;s plot.</figcaption>
+    </figure>
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 2 — u velocity, v velocity and concentration for scenario 1 at t = 1 s." aria-label="Enlarge: u velocity, v velocity and concentration for scenario 1 at t = 1 s.">
+        <img src="fig/cfd_image5.webp" width="645" height="554" loading="lazy" decoding="async" alt="u velocity, v velocity and concentration for scenario 1 at t = 1 s.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Figure 2 — u velocity, v velocity and concentration for scenario 1 at t = 1 s.</figcaption>
+    </figure>
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Figure 3 — the same fields for scenario 2, with the bus higher off the road." aria-label="Enlarge: the same fields for scenario 2, with the bus higher off the road.">
+        <img src="fig/cfd_image7.webp" width="644" height="432" loading="lazy" decoding="async" alt="the same fields for scenario 2, with the bus higher off the road.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Figure 3 — the same fields for scenario 2, with the bus higher off the road.</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="The 30 × 6 m domain and staggered grid, redrawn: u, v and P node families and the bus with its ghost-node boundaries." aria-label="Enlarge: The 30 × 6 m domain and staggered grid, redrawn: u, v and P node families and the bus with its ghost-node boundaries.">
+        <img src="fig/cfd_grid.webp" width="1500" height="600" loading="lazy" decoding="async" alt="The 30 × 6 m domain and staggered grid, redrawn: u, v and P node families and the bus with its ghost-node boundaries.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>The 30 × 6 m domain and staggered grid, redrawn: u, v and P node families and the bus with its ghost-node boundaries.</figcaption>
+    </figure>
+    <figure class="plate wide">
+      <button class="plate-btn" type="button" data-cap="Figure 4 — the pressure field at t = 0.92 s, showing the instability the Poisson correction never resolved." aria-label="Enlarge: the pressure field at t = 0.92 s, showing the instability the Poisson correction never resolved.">
+        <img src="fig/cfd_image6.webp" width="1276" height="283" loading="lazy" decoding="async" alt="the pressure field at t = 0.92 s, showing the instability the Poisson correction never resolved.">
+      </button>
+      <figcaption><span class="badge original">ORIGINAL</span>Figure 4 — the pressure field at t = 0.92 s, showing the instability the Poisson correction never resolved.</figcaption>
+    </figure>
+  </div>
+</div>
+</section>
+
+<!-- UNIT: FLP ML -->
+<section class="unit wrap" id="flp" style="--a:var(--spring)">
+  <div class="unit-head">
+    <p class="tag">FLP-ML · RDKIT · xTB · SCIKIT-LEARN</p>
+    <h2>Machine learning for carbon dioxide activation by frustrated Lewis pairs</h2>
+    <p class="lede">A frustrated Lewis pair comprises an acid and a base too sterically hindered to form an adduct, so that both sites remain reactive and may together bind and activate carbon dioxide without a metal centre. The design space is large and quantum chemical evaluation of every candidate is computationally prohibitive. The question addressed is whether inexpensive electronic and steric descriptors predict binding strength with sufficient accuracy to rank candidates.</p>
+  </div>
+  <figure>
+    <div class="fig-scroll"><div class="pfd-stage" data-pfd="flp"><canvas></canvas><div class="pfd-labels"></div></div></div>
+    <figcaption>Fig. 9 — screening pipeline. Structures → xTB and Sterimol descriptors → supervised models → ranked candidates.</figcaption>
+  </figure>
+  <div class="unit-body">
+    <div>
+      <p class="block-title">DATASET AND FEATURES</p>
+      <dl class="specs">
+        <div><dt>STRUCTURES</dt><dd>133 FLPs · 127 usable after cleaning</dd></div>
+        <div><dt>SPLIT</dt><dd>101 train / 26 test</dd></div>
+        <div><dt>ELECTRONIC</dt><dd>HOMO · LUMO · gap, from xTB</dd></div>
+        <div><dt>STERIC</dt><dd>Sterimol L · B1 · B5, from morFeus</dd></div>
+        <div><dt>TARGET</dt><dd>CO₂ binding energy, −163 to +238 kJ/mol</dd></div>
+        <div><dt>MODELS</dt><dd>linear · ridge · lasso · elastic net · SVR · RF · GBR</dd></div>
+      </dl>
+      <p class="block-title" style="margin-top:26px">RANDOM FOREST FEATURE IMPORTANCE</p>
+      <div class="chart">
+        <p class="axis-note">mean decrease in impurity · fraction of total</p>
+        <div class="bars" data-bars="flpfeat"></div>
+      </div>
+    </div>
+    <div>
+      <p class="block-title">RESULTS</p>
+      <div class="result">
+        <p>All linear models fail on the held-out set, returning negative coefficients of determination and therefore performing worse than the sample mean. The binding energy is not a linear function of the six descriptors.</p>
+        <p>The tree ensembles perform considerably better. Random forest achieves <span class="num">RMSE 33.0 kJ/mol</span> and <span class="num">R² 0.41</span>; gradient boosting achieves <span class="num">40.3</span> and <span class="num">0.12</span>, against a target range of approximately 400 kJ/mol.</p>
+        <p>The feature importances are chemically consistent: the <strong>LUMO</strong> and <strong>HOMO</strong> energies rank first and second, as expected where the Lewis acid accepts electron density from the carbon dioxide carbon and the base donates into an oxygen, while <strong>Sterimol B5</strong>, the maximum steric extent, ranks third. Frustration is a geometric property, and the model resolves it.</p>
+        <p>An R² of 0.41 does not constitute a predictive model. It is adequate as a screening filter, ranking a large candidate set so that expensive calculations may be directed to the highest-ranked entries, which was the stated objective.</p>
+        <p class="byline">With Aditya Khatu and Soham Joshi.</p>
+      </div>
+    </div>
+  </div>
+  <div class="unit-body" style="margin-top:8px">
+    <div style="grid-column:1/-1">
+      <p class="block-title">MODEL COMPARISON</p>
+      <div class="chart">
+        <p class="axis-note">RMSE on the held-out set, kJ/mol · lower is better · R² annotated</p>
+        <div class="bars" data-bars="flpmodels"></div>
+      </div>
+    </div>
+  </div>
+
+<div class="plates">
+  <p class="block-title">FIGURES FROM THE REPORT</p>
+  <div class="plate-grid">
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="Frustrated Lewis pairs activate small molecules without a metal centre, redrawn." aria-label="Enlarge: Frustrated Lewis pairs activate small molecules without a metal centre, redrawn.">
+        <img src="fig/flp_activation.webp" width="1500" height="809" loading="lazy" decoding="async" alt="Frustrated Lewis pairs activate small molecules without a metal centre, redrawn.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>Frustrated Lewis pairs activate small molecules without a metal centre, redrawn.</figcaption>
+    </figure>
+    <figure class="plate">
+      <button class="plate-btn" type="button" data-cap="A representative FLP — bulky phosphine donor and dimesitylboryl acceptor on one arene, redrawn." aria-label="Enlarge: bulky phosphine donor and dimesitylboryl acceptor on one arene, redrawn.">
+        <img src="fig/flp_molecule.webp" width="1500" height="818" loading="lazy" decoding="async" alt="bulky phosphine donor and dimesitylboryl acceptor on one arene, redrawn.">
+      </button>
+      <figcaption><span class="badge redrawn">REDRAWN</span>A representative FLP — bulky phosphine donor and dimesitylboryl acceptor on one arene, redrawn.</figcaption>
+    </figure>
+  </div>
+</div>
+</section>
+
+<!-- ============ METHODS ============ -->
+<section class="unit wrap" id="stack" style="--a:var(--violet)">
+  <div class="unit-head">
+    <p class="tag">METHODS</p>
+    <h2>Software and methods employed across the nine projects</h2>
+  </div>
+  <div class="stack-grid">
+    <div class="stack-col">
+      <h3>OPTIMIZATION</h3>
+      <ul>
+        <li>MILP · MIQCP · MINLP · QCP</li>
+        <li>Pyomo · GAMS</li>
+        <li>CPLEX · SCIP · DICOPT · KNITRO · SBB</li>
+        <li>Bilinear and big-M reformulation</li>
+        <li>Superstructure modeling</li>
+        <li>Ridge and lasso regression · classifier gating</li>
+      </ul>
+    </div>
+    <div class="stack-col">
+      <h3>SIMULATION</h3>
+      <ul>
+        <li>Aspen Plus · Process Economic Analyzer</li>
+        <li>RStoic · REquil · RadFrac · Flash2</li>
+        <li>MATLAB · Cantera · CoolProp</li>
+        <li>PR-BM thermodynamics</li>
+        <li>Fractional-step Navier–Stokes</li>
+        <li>Staggered grids and ghost nodes</li>
+      </ul>
+    </div>
+    <div class="stack-col">
+      <h3>ANALYSIS</h3>
+      <ul>
+        <li>Guthrie bare-module costing</li>
+        <li>NPV · breakeven price · cash flow</li>
+        <li>Exergy and dead-state analysis</li>
+        <li>GREENSCOPE indicators</li>
+        <li>scikit-learn · RDKit · morFeus · xTB</li>
+        <li>Python · NumPy · SciPy · pandas</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact wrap" id="contact">
+  <p class="eyebrow">CONTACT</p>
+  <h2>Available for work in process design, modeling and optimization.</h2>
+  <p>I would be glad to discuss any of the flowsheets presented here, to provide the underlying Aspen Plus or Pyomo files, or to consider a problem you are seeking to size, cost or optimize.</p>
+  <a class="mailto" href="mailto:kishorecmu@gmail.com">kishorecmu@gmail.com</a>
+</section>
+
+<div id="lb" hidden>
+  <button class="close" type="button" data-lb-close>CLOSE ✕</button>
+  <img alt="">
+  <p></p>
+</div>
+
+<footer class="wrap">
+  <span>KISHORE JAYAKUMAR ISHWAR</span>
+  <span>CARNEGIE MELLON UNIVERSITY</span>
+  <span>PITTSBURGH, PA</span>
+</footer>
+</main>
+<script>
+(function(){
+"use strict";
+
+var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ============================================================
+   palette
+   ============================================================ */
+var C = {
+  cyan:"#22f0ff", lime:"#b6ff2e", mint:"#2effc0", amber:"#ffc21f",
+  magenta:"#ff35c8", violet:"#8b5cff", rose:"#ff5470", orange:"#ff8a1f",
+  spring:"#4dff88", steel:"#41527a", steel2:"#2c3a5c", slab:"#151d31",
+  void:"#04050a", ink:"#e8eefc"
+};
+function hex2rgb(h){ return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]; }
+function mix(a,b,t){
+  var A=hex2rgb(a), B=hex2rgb(b);
+  return "rgb("+Math.round(A[0]+(B[0]-A[0])*t)+","+Math.round(A[1]+(B[1]-A[1])*t)+","+Math.round(A[2]+(B[2]-A[2])*t)+")";
+}
+function rgba(h,a){ var r=hex2rgb(h); return "rgba("+r[0]+","+r[1]+","+r[2]+","+a+")"; }
+
+/* ============================================================
+   scene registry — one animation loop, resolution aware
+   ============================================================ */
+var scenes = [], last = 0;
+function tick(t){
+  if(t - last > 32){
+    last = t;
+    for(var i=0;i<scenes.length;i++) if(scenes[i].visible) scenes[i].draw(t);
+  }
+  requestAnimationFrame(tick);
+}
+function register(el, scene, maxRes){
+  var cv = el.querySelector("canvas"), ctx = cv.getContext("2d");
+  var obj = { el:el, cv:cv, ctx:ctx, W:1, H:1, res:1, visible:true, scene:scene };
+  function resize(){
+    var r = el.getBoundingClientRect();
+    if(!r.width) return;
+    var dpr = Math.min(window.devicePixelRatio||1, maxRes||2);
+    obj.res = dpr;
+    obj.W = Math.round(r.width*dpr);
+    obj.H = Math.round(r.height*dpr);
+    cv.width = obj.W; cv.height = obj.H;
+    ctx.imageSmoothingEnabled = true;
+    if(scene.layout) scene.layout(obj);
+    scene.render(obj, performance.now());
+  }
+  obj.draw = function(t){ scene.render(obj, t); };
+  if(scene.init) scene.init(obj);
+  resize();
+  window.addEventListener("resize", resize);
+  if(window.IntersectionObserver){
+    new IntersectionObserver(function(es){
+      for(var i=0;i<es.length;i++) obj.visible = es[i].isIntersecting;
+    },{rootMargin:"160px"}).observe(el);
+  }
+  scenes.push(obj);
+  return obj;
+}
+
+/* ============================================================
+   ISOMETRIC SOLID RENDERER
+   Meshes of boxes and n-gon prisms, rotated about the vertical
+   axis, back-face culled, lit by one directional source, and
+   painted back to front.
+   ============================================================ */
+function Mesh(){ this.v=[]; this.f=[]; }
+Mesh.prototype.clear=function(){ this.v.length=0; this.f.length=0; };
+Mesh.prototype.box=function(x,y,z,w,d,h,c,o){
+  o=o||{};
+  var b=this.v.length, V=this.v, F=this.f;
+  V.push([x,y,z],[x+w,y,z],[x+w,y+d,z],[x,y+d,z],
+         [x,y,z+h],[x+w,y,z+h],[x+w,y+d,z+h],[x,y+d,z+h]);
+  F.push({i:[b+4,b+5,b+6,b+7],n:[0,0,1],c:c,e:o.e});
+  F.push({i:[b+1,b+2,b+6,b+5],n:[1,0,0],c:c,e:o.e});
+  F.push({i:[b+0,b+4,b+7,b+3],n:[-1,0,0],c:c});
+  F.push({i:[b+2,b+3,b+7,b+6],n:[0,1,0],c:c,e:o.e});
+  F.push({i:[b+0,b+1,b+5,b+4],n:[0,-1,0],c:c});
+  return this;
+};
+/* vertical prism; r2 lets it taper — cones, dished heads, tank roofs */
+Mesh.prototype.cyl=function(cx,cy,z,r,h,sides,c,o){
+  o=o||{};
+  var r2=(o.r2===undefined)?r:o.r2, rot=o.rot||0;
+  var b=this.v.length, V=this.v, F=this.f, i, a;
+  for(i=0;i<sides;i++){ a=rot+i/sides*6.28318; V.push([cx+Math.cos(a)*r, cy+Math.sin(a)*r, z]); }
+  for(i=0;i<sides;i++){ a=rot+i/sides*6.28318; V.push([cx+Math.cos(a)*r2, cy+Math.sin(a)*r2, z+h]); }
+  for(i=0;i<sides;i++){
+    var j=(i+1)%sides, am=rot+(i+0.5)/sides*6.28318;
+    var nz=(r-r2)/Math.max(h,0.001);
+    F.push({i:[b+i,b+j,b+sides+j,b+sides+i], n:[Math.cos(am),Math.sin(am),nz], c:c, e:o.e});
+  }
+  if(!o.open){
+    var cap=[]; for(i=0;i<sides;i++) cap.push(b+sides+i);
+    F.push({i:cap, n:[0,0,1], c:c, e:o.e});
+  }
+  return this;
+};
+/* horizontal drum along x */
+Mesh.prototype.cylX=function(x,cy,cz,len,r,sides,c,o){
+  o=o||{};
+  var b=this.v.length, V=this.v, F=this.f, i, a;
+  for(i=0;i<sides;i++){ a=i/sides*6.28318; V.push([x, cy+Math.cos(a)*r, cz+Math.sin(a)*r]); }
+  for(i=0;i<sides;i++){ a=i/sides*6.28318; V.push([x+len, cy+Math.cos(a)*r, cz+Math.sin(a)*r]); }
+  for(i=0;i<sides;i++){
+    var j=(i+1)%sides, am=(i+0.5)/sides*6.28318;
+    F.push({i:[b+i,b+j,b+sides+j,b+sides+i], n:[0,Math.cos(am),Math.sin(am)], c:c, e:o.e});
+  }
+  var cap=[]; for(i=0;i<sides;i++) cap.push(b+sides+i);
+  F.push({i:cap, n:[1,0,0], c:c});
+  var cap2=[]; for(i=sides-1;i>=0;i--) cap2.push(b+i);
+  F.push({i:cap2, n:[-1,0,0], c:c});
+  return this;
+};
+
+var LIGHT=[-0.40,-0.28,0.87];
+var shadeCache={};
+function faceColor(c,k){
+  var q=Math.round(k*40), key=c+"|"+q, hit=shadeCache[key];
+  if(hit) return hit;
+  var kk=q/40, out;
+  if(kk>0.88) out = mix(c,"#ffffff",(kk-0.88)*2.4);
+  else out = mix(C.void, c, 0.12 + kk*0.94);
+  shadeCache[key]=out;
+  return out;
+}
+function renderMeshes(o, meshes, cam){
+  var ctx=o.ctx, cos=Math.cos(cam.yaw), sin=Math.sin(cam.yaw);
+  var TW=cam.TW, TH=cam.TH, TZ=cam.TZ, ox=cam.ox, oy=cam.oy;
+  var EZ = 2*TH/TZ;
+  var draw=[], m,k,i,j;
+  for(m=0;m<meshes.length;m++){
+    var mesh=meshes[m], V=mesh.v, F=mesh.f;
+    if(!mesh._px || mesh._px.length < V.length){
+      mesh._px=new Float32Array(V.length+256);
+      mesh._py=new Float32Array(V.length+256);
+      mesh._dp=new Float32Array(V.length+256);
+    }
+    var px=mesh._px, py=mesh._py, dp=mesh._dp;
+    for(i=0;i<V.length;i++){
+      var vx=V[i][0], vy=V[i][1], vz=V[i][2];
+      var X=vx*cos-vy*sin, Y=vx*sin+vy*cos;
+      px[i]=ox+(X-Y)*TW;
+      py[i]=oy+(X+Y)*TH-vz*TZ;
+      dp[i]=X+Y+vz*0.30;
+    }
+    for(k=0;k<F.length;k++){
+      var f=F[k], n=f.n;
+      var nx=n[0]*cos-n[1]*sin, ny=n[0]*sin+n[1]*cos, nz=n[2];
+      if(nx+ny+nz*EZ <= 0.015) continue;
+      var L=Math.sqrt(nx*nx+ny*ny+nz*nz)||1;
+      var lit=(nx*LIGHT[0]+ny*LIGHT[1]+nz*LIGHT[2])/L;
+      var kk=0.30+0.72*Math.max(0,lit);
+      var idx=f.i, dsum=0;
+      for(j=0;j<idx.length;j++) dsum+=dp[idx[j]];
+      draw.push({f:f, px:px, py:py, k:kk, d:dsum/idx.length});
+    }
+  }
+  draw.sort(function(a,b){ return a.d-b.d; });
+  for(i=0;i<draw.length;i++){
+    var it=draw[i], F2=it.f, ix=F2.i;
+    ctx.fillStyle = faceColor(F2.c, it.k);
+    ctx.beginPath();
+    ctx.moveTo(it.px[ix[0]], it.py[ix[0]]);
+    for(j=1;j<ix.length;j++) ctx.lineTo(it.px[ix[j]], it.py[ix[j]]);
+    ctx.closePath(); ctx.fill();
+    if(F2.e && it.k>0.55){
+      ctx.strokeStyle=rgba(F2.c,0.4); ctx.lineWidth=cam.lw; ctx.stroke();
+    }
+  }
+}
+
+/* ============================================================
+   PROCESS PLANT — isometric model of an integrated unit
+   ============================================================ */
+function makePlant(){
+  var cam={yaw:0.0,TW:5,TH:2.5,TZ:3,ox:0,oy:0,lw:1};
+  var stat=new Mesh(), dyn=new Mesh();
+  var drag={on:false,x:0}, spin=0.0, vel=0, tilt=0, tiltT=0;
+
+  function platform(s,cx,cy,z,r,c){
+    s.cyl(cx,cy,z,r,0.16,12,C.steel2);
+    for(var i=0;i<8;i++){
+      var a=i/8*6.28318;
+      s.box(cx+Math.cos(a)*r-0.07, cy+Math.sin(a)*r-0.07, z+0.16, 0.14,0.14,0.9, C.steel);
+    }
+    s.cyl(cx,cy,z+1.0,r+0.05,0.09,12,c,{e:1,open:true});
+  }
+  function ladder(s,cx,cy,z0,z1,off){
+    s.box(cx+off-0.06, cy-0.34, z0, 0.12,0.12, z1-z0, C.steel);
+    s.box(cx+off-0.06, cy+0.22, z0, 0.12,0.12, z1-z0, C.steel);
+    for(var z=z0+0.7; z<z1; z+=1.3) s.box(cx+off-0.06, cy-0.34, z, 0.12,0.56,0.08, C.steel);
+  }
+  function nozzle(s,cx,cy,z,ang,r,len,c){
+    var dx=Math.cos(ang), dy=Math.sin(ang);
+    s.box(cx+dx*r-0.15, cy+dy*r-0.15, z, 0.30+Math.abs(dx)*len, 0.30+Math.abs(dy)*len, 0.30, c);
+    s.cyl(cx+dx*(r+len), cy+dy*(r+len), z-0.06, 0.27, 0.42, 8, C.steel);
+  }
+  function saddle(s,x,cy,z,w){ s.box(x, cy-0.55, 0, w, 1.1, z, C.steel2); }
+  function motor(s,cx,cy,z,r,c){
+    s.cyl(cx,cy,z,r,r*1.5,10,C.steel);
+    s.cyl(cx,cy,z+r*1.5,r*0.45,r*0.5,8,c,{e:1});
+    for(var i=0;i<10;i++){
+      var a=i/10*6.28318;
+      s.box(cx+Math.cos(a)*r*0.96-0.04, cy+Math.sin(a)*r*0.96-0.04, z+0.1, 0.08,0.08, r*1.3, C.steel2);
+    }
+  }
+
+  function buildStatic(){
+    stat.clear();
+    var s=stat, i, a, z;
+
+    /* paving and foundations */
+    s.box(-11,-11,-1.2,22,22,1.0, C.slab);
+    for(i=-10;i<=10;i+=4){
+      s.box(i-0.06,-11,-0.2,0.12,22,0.06, C.steel2);
+      s.box(-11,i-0.06,-0.2,22,0.12,0.06, C.steel2);
+    }
+
+    /* ---- T-101 main fractionator ---- */
+    (function(cx,cy){
+      var c=C.cyan, R=1.6;
+      s.cyl(cx,cy,-0.2,R*1.28,1.5,14,C.steel2);
+      s.cyl(cx,cy,1.3,R,19,14,c,{e:1});
+      s.cyl(cx,cy,20.3,R,1.2,14,c,{e:1,r2:R*0.45});
+      s.cyl(cx,cy,-0.2,R,0.9,14,c,{e:1,r2:R*0.55});
+      for(i=0;i<9;i++){
+        z=2.6+i*1.95;
+        s.cyl(cx,cy,z,R*1.035,0.14,14,mix(c,"#ffffff",0.35),{e:1,open:true});
+      }
+      platform(s,cx,cy,6.4,R+1.05,c);
+      platform(s,cx,cy,12.4,R+1.05,c);
+      platform(s,cx,cy,18.4,R+0.95,c);
+      ladder(s,cx,cy,1.3,18.4,-R-0.3);
+      nozzle(s,cx,cy,16.4,0,R,0.9,c);
+      nozzle(s,cx,cy,4.0,Math.PI,R,0.9,c);
+      nozzle(s,cx,cy,1.9,Math.PI/2,R,0.8,c);
+      for(i=0;i<3;i++) s.box(cx-0.12,cy-R-0.5,3+i*6,0.24,0.5,0.6,C.steel);
+    })(-7.4,-2.6);
+
+    /* ---- T-102 stripper ---- */
+    (function(cx,cy){
+      var c=C.cyan, R=1.15;
+      s.cyl(cx,cy,-0.2,R*1.3,1.2,12,C.steel2);
+      s.cyl(cx,cy,1.0,R,12.4,12,c,{e:1});
+      s.cyl(cx,cy,13.4,R,0.9,12,c,{e:1,r2:R*0.45});
+      for(i=0;i<6;i++) s.cyl(cx,cy,2.2+i*1.85,R*1.04,0.12,12,mix(c,"#ffffff",0.35),{e:1,open:true});
+      platform(s,cx,cy,7.2,R+0.95,c);
+      platform(s,cx,cy,12.2,R+0.85,c);
+      ladder(s,cx,cy,1.0,12.2,-R-0.28);
+      nozzle(s,cx,cy,11.0,0,R,0.8,c);
+      nozzle(s,cx,cy,1.8,Math.PI,R,0.8,c);
+    })(-7.4,2.0);
+
+    /* ---- overhead condenser and reflux drum ---- */
+    s.box(-10.6,-6.4,0,0.45,0.45,4.4,C.steel);
+    s.box(-7.0,-6.4,0,0.45,0.45,4.4,C.steel);
+    s.box(-10.8,-6.7,4.4,4.2,1.0,0.35,C.steel2);
+    s.cylX(-10.6,-6.2,5.35,3.9,0.82,12,C.cyan,{e:1});
+    s.cyl(-10.6,-6.2,5.35,0.9,0.5,12,C.steel,{rot:0.3});
+    s.box(-12.2,-2.4,0,0.4,0.4,2.6,C.steel);
+    s.box(-10.4,-2.4,0,0.4,0.4,2.6,C.steel);
+    s.cylX(-12.4,-2.2,3.2,3.0,0.72,12,C.cyan,{e:1});
+
+    /* ---- R-101 Fischer–Tropsch reactor ---- */
+    (function(cx,cy){
+      var c=C.magenta, R=2.15;
+      s.cyl(cx,cy,-0.2,R*1.22,1.4,14,C.steel2);
+      s.cyl(cx,cy,1.2,R,8.2,14,c,{e:1});
+      s.cyl(cx,cy,3.2,R*1.09,0.5,14,mix(c,C.void,0.25),{e:1,open:true});
+      s.cyl(cx,cy,6.4,R*1.09,0.5,14,mix(c,C.void,0.25),{e:1,open:true});
+      s.cyl(cx,cy,9.4,R,1.35,14,c,{e:1,r2:R*0.42});
+      s.cyl(cx,cy,10.75,0.55,1.5,10,C.steel);
+      motor(s,cx,cy,12.25,0.72,c);
+      platform(s,cx,cy,7.6,R+1.1,c);
+      ladder(s,cx,cy,1.2,7.6,-R-0.3);
+      for(i=0;i<4;i++){ a=i/4*6.28318+0.4; nozzle(s,cx,cy,8.6,a,R,0.75,c); }
+      for(i=0;i<4;i++){
+        a=i/4*6.28318+0.78;
+        s.box(cx+Math.cos(a)*R*0.98-0.2, cy+Math.sin(a)*R*0.98-0.2, 1.2, 0.4,0.4,1.0, C.steel);
+      }
+    })(-1.6,-2.0);
+
+    /* ---- R-102 hydrotreater ---- */
+    (function(cx,cy){
+      var c=C.violet, R=1.35;
+      s.cyl(cx,cy,-0.2,R*1.3,1.2,12,C.steel2);
+      s.cyl(cx,cy,1.0,R,6.0,12,c,{e:1});
+      s.cyl(cx,cy,7.0,R,0.95,12,c,{e:1,r2:R*0.42});
+      s.cyl(cx,cy,2.2,R*1.05,0.16,12,mix(c,"#ffffff",0.3),{e:1,open:true});
+      s.cyl(cx,cy,4.4,R*1.05,0.16,12,mix(c,"#ffffff",0.3),{e:1,open:true});
+      platform(s,cx,cy,5.6,R+0.9,c);
+      ladder(s,cx,cy,1.0,5.6,-R-0.28);
+      nozzle(s,cx,cy,6.3,0,R,0.7,c); nozzle(s,cx,cy,1.6,Math.PI,R,0.7,c);
+    })(-1.8,3.6);
+
+    /* ---- V-201 pressure sphere ---- */
+    (function(cx,cy){
+      var c=C.lime, rs=[[0,1.05],[0.5,1.72],[1.25,2.2],[2.2,2.2],[3.0,1.72],[3.5,1.0]];
+      for(var i2=0;i2<rs.length-1;i2++)
+        s.cyl(cx,cy,3.1+rs[i2][0],rs[i2][1],rs[i2+1][0]-rs[i2][0],14,c,{e:(i2===2)?1:0,r2:rs[i2+1][1]});
+      for(var i3=0;i3<6;i3++){
+        var a2=i3/6*6.28318;
+        s.cyl(cx+Math.cos(a2)*1.75, cy+Math.sin(a2)*1.75, -0.2, 0.19, 3.5, 8, C.steel);
+      }
+      s.cyl(cx,cy,6.6,0.42,0.8,8,C.steel);
+      ladder(s,cx,cy,0,6.6,-2.3);
+    })(4.0,-4.8);
+
+    /* ---- TK-301 / TK-302 floating-roof tanks ---- */
+    function tank(cx,cy,R,H,c){
+      s.cyl(cx,cy,-0.2,R*1.06,0.5,20,C.steel2);
+      s.cyl(cx,cy,0.3,R,H,20,c,{e:1});
+      s.cyl(cx,cy,0.3+H*0.55,R*1.02,0.14,20,mix(c,C.void,0.3),{e:1,open:true});
+      s.cyl(cx,cy,0.3+H,R*0.99,0.3,20,mix(c,"#ffffff",0.22),{e:1});
+      s.cyl(cx,cy,0.6+H,R*0.2,0.5,10,C.steel);
+      for(var t=0;t<22;t++){
+        var a3=t/22*4.3, zz=0.3+H*t/22;
+        s.box(cx+Math.cos(a3)*(R+0.28)-0.22, cy+Math.sin(a3)*(R+0.28)-0.22, zz, 0.44,0.44,0.16, C.steel);
+        s.box(cx+Math.cos(a3)*(R+0.46)-0.06, cy+Math.sin(a3)*(R+0.46)-0.06, zz, 0.12,0.12,0.95, C.steel2);
+      }
+      s.cyl(cx,cy,-0.2,R*1.85,0.55,20,mix(C.steel2,C.void,0.4),{open:true});
+    }
+    tank(4.2,0.9,2.05,4.4,C.lime);
+    tank(4.2,5.6,1.6,3.4,C.lime);
+
+    /* ---- E-401 / E-402 shell-and-tube exchangers ---- */
+    function exchanger(x,cy,cz,len,r,c){
+      saddle(s,x+len*0.18,cy,cz-r*0.55,0.75);
+      saddle(s,x+len*0.72,cy,cz-r*0.55,0.75);
+      s.cylX(x,cy,cz,len,r,12,c,{e:1});
+      s.cylX(x-0.55,cy,cz,0.55,r*1.1,12,C.steel);
+      s.cylX(x+len,cy,cz,0.5,r*1.08,12,C.steel);
+      s.cyl(x+len*0.22,cy,cz+r*0.7,0.2,0.5,8,C.steel);
+      s.cyl(x+len*0.78,cy,cz+r*0.7,0.2,0.5,8,C.steel);
+    }
+    exchanger(-5.4,6.6,1.65,4.2,0.78,C.amber);
+    exchanger(-0.6,7.8,1.45,3.4,0.62,C.amber);
+
+    /* ---- A-501 air-cooled condenser ---- */
+    (function(cx,cy){
+      for(var i4=0;i4<4;i4++){
+        var px=cx+(i4%2)*3.4, py=cy+Math.floor(i4/2)*2.6;
+        s.box(px,py,0,0.32,0.32,4.2,C.steel); s.box(px+3.0,py,0,0.32,0.32,4.2,C.steel);
+      }
+      s.box(cx-0.3,cy-0.3,4.2,7.0,3.6,0.45,C.steel2);
+      s.box(cx-0.1,cy-0.1,4.65,6.6,3.2,0.7,C.mint,{e:1});
+      for(var f=0;f<2;f++){
+        var fx=cx+1.5+f*3.2, fy=cy+1.5;
+        s.cyl(fx,fy,5.35,1.25,0.22,14,C.steel2,{open:true,e:1});
+        for(var bl=0;bl<4;bl++){
+          var ab=bl/4*6.28318+0.4;
+          s.box(fx+Math.cos(ab)*0.25-0.1, fy+Math.sin(ab)*0.25-0.1, 5.5,
+                1.0*Math.abs(Math.cos(ab))+0.12, 1.0*Math.abs(Math.sin(ab))+0.12, 0.08, C.mint);
+        }
+      }
+    })(-5.6,-8.4);
+
+    /* ---- H-101 fired heater ---- */
+    (function(cx,cy){
+      s.box(cx,cy,0,3.4,3.0,5.2,C.orange,{e:1});
+      s.box(cx+0.25,cy+0.25,5.2,2.9,2.5,0.5,C.steel2);
+      s.cyl(cx+1.7,cy+1.5,5.7,0.62,7.2,12,C.steel,{e:1});
+      s.cyl(cx+1.7,cy+1.5,12.9,0.7,0.3,12,C.orange,{e:1});
+      for(var i5=0;i5<3;i5++) s.box(cx-0.2,cy+0.5+i5*0.9,0.6,0.25,0.5,0.7,C.void);
+      platform(s,cx+1.7,cy+1.5,4.6,2.6,C.orange);
+    })(1.2,-8.6);
+
+    /* ---- flare system ---- */
+    (function(cx,cy){
+      s.cyl(cx,cy,-0.2,1.5,0.8,10,C.steel2);
+      for(var t2=0;t2<9;t2++){
+        var z2=0.6+t2*2.6;
+        s.box(cx-1.15,cy-1.15,z2,0.16,0.16,2.6,C.steel);
+        s.box(cx+0.99,cy-1.15,z2,0.16,0.16,2.6,C.steel);
+        s.box(cx-1.15,cy+0.99,z2,0.16,0.16,2.6,C.steel);
+        s.box(cx+0.99,cy+0.99,z2,0.16,0.16,2.6,C.steel);
+        s.box(cx-1.15,cy-1.15,z2+2.44,2.3,0.16,0.16,C.steel2);
+        s.box(cx-1.15,cy+0.99,z2+2.44,2.3,0.16,0.16,C.steel2);
+        s.box(cx-1.15,cy-1.15,z2+2.44,0.16,2.3,0.16,C.steel2);
+        s.box(cx+0.99,cy-1.15,z2+2.44,0.16,2.3,0.16,C.steel2);
+      }
+      s.cyl(cx,cy,0.6,0.42,24,10,C.orange,{e:1});
+      s.cyl(cx,cy,24.6,0.6,1.3,10,C.orange,{e:1,r2:0.78});
+      s.cylX(cx-4.6,cy+0.2,1.5,3.4,0.85,12,C.steel2,{e:1});
+      saddle(s,cx-4.0,cy+0.2,1.0,0.7); saddle(s,cx-2.2,cy+0.2,1.0,0.7);
+    })(8.0,-6.6);
+
+    /* ---- CT-101 cooling tower ---- */
+    (function(cx,cy){
+      s.box(cx-2.9,cy-2.9,-0.2,5.8,5.8,1.0,C.steel2);
+      s.box(cx-2.5,cy-2.5,0.8,5.0,5.0,3.0,C.mint,{e:1});
+      for(var i6=0;i6<5;i6++) s.box(cx-2.55,cy-2.55,1.1+i6*0.55,5.1,5.1,0.16,mix(C.mint,C.void,0.45));
+      s.box(cx-2.7,cy-2.7,3.8,5.4,5.4,0.45,C.steel2);
+      s.cyl(cx,cy,4.25,1.65,1.0,16,C.steel2,{open:true,e:1});
+      for(var b2=0;b2<4;b2++){
+        var ab2=b2/4*6.28318+0.6;
+        s.box(cx+Math.cos(ab2)*0.3-0.1, cy+Math.sin(ab2)*0.3-0.1, 4.8,
+              1.3*Math.abs(Math.cos(ab2))+0.14, 1.3*Math.abs(Math.sin(ab2))+0.14, 0.1, C.mint);
+      }
+      s.cyl(cx,cy,4.7,0.3,0.5,8,C.steel);
+    })(8.2,4.4);
+
+    /* ---- pipe rack ---- */
+    for(var yy=-8.2;yy<=8.4;yy+=2.2){
+      s.box(-0.3,yy,0,0.42,0.42,7.2,C.steel);
+      s.box(2.1,yy,0,0.42,0.42,7.2,C.steel);
+      s.box(-0.4,yy,4.3,3.0,0.34,0.26,C.steel2);
+      s.box(-0.4,yy,7.2,3.0,0.34,0.26,C.steel2);
+    }
+    var hdr=[[0.05,4.72,0.17,C.cyan],[0.55,4.72,0.13,C.magenta],[1.0,4.72,0.15,C.lime],
+             [1.5,4.72,0.11,C.amber],[0.2,7.62,0.15,C.mint],[0.9,7.62,0.12,C.violet]];
+    for(i=0;i<hdr.length;i++)
+      s.cyl(hdr[i][0], -8.4, hdr[i][1], hdr[i][2], 16.9, 8, mix(hdr[i][3],C.void,0.42));
+
+    /* ---- pumps ---- */
+    function pump(cx,cy,c){
+      s.box(cx-0.85,cy-0.55,0,1.9,1.1,0.42,C.steel2);
+      s.cyl(cx-0.35,cy,0.42,0.42,0.6,10,c,{e:1});
+      s.cyl(cx+0.55,cy,0.42,0.34,0.52,10,C.steel);
+      s.cyl(cx-0.35,cy,1.02,0.2,0.32,8,C.steel);
+    }
+    pump(2.9,2.4,C.rose); pump(2.9,4.2,C.rose);
+    pump(-4.6,0.5,C.rose); pump(-4.6,-1.4,C.rose);
+    pump(6.0,-1.8,C.rose);
+
+    /* ---- control room and substation ---- */
+    s.box(7.2,0.2,0,3.4,2.4,2.2,C.violet,{e:1});
+    s.box(7.5,0.5,2.2,0.6,0.6,0.45,C.steel);
+    for(i=0;i<4;i++) s.box(7.4+i*0.75,0.15,0.5,0.5,0.1,0.9,C.void);
+    s.box(10.4,0.6,0,1.5,1.8,1.6,C.steel2);
+    s.box(10.6,0.8,1.6,0.2,0.2,1.4,C.steel);
+    s.box(10.6,1.3,1.6,0.2,0.2,1.4,C.steel);
+  }
+  buildStatic();
+
+  var PIPES=[
+    {pts:[[-7.4,-1.0,17.2],[-7.4,-1.0,7.62],[0.9,-1.0,7.62],[0.9,-1.0,9.0]], c:C.cyan, n:7},
+    {pts:[[-7.4,3.2,11.2],[-7.4,3.2,4.72],[-1.8,3.2,4.72],[-1.8,3.2,5.4]],   c:C.cyan, n:6},
+    {pts:[[-1.6,0.2,7.0],[-1.6,6.6,7.0],[-3.4,6.6,7.0],[-3.4,6.6,2.4]],      c:C.magenta,n:6},
+    {pts:[[0.55,-2.0,4.72],[4.0,-2.0,4.72],[4.0,-3.6,4.72],[4.0,-3.6,5.6]],  c:C.lime, n:6},
+    {pts:[[1.0,1.6,4.72],[4.2,1.6,4.72],[4.2,1.6,4.4]],                      c:C.lime, n:5},
+    {pts:[[0.2,3.4,7.62],[8.2,3.4,7.62],[8.2,3.4,4.8]],                      c:C.mint, n:6},
+    {pts:[[1.5,-5.6,4.72],[8.0,-5.6,4.72],[8.0,-6.4,4.72],[8.0,-6.4,20.0]],  c:C.orange,n:8},
+    {pts:[[-4.6,-0.9,1.4],[-4.6,6.6,1.4]],                                   c:C.rose, n:4},
+    {pts:[[-10.6,-6.2,5.35],[-12.4,-6.2,5.35],[-12.4,-2.2,5.35],[-12.4,-2.2,3.9]], c:C.cyan, n:4}
+  ];
+  (function pipeStatics(){
+    for(var p=0;p<PIPES.length;p++){
+      var P=PIPES[p];
+      for(var i=0;i<P.pts.length-1;i++){
+        var a=P.pts[i], b=P.pts[i+1], r=0.15;
+        var x=Math.min(a[0],b[0]), y=Math.min(a[1],b[1]), z=Math.min(a[2],b[2]);
+        var w=Math.abs(b[0]-a[0]), d=Math.abs(b[1]-a[1]), h=Math.abs(b[2]-a[2]);
+        stat.box(x-(w?0:r), y-(d?0:r), z-(h?0:r), w||r*2, d||r*2, h||r*2, mix(P.c,C.void,0.46));
+      }
+      var q=P.pts[0];
+      stat.box(q[0]-0.26,q[1]-0.26,q[2]-0.26,0.52,0.52,0.52,C.steel);
+      stat.cyl(q[0],q[1],q[2]+0.26,0.3,0.1,10,mix(P.c,"#ffffff",0.2),{e:1,open:true});
+    }
+  })();
+
+  function along(P,u){
+    var segs=[],total=0,i;
+    for(i=0;i<P.pts.length-1;i++){
+      var a=P.pts[i],b=P.pts[i+1];
+      var L=Math.abs(b[0]-a[0])+Math.abs(b[1]-a[1])+Math.abs(b[2]-a[2]);
+      segs.push(L); total+=L;
+    }
+    var want=u*total, acc=0;
+    for(i=0;i<segs.length;i++){
+      if(acc+segs[i]>=want||i===segs.length-1){
+        var f=segs[i]?(want-acc)/segs[i]:0, a2=P.pts[i], b2=P.pts[i+1];
+        return [a2[0]+(b2[0]-a2[0])*f, a2[1]+(b2[1]-a2[1])*f, a2[2]+(b2[2]-a2[2])*f];
+      }
+      acc+=segs[i];
+    }
+    return P.pts[0];
+  }
+
+  var VENTS=[
+    {p:[-7.4,-2.6,21.6],c:"200,226,255",rise:13,dx:1.3,sz:1.6},
+    {p:[-7.4,2.0,14.4],c:"200,226,255",rise:10,dx:1.1,sz:1.3},
+    {p:[8.2,4.4,5.4], c:"150,255,220",rise:12,dx:1.9,sz:2.2},
+    {p:[2.9,-7.1,13.1],c:"190,205,235",rise:11,dx:1.5,sz:1.6},
+    {p:[8.0,-6.6,27.5],c:"255,150,80", rise:15,dx:2.7,sz:2.0}
+  ];
+  var puffs=[];
+  for(var pi=0;pi<62;pi++)
+    puffs.push({v:pi%VENTS.length,t:Math.random(),sp:0.0035+Math.random()*0.006,j:(Math.random()-0.5)*1.9});
+
+  function project(vx,vy,vz){
+    var cos=Math.cos(cam.yaw), sin=Math.sin(cam.yaw);
+    var X=vx*cos-vy*sin, Y=vx*sin+vy*cos;
+    return [cam.ox+(X-Y)*cam.TW, cam.oy+(X+Y)*cam.TH-vz*cam.TZ];
+  }
+
+  return {
+    init:function(o){
+      var el=o.el;
+      el.addEventListener("pointerdown",function(e){ drag.on=true; drag.x=e.clientX; vel=0;
+        if(el.setPointerCapture) el.setPointerCapture(e.pointerId); });
+      el.addEventListener("pointermove",function(e){
+        var r=el.getBoundingClientRect();
+        tiltT=((e.clientY-r.top)/r.height-.5)*-8;
+        if(!drag.on) return;
+        var dx=e.clientX-drag.x; drag.x=e.clientX;
+        spin-=dx*0.006; vel=-dx*0.006;
+      });
+      window.addEventListener("pointerup",function(){ drag.on=false; });
+      el.addEventListener("pointerleave",function(){ tiltT=0; });
+    },
+    layout:function(o){
+      /* fit the whole unit: 22 units half-width, 32 units tall */
+      var tw=Math.min(o.W/52, o.H/34);
+      cam.TW=tw; cam.TH=tw*0.5; cam.TZ=tw*0.6;
+      cam.lw=Math.max(0.7, 0.55*o.res);
+      cam.ox=o.W*0.5; cam.oy=o.H*0.635;
+    },
+    render:function(o,t){
+      var ctx=o.ctx, W=o.W, H=o.H, i;
+      if(!REDUCED){
+        if(!drag.on){ vel*=0.945; spin += vel + 0.0013; }
+        tilt += (tiltT*o.res-tilt)*0.06;
+      }
+      cam.yaw=spin; cam.oy=o.H*0.635+tilt;
+
+      ctx.fillStyle="#04050a"; ctx.fillRect(0,0,W,H);
+
+      ctx.strokeStyle="rgba(58,84,138,.20)"; ctx.lineWidth=Math.max(0.7,0.55*o.res);
+      var N=10.6;
+      for(var g=-N;g<=N;g+=2.65){
+        var a=project(g,-N,0), b=project(g,N,0);
+        ctx.beginPath(); ctx.moveTo(a[0],a[1]); ctx.lineTo(b[0],b[1]); ctx.stroke();
+        a=project(-N,g,0); b=project(N,g,0);
+        ctx.beginPath(); ctx.moveTo(a[0],a[1]); ctx.lineTo(b[0],b[1]); ctx.stroke();
+      }
+      var GLOW=[[-7.4,-2.6,7.5,C.cyan],[-7.4,2.0,6,C.cyan],[-1.6,-2.0,8,C.magenta],[-1.8,3.6,5,C.violet],
+                [4.0,-4.8,7,C.lime],[4.2,0.9,7,C.lime],[4.2,5.6,6,C.lime],[8.2,4.4,7.5,C.mint],
+                [7.2,1.4,6,C.violet],[1.2,-8.6,6,C.orange],[-5.6,-8.4,7,C.mint]];
+      for(i=0;i<GLOW.length;i++){
+        var G=GLOW[i], c=project(G[0],G[1],0);
+        ctx.fillStyle=rgba(G[3],0.075);
+        ctx.beginPath(); ctx.ellipse(c[0],c[1],G[2]*cam.TW*0.44,G[2]*cam.TH*0.44,0,0,6.283); ctx.fill();
+      }
+
+      dyn.clear();
+      if(!REDUCED){
+        for(i=0;i<PIPES.length;i++){
+          var P=PIPES[i];
+          for(var k=0;k<P.n;k++){
+            var q=along(P, ((t/3400)+k/P.n)%1);
+            dyn.cyl(q[0],q[1],q[2]-0.22,0.21,0.44,8, k%3===0?"#ffffff":P.c,{e:1});
+          }
+        }
+      }
+      for(i=0;i<9;i++){
+        var fz=25.9+i*0.66, jit=Math.sin(t/95+i*1.6)*0.30, rr=0.66-i*0.058;
+        var fc=i<2?"#fff6d8":(i<5?C.amber:"#ff5a22");
+        dyn.cyl(8.0+jit*0.5,-6.6+jit*0.35,fz,rr,0.72,8,fc,{e:1,r2:rr*0.78});
+      }
+      for(i=0;i<4;i++){
+        var on=(Math.floor(t/460)+i)%4!==0;
+        dyn.box(7.45+i*0.72,0.32,2.2,0.2,0.2,0.16, on?C.spring:C.steel2,{e:on?1:0});
+      }
+
+      renderMeshes(o,[stat,dyn],cam);
+
+      for(i=0;i<puffs.length;i++){
+        var pf=puffs[i]; if(!REDUCED){ pf.t+=pf.sp; if(pf.t>1) pf.t=0; }
+        var V=VENTS[pf.v];
+        var pt=project(V.p[0]+pf.j*pf.t*V.dx*0.5, V.p[1]+pf.j*pf.t*V.dx, V.p[2]+pf.t*V.rise);
+        var al=0.32*(1-pf.t);
+        ctx.fillStyle="rgba("+V.c+","+al.toFixed(3)+")";
+        var sz=V.sz*(0.6+pf.t*1.5)*o.res;
+        ctx.beginPath(); ctx.arc(pt[0],pt[1],sz,0,6.283); ctx.fill();
+      }
+
+      var grd=ctx.createLinearGradient(0,H*0.58,0,H);
+      grd.addColorStop(0,"rgba(4,5,10,0)"); grd.addColorStop(1,"rgba(4,5,10,.9)");
+      ctx.fillStyle=grd; ctx.fillRect(0,Math.round(H*0.58),W,H);
+    }
+  };
+}
+
+/* ============================================================
+   PROCESS FLOW DIAGRAMS — conventional equipment symbols
+   ============================================================ */
+var SYM = {
+  feed:{w:26,h:16}, product:{w:30,h:16}, box:{w:48,h:26}, model:{w:58,h:24},
+  pump:{w:26,h:26}, comp:{w:34,h:26}, hx:{w:28,h:28}, furnace:{w:40,h:34},
+  column:{w:26,h:74}, reactor:{w:38,h:46}, drum:{w:44,h:24}, filter:{w:38,h:26},
+  membrane:{w:34,h:54}, turbine:{w:34,h:30}, stack:{w:46,h:34}, tank:{w:38,h:30}
+};
+function symHalf(kind,u){ var g=SYM[kind]||SYM.box; return {w:g.w*u/2, h:g.h*u/2}; }
+function drawSym(ctx,x,y,kind,col,u){
+  var g=SYM[kind]||SYM.box, w=g.w*u, h=g.h*u, lw=1.5*u;
+  ctx.save();
+  ctx.lineWidth=lw; ctx.strokeStyle=col; ctx.fillStyle="#0c1322";
+  ctx.lineJoin="round";
+  function rr(x0,y0,w0,h0,r){
+    ctx.beginPath();
+    if(ctx.roundRect) ctx.roundRect(x0,y0,w0,h0,r); else ctx.rect(x0,y0,w0,h0);
+    ctx.fill(); ctx.stroke();
+  }
+  function cap(x0,y0,w0,h0){ rr(x0,y0,w0,h0,Math.min(w0,h0)/2); }
+  if(kind==="feed"||kind==="product"){
+    ctx.beginPath();
+    ctx.moveTo(x-w/2,y-h/2); ctx.lineTo(x+w/2-h*0.5,y-h/2);
+    ctx.lineTo(x+w/2,y); ctx.lineTo(x+w/2-h*0.5,y+h/2); ctx.lineTo(x-w/2,y+h/2);
+    ctx.closePath(); ctx.fill(); ctx.stroke();
+  } else if(kind==="column"||kind==="membrane"){
+    cap(x-w/2,y-h/2,w,h);
+    var n=(kind==="column")?7:4;
+    ctx.beginPath();
+    for(var i=1;i<=n;i++){
+      var yy=y-h/2+h*i/(n+1);
+      ctx.moveTo(x-w/2+lw, yy); ctx.lineTo(x+w/2-lw, yy);
+    }
+    ctx.globalAlpha=.7; ctx.stroke(); ctx.globalAlpha=1;
+  } else if(kind==="reactor"){
+    cap(x-w/2,y-h/2,w,h);
+    ctx.beginPath();
+    for(var j=0;j<4;j++){
+      var yy2=y-h*0.20+j*h*0.13;
+      ctx.moveTo(x-w/2+lw*2, yy2); ctx.lineTo(x+w/2-lw*2, yy2-h*0.07);
+    }
+    ctx.globalAlpha=.65; ctx.stroke(); ctx.globalAlpha=1;
+  } else if(kind==="drum"||kind==="tank"){
+    cap(x-w/2,y-h/2,w,h);
+    ctx.beginPath(); ctx.moveTo(x-w/2+lw,y+h*0.12); ctx.lineTo(x+w/2-lw,y+h*0.12);
+    ctx.globalAlpha=.65; ctx.stroke(); ctx.globalAlpha=1;
+  } else if(kind==="pump"){
+    ctx.beginPath(); ctx.arc(x,y,w/2,0,6.283); ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x-w*0.18,y-w*0.22); ctx.lineTo(x+w*0.26,y); ctx.lineTo(x-w*0.18,y+w*0.22);
+    ctx.closePath(); ctx.stroke();
+  } else if(kind==="comp"||kind==="turbine"){
+    var t0=(kind==="comp")?0.55:1.0, t1=(kind==="comp")?1.0:0.55;
+    ctx.beginPath();
+    ctx.moveTo(x-w/2,y-h/2*t0); ctx.lineTo(x+w/2,y-h/2*t1);
+    ctx.lineTo(x+w/2,y+h/2*t1); ctx.lineTo(x-w/2,y+h/2*t0);
+    ctx.closePath(); ctx.fill(); ctx.stroke();
+  } else if(kind==="hx"){
+    ctx.beginPath(); ctx.arc(x,y,w/2,0,6.283); ctx.fill(); ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x-w*0.34,y+w*0.16); ctx.lineTo(x-w*0.11,y-w*0.16);
+    ctx.lineTo(x+w*0.11,y+w*0.16); ctx.lineTo(x+w*0.34,y-w*0.16);
+    ctx.stroke();
+  } else if(kind==="furnace"){
+    rr(x-w/2,y-h/2,w,h,3*u);
+    ctx.beginPath(); ctx.arc(x,y+h*0.12,w*0.2,0,6.283); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x+w*0.3,y-h/2); ctx.lineTo(x+w*0.3,y-h/2-h*0.3); ctx.stroke();
+  } else if(kind==="filter"){
+    rr(x-w/2,y-h/2,w,h,2*u);
+    ctx.beginPath();
+    for(var f2=0;f2<3;f2++){ ctx.moveTo(x-w/2+lw, y-h/2+h*(f2+1)/4); ctx.lineTo(x+w/2-lw, y-h/2+h*(f2+1)/4); }
+    ctx.globalAlpha=.55; ctx.stroke(); ctx.globalAlpha=1;
+  } else if(kind==="stack"){
+    rr(x-w/2,y-h/2,w,h,2*u);
+    ctx.beginPath();
+    ctx.moveTo(x-w/2,y-h/6); ctx.lineTo(x+w/2,y-h/6);
+    ctx.moveTo(x-w/2,y+h/6); ctx.lineTo(x+w/2,y+h/6);
+    ctx.globalAlpha=.8; ctx.stroke(); ctx.globalAlpha=1;
+  } else if(kind==="model"){
+    ctx.setLineDash([4*u,3*u]);
+    rr(x-w/2,y-h/2,w,h,3*u);
+    ctx.setLineDash([]);
+  } else {
+    rr(x-w/2,y-h/2,w,h,3*u);
+  }
+  ctx.restore();
+}
+
+function routePts(a,b,flag,W,H,u){
+  if(flag===2){ var ly=H-10*u; return [a,[a[0]+22*u,a[1]],[a[0]+22*u,ly],[b[0]-22*u,ly],[b[0]-22*u,b[1]],b]; }
+  if(flag===3){ var lx=W-10*u; return [a,[lx,a[1]],[lx,b[1]],b]; }
+  if(Math.abs(a[0]-b[0])<4*u) return [a,b];
+  if(Math.abs(a[1]-b[1])<4*u) return [a,b];
+  var mx=(a[0]+b[0])/2;
+  return [a,[mx,a[1]],[mx,b[1]],b];
+}
+function walkPts(pts,t){
+  var L=[],total=0,i;
+  for(i=0;i<pts.length-1;i++){
+    var dx=pts[i+1][0]-pts[i][0], dy=pts[i+1][1]-pts[i][1];
+    var l=Math.sqrt(dx*dx+dy*dy); L.push(l); total+=l;
+  }
+  var want=t*total, acc=0;
+  for(i=0;i<L.length;i++){
+    if(acc+L[i]>=want){
+      var f=L[i]?(want-acc)/L[i]:0;
+      return [pts[i][0]+(pts[i+1][0]-pts[i][0])*f, pts[i][1]+(pts[i+1][1]-pts[i][1])*f];
+    }
+    acc+=L[i];
+  }
+  return pts[pts.length-1];
+}
+function arrowHead(ctx,pts,col,u){
+  var n=pts.length;
+  var x1=pts[n-2][0],y1=pts[n-2][1],x2=pts[n-1][0],y2=pts[n-1][1];
+  var a=Math.atan2(y2-y1,x2-x1), s=5.5*u;
+  ctx.fillStyle=col; ctx.beginPath();
+  ctx.moveTo(x2,y2);
+  ctx.lineTo(x2-s*Math.cos(a)+s*0.5*Math.sin(a), y2-s*Math.sin(a)-s*0.5*Math.cos(a));
+  ctx.lineTo(x2-s*Math.cos(a)-s*0.5*Math.sin(a), y2-s*Math.sin(a)+s*0.5*Math.cos(a));
+  ctx.closePath(); ctx.fill();
+}
+
+var PFD = {
+  saf:{ accent:C.cyan, nodes:[
+      {id:"co2",x:.045,y:.26,k:"feed",l:"CO₂",s:"10,000 kg/h",key:1},
+      {id:"h2", x:.045,y:.76,k:"feed",l:"H₂",s:"1,402 kg/h",key:1},
+      {id:"mk", x:.15,y:.51,k:"comp",l:"MK-201",s:"25 bar"},
+      {id:"wgs",x:.265,y:.51,k:"reactor",l:"R-WGS",s:"950 °C"},
+      {id:"ko", x:.375,y:.51,k:"drum",l:"F-201",s:"40 °C"},
+      {id:"ft", x:.487,y:.51,k:"reactor",l:"FT-REACT",s:"220 °C, Co",key:1},
+      {id:"col",x:.60,y:.24,k:"column",l:"COL-FT",s:"3 bar"},
+      {id:"crk",x:.60,y:.80,k:"reactor",l:"R-CRACK",s:"350 °C"},
+      {id:"hyd",x:.715,y:.51,k:"reactor",l:"R-HYDRO",s:"300 °C"},
+      {id:"kd", x:.825,y:.51,k:"column",l:"COL-KD",s:"fractionation"},
+      {id:"np", x:.945,y:.18,k:"product",l:"NAPHTHA",s:"330 kg/h",key:1},
+      {id:"ke", x:.945,y:.51,k:"product",l:"KEROSENE",s:"194 kg/h",key:1},
+      {id:"di", x:.945,y:.84,k:"product",l:"DIESEL",s:"203 kg/h",key:1}
+    ], edges:[["co2","mk"],["h2","mk"],["mk","wgs"],["wgs","ko"],["ko","ft"],
+      ["ft","col"],["ft","crk"],["col","hyd"],["crk","hyd"],["hyd","kd"],
+      ["kd","np"],["kd","ke"],["kd","di"],["hyd","mk",2]]},
+
+  pla:{ accent:C.lime, nodes:[
+      {id:"bio",x:.06,y:.24,k:"feed",l:"EUCALYPTUS",s:"E. grandis",key:1},
+      {id:"pre",x:.20,y:.24,k:"box",l:"PRETREATMENT",s:"organosolv"},
+      {id:"enz",x:.34,y:.24,k:"drum",l:"HYDROLYSIS",s:"48 °C"},
+      {id:"fer",x:.48,y:.24,k:"reactor",l:"FERMENTER",s:"45 °C, 90 %",key:1},
+      {id:"fil",x:.62,y:.24,k:"filter",l:"FILTER 1 / 2",s:"biomass removal"},
+      {id:"prc",x:.76,y:.24,k:"drum",l:"PRECIPITATION",s:"H₂SO₄"},
+      {id:"est",x:.90,y:.24,k:"column",l:"ESTERIFICATION",s:"ethyl lactate"},
+      {id:"gyp",x:.62,y:.52,k:"product",l:"GYPSUM",s:"by-product"},
+      {id:"hdl",x:.90,y:.76,k:"column",l:"HYDROLYSIS",s:"free acid"},
+      {id:"olg",x:.75,y:.76,k:"reactor",l:"OLIGOMERISER",s:"170 °C, 400 mmHg"},
+      {id:"dep",x:.585,y:.76,k:"reactor",l:"DEPOLYMERISER",s:"200 °C, 10 mmHg"},
+      {id:"rop",x:.42,y:.76,k:"reactor",l:"PLA REACTOR",s:"170 °C, ROP",key:1},
+      {id:"sep",x:.255,y:.76,k:"drum",l:"SEPARATOR",s:"lactide recycle"},
+      {id:"pla",x:.09,y:.76,k:"product",l:"PLA",s:"76,610 t/yr",key:1}
+    ], edges:[["bio","pre"],["pre","enz"],["enz","fer"],["fer","fil"],["fil","prc"],
+      ["prc","est"],["prc","gyp"],["est","hdl",3],["hdl","olg"],["olg","dep"],
+      ["dep","rop"],["rop","sep"],["sep","pla"],["sep","dep",2]]},
+
+  esm:{ accent:C.mint, nodes:[
+      {id:"ch4",x:.045,y:.16,k:"feed",l:"CH₄",s:"1,000 g/s",key:1},
+      {id:"cmp",x:.15,y:.16,k:"comp",l:"COMPRESSOR",s:"1 → 10 atm"},
+      {id:"h2o",x:.045,y:.38,k:"feed",l:"WATER",s:"298 K"},
+      {id:"pmp",x:.15,y:.38,k:"pump",l:"PUMP",s:"to superheat"},
+      {id:"ref",x:.30,y:.16,k:"furnace",l:"REFORMER",s:"973 K, Ni",key:1},
+      {id:"sft",x:.44,y:.16,k:"reactor",l:"SHIFT REACTOR",s:"573 K"},
+      {id:"whe",x:.57,y:.16,k:"hx",l:"W/S HE 1–3",s:"ε = 0.90"},
+      {id:"mem",x:.70,y:.16,k:"membrane",l:"MEMBRANE",s:"723 K"},
+      {id:"h2a",x:.86,y:.07,k:"product",l:"H₂",s:"262 g/s, 57 %",key:1},
+      {id:"rtn",x:.86,y:.30,k:"product",l:"RETENTATE",s:"to burner"},
+      {id:"fw", x:.05,y:.70,k:"feed",l:"FEED WATER",s:"pumped",key:1},
+      {id:"htr",x:.19,y:.70,k:"hx",l:"HEATER",s:"thermal duty"},
+      {id:"ano",x:.34,y:.70,k:"stack",l:"ANODE",s:"H₂O → 2H⁺ + ½O₂"},
+      {id:"pem",x:.48,y:.70,k:"stack",l:"MEMBRANE",s:"L = 100 µm",key:1},
+      {id:"cth",x:.62,y:.70,k:"stack",l:"CATHODE",s:"2H⁺ + 2e⁻ → H₂"},
+      {id:"o2s",x:.77,y:.70,k:"drum",l:"O₂ SEPARATOR",s:"O₂ / H₂O"},
+      {id:"o2", x:.92,y:.61,k:"product",l:"O₂",s:"by-product"},
+      {id:"h2b",x:.92,y:.86,k:"product",l:"H₂",s:"60 % exergy",key:1},
+      {id:"pwr",x:.05,y:.90,k:"feed",l:"ELECTRICITY",s:"5,000 A/m²"}
+    ], edges:[["ch4","cmp"],["cmp","ref"],["h2o","pmp"],["pmp","ref"],["ref","sft"],
+      ["sft","whe"],["whe","mem"],["mem","h2a"],["mem","rtn"],
+      ["fw","htr"],["htr","ano"],["ano","pem"],["pem","cth"],["ano","o2s"],
+      ["o2s","o2"],["cth","h2b"],["pwr","pem",1],["o2s","htr",2]]},
+
+  orc:{ accent:C.amber, nodes:[
+      {id:"src", x:.055,y:.26,k:"feed",l:"WASTE HEAT",s:"below 400 °C",key:1},
+      {id:"boil",x:.26,y:.26,k:"hx",l:"EVAPORATOR",s:"4 → 1 isobaric",key:1},
+      {id:"turb",x:.62,y:.26,k:"turbine",l:"TURBINE",s:"1 → 2 isentropic",key:1},
+      {id:"gen", x:.90,y:.26,k:"product",l:"GENERATOR",s:"electric power",key:1},
+      {id:"cond",x:.80,y:.74,k:"hx",l:"CONDENSER",s:"2 → 3 isobaric"},
+      {id:"cw",  x:.93,y:.88,k:"product",l:"HEAT REJECTED",s:"cooling water"},
+      {id:"pump",x:.16,y:.74,k:"pump",l:"PUMP",s:"3 → 4 isentropic"}
+    ], edges:[["src","boil"],["boil","turb"],["turb","gen"],["turb","cond"],
+      ["cond","cw"],["cond","pump"],["pump","boil"]]},
+
+  cu:{ accent:C.magenta, nodes:[
+      {id:"mdl",x:.36,y:.11,k:"model",l:"MILP / MIQCP",s:"lot selection",key:1},
+      {id:"cal",x:.68,y:.11,k:"model",l:"QCP CALIBRATION",s:"MAPE → 0.03 %",key:1},
+      {id:"shp",x:.06,y:.40,k:"feed",l:"CONCENTRATE",s:"maritime lots"},
+      {id:"scr",x:.06,y:.82,k:"feed",l:"SCRAP",s:"secondary"},
+      {id:"pil",x:.20,y:.60,k:"tank",l:"PORT PILES",s:"stock"},
+      {id:"bin",x:.335,y:.60,k:"box",l:"BINS",s:"daily arrivals"},
+      {id:"bld",x:.475,y:.60,k:"drum",l:"BLEND",s:"maximum tonnage",key:1},
+      {id:"smt",x:.63,y:.60,k:"furnace",l:"SMELTER",s:"matte and slag",key:1},
+      {id:"mat",x:.80,y:.32,k:"product",l:"MATTE",s:"to converting"},
+      {id:"slg",x:.80,y:.60,k:"product",l:"SLAG",s:"gangue"},
+      {id:"dst",x:.80,y:.88,k:"product",l:"FLUE DUST",s:"arsenic bounded",key:1}
+    ], edges:[["shp","pil"],["scr","pil"],["pil","bin"],["bin","bld"],["bld","smt"],
+      ["smt","mat"],["smt","slg"],["smt","dst"],["mdl","bld",1],["cal","dst",1]]},
+
+  h2:{ accent:C.rose, nodes:[
+      {id:"pv", x:.06,y:.22,k:"box",l:"SOLAR PV",s:"RE(t)"},
+      {id:"wd", x:.06,y:.64,k:"box",l:"WIND",s:"RE(t)"},
+      {id:"bus",x:.245,y:.43,k:"drum",l:"SURPLUS BUS",s:"hourly RE(t)",key:1},
+      {id:"bat",x:.125,y:.87,k:"box",l:"BATTERY",s:"storage"},
+      {id:"cur",x:.45,y:.87,k:"product",l:"CURTAILED",s:"unconverted"},
+      {id:"ely",x:.45,y:.43,k:"stack",l:"PEM ELECTROLYSER",s:"0 – 3.5 MW",key:1},
+      {id:"cmp",x:.63,y:.43,k:"comp",l:"COMPRESSOR",s:"compression duty"},
+      {id:"sto",x:.79,y:.22,k:"tank",l:"H₂ STORAGE",s:"kg"},
+      {id:"use",x:.93,y:.64,k:"product",l:"H₂ OFFTAKE",s:"$6.50 – 10.00/kg",key:1}
+    ], edges:[["pv","bus"],["wd","bus"],["bus","ely"],["bus","bat",1],["bus","cur",1],
+      ["ely","cmp"],["cmp","sto"],["sto","use"]]},
+
+  flp:{ accent:C.spring, nodes:[
+      {id:"set", x:.06,y:.50,k:"feed",l:"FLP SET",s:"133 structures",key:1},
+      {id:"xtb", x:.22,y:.26,k:"box",l:"xTB",s:"HOMO, LUMO, gap"},
+      {id:"str", x:.22,y:.74,k:"box",l:"STERIMOL",s:"L, B1, B5"},
+      {id:"dsc", x:.38,y:.50,k:"drum",l:"DESCRIPTORS",s:"six features",key:1},
+      {id:"spl", x:.52,y:.50,k:"box",l:"TRAIN / TEST",s:"101 / 26"},
+      {id:"lin", x:.68,y:.20,k:"box",l:"LINEAR MODELS",s:"R² < 0"},
+      {id:"rf",  x:.68,y:.50,k:"box",l:"RANDOM FOREST",s:"R² = 0.41",key:1},
+      {id:"gbr", x:.68,y:.80,k:"box",l:"GRADIENT BOOSTING",s:"R² = 0.12"},
+      {id:"rnk", x:.90,y:.50,k:"product",l:"RANKED SET",s:"screening filter",key:1}
+    ], edges:[["set","xtb"],["set","str"],["xtb","dsc"],["str","dsc"],["dsc","spl"],
+      ["spl","lin",1],["spl","rf"],["spl","gbr",1],["rf","rnk"]]}
+};
+
+function makePfd(def){
+  var pos={};
+  return {
+    init:function(o){
+      var box=o.el.querySelector(".pfd-labels");
+      box.innerHTML="";
+      for(var i=0;i<def.nodes.length;i++){
+        var n=def.nodes[i], sp=document.createElement("span");
+        if(n.key) sp.className="key";
+        sp.innerHTML=n.l+(n.s?"<small>"+n.s+"</small>":"");
+        sp.style.left=(n.x*100)+"%";
+        sp.style.top="calc("+(n.y*100)+"% + "+(((SYM[n.k]||SYM.box).h/2)+8)+"px)";
+        box.appendChild(sp);
+        n.c = n.key ? def.accent : (n.k==="model" ? C.violet : C.steel);
+      }
+    },
+    layout:function(o){
+      for(var i=0;i<def.nodes.length;i++){
+        var n=def.nodes[i];
+        pos[n.id]=[n.x*o.W, n.y*o.H];
+      }
+    },
+    render:function(o,t){
+      var ctx=o.ctx,W=o.W,H=o.H,u=o.res,i,j;
+      if(REDUCED) t=0;
+      ctx.fillStyle="#090c15"; ctx.fillRect(0,0,W,H);
+      ctx.fillStyle="rgba(60,86,140,.12)";
+      for(var gy=6*u;gy<H;gy+=11*u) for(var gx=6*u;gx<W;gx+=11*u) ctx.fillRect(gx,gy,u,u);
+
+      var byId={};
+      for(i=0;i<def.nodes.length;i++) byId[def.nodes[i].id]=def.nodes[i];
+
+      for(i=0;i<def.edges.length;i++){
+        var e=def.edges[i], a=pos[e[0]], b=pos[e[1]];
+        if(!a||!b) continue;
+        var na=byId[e[0]], nb=byId[e[1]];
+        var ha=symHalf(na.k,u), hb=symHalf(nb.k,u);
+        var A=[a[0],a[1]], B=[b[0],b[1]];
+        var flag=e[2]||0, dash=(flag===1||flag===2);
+        if(Math.abs(a[0]-b[0])>4*u) A[0]+= (b[0]>a[0]? ha.w : -ha.w);
+        else A[1]+= (b[1]>a[1]? ha.h : -ha.h);
+        if(Math.abs(a[0]-b[0])>4*u) B[0]-= (b[0]>a[0]? hb.w : -hb.w);
+        else B[1]-= (b[1]>a[1]? hb.h : -hb.h);
+
+        var pts=routePts(A,B,flag,W,H,u);
+        ctx.lineWidth=1.4*u;
+        ctx.strokeStyle=dash?"rgba(139,92,255,.6)":"rgba(120,152,210,.8)";
+        ctx.setLineDash(dash?[4*u,4*u]:[]);
+        ctx.lineDashOffset=dash?-(t/90)%(8*u):0;
+        ctx.lineJoin="round"; ctx.lineCap="round";
+        ctx.beginPath(); ctx.moveTo(pts[0][0],pts[0][1]);
+        for(j=1;j<pts.length;j++) ctx.lineTo(pts[j][0],pts[j][1]);
+        ctx.stroke(); ctx.setLineDash([]);
+        arrowHead(ctx,pts,dash?"rgba(139,92,255,.85)":"rgba(150,180,235,.95)",u);
+        if(!dash){
+          for(var k=0;k<2;k++){
+            var q=walkPts(pts,((t/2800)+k*0.5+i*0.13)%1);
+            ctx.fillStyle=rgba(def.accent,.95);
+            ctx.beginPath(); ctx.arc(q[0],q[1],2.0*u,0,6.283); ctx.fill();
+            ctx.fillStyle=rgba(def.accent,.20);
+            ctx.beginPath(); ctx.arc(q[0],q[1],4.4*u,0,6.283); ctx.fill();
+          }
+        }
+      }
+      var order=def.nodes.slice().sort(function(m,n){ return m.y-n.y; });
+      for(i=0;i<order.length;i++){
+        var nd=order[i], c=pos[nd.id];
+        if(nd.key && !REDUCED){
+          var pulse=0.08+0.08*Math.sin(t/620+nd.x*8);
+          ctx.fillStyle=rgba(def.accent,pulse);
+          ctx.beginPath();
+          ctx.arc(c[0],c[1],(SYM[nd.k]||SYM.box).h*u*0.8,0,6.283); ctx.fill();
+        }
+        drawSym(ctx,c[0],c[1],nd.k,nd.c,u);
+      }
+    }
+  };
+}
+
+/* ============================================================
+   POOLING SUPERSTRUCTURE
+   ============================================================ */
+var SS = {
+  feeds:[{id:"S1",y:.12,q1:"(0.13, 0.87)",q2:"(0.09, 0.55, 0.36)"},
+         {id:"S2",y:.31,q1:"(0.89, 0.11)",q2:"(0.50, 0.13, 0.38)"},
+         {id:"S3",y:.50,q1:"(0.69, 0.31)",q2:"(0.32, 0.44, 0.24)"},
+         {id:"S4",y:.69,q1:"(0.28, 0.72)",q2:"(0.43, 0.43, 0.14)"},
+         {id:"S5",y:.88,q1:"(0.35, 0.65)",q2:"(0.13, 0.35, 0.52)"}],
+  pools:[{id:"P1",y:.17},{id:"P2",y:.39},{id:"P3",y:.61},{id:"P4",y:.83}],
+  prods:[{id:"1",y:.22,d:"229 kg"},{id:"2",y:.50,d:"173 kg"},{id:"3",y:.78,d:"284 kg"}],
+  ex:{1:{obj:"−4640.082",
+         fp:[["S1","P1",76.56],["S2","P3",135.78],["S5","P1",260.29],["S5","P3",213.37]],
+         pk:[["P1","2",173],["P1","3",163.85],["P3","1",229],["P3","3",120.15]]},
+      2:{obj:"−3849.447",
+         fp:[["S1","P1",37.77],["S1","P3",8.19],["S2","P2",215.88],["S3","P1",7.93],["S3","P3",187.07],["S5","P1",229.15]],
+         pk:[["P1","1",229],["P1","2",38.73],["P1","3",7.12],["P2","3",215.88],["P3","2",134.27],["P3","3",61]]}}
+};
+function makeSuper(){
+  var XF=.12, XP=.50, XK=.87, cur=1, box=null;
+  function ny(list,id){ for(var i=0;i<list.length;i++) if(list[i].id===id) return list[i].y; return .5; }
+  function active(){
+    var d=SS.ex[cur], f={},p={},k={},i;
+    for(i=0;i<d.fp.length;i++){ f[d.fp[i][0]]=1; p[d.fp[i][1]]=1; }
+    for(i=0;i<d.pk.length;i++){ p[d.pk[i][0]]=1; k[d.pk[i][1]]=1; }
+    return {f:f,p:p,k:k};
+  }
+  function labels(){
+    if(!box) return;
+    box.innerHTML="";
+    var A=active(), d=SS.ex[cur], i;
+    function add(txt,sub,x,y,on){
+      var sp=document.createElement("span");
+      if(on) sp.className="key";
+      sp.innerHTML=txt+(sub?"<small>"+sub+"</small>":"");
+      sp.style.left=(x*100)+"%"; sp.style.top="calc("+(y*100)+"% + 20px)";
+      box.appendChild(sp);
+    }
+    for(i=0;i<SS.feeds.length;i++) add(SS.feeds[i].id, cur===1?SS.feeds[i].q1:SS.feeds[i].q2, XF, SS.feeds[i].y, !!A.f[SS.feeds[i].id]);
+    for(i=0;i<SS.pools.length;i++) add(SS.pools[i].id, A.p[SS.pools[i].id]?"active":"inactive", XP, SS.pools[i].y, !!A.p[SS.pools[i].id]);
+    for(i=0;i<SS.prods.length;i++) add("PRODUCT "+SS.prods[i].id, SS.prods[i].d, XK, SS.prods[i].y, 1);
+    function arcLabel(x1,y1,x2,y2,v){
+      var sp=document.createElement("span");
+      sp.className="key";
+      sp.textContent=(v%1? v.toFixed(2): v.toFixed(0));
+      sp.style.left=((x1+(x2-x1)*0.62)*100)+"%";
+      sp.style.top="calc("+((y1+(y2-y1)*0.62)*100)+"% - 6px)";
+      sp.style.fontSize="10px"; sp.style.background="rgba(9,12,21,.88)"; sp.style.padding="0 3px";
+      box.appendChild(sp);
+    }
+    for(i=0;i<d.fp.length;i++) arcLabel(XF,ny(SS.feeds,d.fp[i][0]),XP,ny(SS.pools,d.fp[i][1]),d.fp[i][2]);
+    for(i=0;i<d.pk.length;i++) arcLabel(XP,ny(SS.pools,d.pk[i][0]),XK,ny(SS.prods,d.pk[i][1]),d.pk[i][2]);
+  }
+  return {
+    setExample:function(n){ cur=n; labels(); },
+    getObj:function(){ return SS.ex[cur].obj; },
+    init:function(o){ box=o.el.querySelector(".pfd-labels"); labels(); },
+    layout:function(){},
+    render:function(o,t){
+      var ctx=o.ctx,W=o.W,H=o.H,u=o.res,i,j;
+      if(REDUCED) t=0;
+      ctx.fillStyle="#090c15"; ctx.fillRect(0,0,W,H);
+      ctx.fillStyle="rgba(60,86,140,.11)";
+      for(var gy=6*u;gy<H;gy+=11*u) for(var gx=6*u;gx<W;gx+=11*u) ctx.fillRect(gx,gy,u,u);
+
+      var A=active(), d=SS.ex[cur];
+      function P(x,y){ return [x*W, y*H]; }
+
+      ctx.strokeStyle="rgba(84,104,156,.2)"; ctx.lineWidth=1*u;
+      ctx.beginPath();
+      for(i=0;i<SS.feeds.length;i++) for(j=0;j<SS.pools.length;j++){
+        var a=P(XF,SS.feeds[i].y), b=P(XP,SS.pools[j].y);
+        ctx.moveTo(a[0]+23*u,a[1]); ctx.lineTo(b[0]-20*u,b[1]);
+      }
+      for(i=0;i<SS.pools.length;i++) for(j=0;j<SS.prods.length;j++){
+        var c=P(XP,SS.pools[i].y), e=P(XK,SS.prods[j].y);
+        ctx.moveTo(c[0]+20*u,c[1]); ctx.lineTo(e[0]-16*u,e[1]);
+      }
+      ctx.stroke();
+
+      var arcs=[];
+      for(i=0;i<d.fp.length;i++) arcs.push([P(XF,ny(SS.feeds,d.fp[i][0])), P(XP,ny(SS.pools,d.fp[i][1])), d.fp[i][2], 23, 20]);
+      for(i=0;i<d.pk.length;i++) arcs.push([P(XP,ny(SS.pools,d.pk[i][0])), P(XK,ny(SS.prods,d.pk[i][1])), d.pk[i][2], 20, 16]);
+      var maxF=0; for(i=0;i<arcs.length;i++) maxF=Math.max(maxF,arcs[i][2]);
+      for(i=0;i<arcs.length;i++){
+        var s=arcs[i][0], t2=arcs[i][1], w=arcs[i][2]/maxF;
+        var sx=s[0]+arcs[i][3]*u, tx=t2[0]-arcs[i][4]*u;
+        ctx.strokeStyle=rgba(C.violet,0.35+0.5*w); ctx.lineWidth=(0.9+1.7*w)*u;
+        ctx.beginPath(); ctx.moveTo(sx,s[1]); ctx.lineTo(tx,t2[1]); ctx.stroke();
+        arrowHead(ctx,[[sx,s[1]],[tx,t2[1]]],rgba(C.violet,.9),u);
+        var np=1+Math.round(w*2);
+        for(var k2=0;k2<np;k2++){
+          var uu=((t/3000)+k2/np+i*0.07)%1;
+          var qx=sx+(tx-sx)*uu, qy=s[1]+(t2[1]-s[1])*uu;
+          ctx.fillStyle=rgba(C.violet,.95);
+          ctx.beginPath(); ctx.arc(qx,qy,2*u,0,6.283); ctx.fill();
+        }
+      }
+      for(i=0;i<SS.feeds.length;i++){
+        var on=!!A.f[SS.feeds[i].id], pp=P(XF,SS.feeds[i].y);
+        drawSym(ctx,pp[0],pp[1],"drum",on?C.violet:C.steel,u);
+      }
+      for(i=0;i<SS.pools.length;i++){
+        var onp=!!A.p[SS.pools[i].id], pp2=P(XP,SS.pools[i].y);
+        drawSym(ctx,pp2[0],pp2[1],onp?"tank":"model",onp?C.violet:C.steel,u);
+      }
+      for(i=0;i<SS.prods.length;i++){
+        var pp3=P(XK,SS.prods[i].y);
+        drawSym(ctx,pp3[0],pp3[1],"product",C.violet,u);
+      }
+    }
+  };
+}
+
+/* ============================================================
+   COMPUTATIONAL FLUID DYNAMICS — live scalar transport
+   ============================================================ */
+function makeLUT(stops){
+  var lut=new Uint8Array(256*3), i, j;
+  for(i=0;i<256;i++){
+    var t=i/255; j=0;
+    while(j<stops.length-2 && t>stops[j+1][0]) j++;
+    var t0=stops[j][0], t1=stops[j+1][0];
+    var f=(t1-t0)?(t-t0)/(t1-t0):0; f=f<0?0:(f>1?1:f);
+    var a=hex2rgb(stops[j][1]), b=hex2rgb(stops[j+1][1]);
+    lut[i*3]=a[0]+(b[0]-a[0])*f; lut[i*3+1]=a[1]+(b[1]-a[1])*f; lut[i*3+2]=a[2]+(b[2]-a[2])*f;
+  }
+  return lut;
+}
+var LUT_DIV = makeLUT([[0,"#ff35c8"],[0.25,"#5b1d55"],[0.5,"#07090f"],[0.75,"#0c3f46"],[1,"#22f0ff"]]);
+var LUT_SEQ = makeLUT([[0,"#07090f"],[0.28,"#3b1a6b"],[0.55,"#a02597"],[0.8,"#ff6a2a"],[1,"#ffe9b0"]]);
+
+var SIM=null;
+function makeSim(nx,ny){
+  var Lx=30, Ly=6, dx=Lx/nx, dy=Ly/ny;
+  var bx1=3.5, bx2=13.0, by1=1.0, by2=2.9, ymid=(by1+by2)/2;
+  var U0=5, D=1.39e-4;
+  var c=new Float32Array(nx*ny), c2=new Float32Array(nx*ny);
+  var u=new Float32Array(nx*ny), v=new Float32Array(nx*ny);
+  var vort=[], shed=0, T=0;
+  function inBus(x,y){ return x>bx1&&x<bx2&&y>by1&&y<by2; }
+  function field(t){
+    while(shed<t){
+      var up=(vort.length%2)===0;
+      vort.push({x:bx2+0.2,y:up?by2+0.15:by1-0.15,s:(up?-1:1)*1.0,age:0});
+      shed+=0.42;
+    }
+    for(var q=vort.length-1;q>=0;q--){
+      var V=vort[q]; V.x+=0.72*U0*0.033; V.age+=0.033;
+      if(V.x>Lx+2) vort.splice(q,1);
+    }
+    for(var j=0;j<ny;j++){
+      var y=(j+0.5)*dy;
+      for(var i=0;i<nx;i++){
+        var x=(i+0.5)*dx, id=j*nx+i, uu, vv;
+        if(inBus(x,y)){ u[id]=0; v[id]=0; continue; }
+        uu=U0; vv=0;
+        if(x>bx1-1.2 && x<bx2+0.6){
+          if(y<by1) uu=U0*(1+0.55*(1-(by1-y)/Math.max(by1,0.01)));
+          else if(y>by2) uu=U0*(1+0.34*Math.exp(-(y-by2)/1.5));
+        }
+        var cdx=x-(bx1+0.15), cdy=y-(by2+0.2), cr2=cdx*cdx+cdy*cdy+0.30;
+        var cw=Math.exp(-Math.pow(cdx/2.6,2)-Math.pow(cdy/2.2,2));
+        uu += -4.6*cdy/cr2*cw; vv += 4.6*cdx/cr2*cw;
+        if(x>bx2){
+          var dd=x-bx2, g=Math.exp(-Math.pow((y-ymid)/1.5,2))*Math.exp(-dd/15);
+          uu -= U0*0.95*g;
+        }
+        for(var q2=0;q2<vort.length;q2++){
+          var W2=vort[q2], wdx=x-W2.x, wdy=y-W2.y, r2=wdx*wdx+wdy*wdy+0.36;
+          var st=W2.s*Math.exp(-W2.age/4.6);
+          uu += -st*wdy/r2; vv += st*wdx/r2;
+        }
+        if(x>bx2 && x<bx2+1.6 && y>by2-0.5 && y<by2) uu += 6.0*Math.exp(-(x-bx2)/0.9);
+        if(x>bx2 && y>by1-0.4) vv -= 0.8*Math.exp(-(x-bx2)/2.5)*Math.exp(-Math.pow((y-2.55)/1.25,2));
+        u[id]=uu<-12?-12:(uu>13?13:uu);
+        v[id]=vv<-10?-10:(vv>10?10:vv);
+      }
+    }
+  }
+  function step(dt){
+    var i,j,id;
+    for(j=0;j<ny;j++){
+      var y=(j+0.5)*dy;
+      for(i=0;i<nx;i++){
+        var x=(i+0.5)*dx; id=j*nx+i;
+        if(inBus(x,y)){ c2[id]=0; continue; }
+        var cc=c[id], uu=u[id], vv=v[id];
+        var iw=i>0?id-1:id, ie=i<nx-1?id+1:id, js=j>0?id-nx:id, jn=j<ny-1?id+nx:id;
+        var dcx = uu>0 ? (cc-c[iw])/dx : (c[ie]-cc)/dx;
+        var dcy = vv>0 ? (cc-c[js])/dy : (c[jn]-cc)/dy;
+        var lap = (c[ie]-2*cc+c[iw])/(dx*dx) + (c[jn]-2*cc+c[js])/(dy*dy);
+        var nv = cc - dt*(uu*dcx+vv*dcy) + dt*(D+0.006)*lap;
+        c2[id]= nv<0?0:(nv>1.2?1.2:nv);
+      }
+    }
+    c.set(c2);
+    for(j=0;j<ny;j++){
+      var yy=(j+0.5)*dy;
+      if(yy>by2-0.5 && yy<by2){ var ii=Math.floor(bx2/dx)+1; if(ii<nx) c[j*nx+ii]=1; }
+    }
+  }
+  return {
+    nx:nx, ny:ny, dx:dx, dy:dy, Lx:Lx, Ly:Ly, c:c, u:u, v:v,
+    bx1:bx1, bx2:bx2, by1:by1, by2:by2,
+    advance:function(){
+      T+=0.033; field(T);
+      var dt=0.32*dx/12;
+      for(var s=0;s<7;s++) step(dt);
+    },
+    profile:function(h,n){
+      var j=Math.min(ny-1,Math.max(0,Math.floor(h/dy)));
+      var out=new Float32Array(n);
+      for(var k=0;k<n;k++){
+        var x=bx2+(k/(n-1))*17;
+        var i=Math.min(nx-1,Math.floor(x/dx));
+        out[k]=c[j*nx+i];
+      }
+      return out;
+    }
+  };
+}
+function makeCfd(){
+  var off=null, octx=null, img=null;
+  function ensure(){
+    if(!SIM){
+      SIM=makeSim(220,44);
+      for(var w=0;w<70;w++) SIM.advance();
+    }
+    if(!off){
+      off=document.createElement("canvas");
+      off.width=SIM.nx; off.height=SIM.ny;
+      octx=off.getContext("2d");
+      img=octx.createImageData(SIM.nx,SIM.ny);
+    }
+  }
+  function paint(o,which,dx,dy,dw,dh){
+    var d=img.data, nx=SIM.nx, ny=SIM.ny;
+    for(var j=0;j<ny;j++){
+      var row=(ny-1-j)*nx;
+      for(var i=0;i<nx;i++){
+        var id=j*nx+i, val, lut, li;
+        if(which===0){ val=SIM.u[id]/10; lut=LUT_DIV; }
+        else if(which===1){ val=SIM.v[id]/4; lut=LUT_DIV; }
+        else { val=SIM.c[id]; lut=LUT_SEQ; }
+        li=Math.round(which<2 ? (val*0.5+0.5)*255 : val*255);
+        li=li<0?0:(li>255?255:li);
+        var p=(row+i)*4;
+        d[p]=lut[li*3]; d[p+1]=lut[li*3+1]; d[p+2]=lut[li*3+2]; d[p+3]=255;
+      }
+    }
+    octx.putImageData(img,0,0);
+    o.ctx.imageSmoothingEnabled=true;
+    o.ctx.imageSmoothingQuality="high";
+    o.ctx.drawImage(off,0,0,nx,ny,dx,dy,dw,dh);
+  }
+  return {
+    init:function(o){
+      var box=o.el.querySelector(".pfd-labels");
+      box.innerHTML="";
+      var titles=["Axial velocity  u","Transverse velocity  v","Normalised concentration"];
+      for(var i=0;i<3;i++){
+        var sp=document.createElement("span");
+        sp.className="key";
+        sp.textContent=titles[i];
+        sp.style.left="10px"; sp.style.transform="none"; sp.style.top=(3.5+i*33.2)+"%";
+        box.appendChild(sp);
+      }
+      var ticks=[0,10,20,30];
+      for(var k=0;k<ticks.length;k++){
+        var tk=document.createElement("span");
+        tk.textContent=ticks[k]+" m";
+        tk.style.left=(1.5+ticks[k]/30*96.5)+"%";
+        tk.style.top="calc(100% - 16px)";
+        box.appendChild(tk);
+      }
+    },
+    layout:function(){},
+    render:function(o,t){
+      var ctx=o.ctx, W=o.W, H=o.H, u=o.res;
+      ensure();
+      if(!REDUCED) SIM.advance();
+      ctx.fillStyle="#090c15"; ctx.fillRect(0,0,W,H);
+      var PAD=6*u, GAP=10*u, BOT=18*u;
+      var ph=(H-2*PAD-2*GAP-BOT)/3, pw=W-2*PAD;
+      for(var p=0;p<3;p++){
+        var top=PAD+p*(ph+GAP);
+        paint(o,p,PAD,top,pw,ph);
+        var sx=pw/SIM.Lx, sy=ph/SIM.Ly;
+        var x1=PAD+SIM.bx1*sx, x2=PAD+SIM.bx2*sx;
+        var y1=top+ph-SIM.by2*sy, y2=top+ph-SIM.by1*sy;
+        ctx.fillStyle="#04050a"; ctx.fillRect(x1,y1,x2-x1,y2-y1);
+        ctx.strokeStyle=rgba(C.orange,.9); ctx.lineWidth=1.4*u;
+        ctx.strokeRect(x1,y1,x2-x1,y2-y1);
+        ctx.fillStyle=rgba(C.orange,.95);
+        ctx.fillRect(x2-1.4*u, y1, 2.8*u, Math.max(2*u,0.5*sy));
+        if(p===2){
+          var yh=top+ph-(SIM.by1+1.5)*sy;
+          ctx.strokeStyle="rgba(232,238,252,.32)"; ctx.setLineDash([4*u,4*u]); ctx.lineWidth=1.2*u;
+          ctx.beginPath(); ctx.moveTo(PAD,yh); ctx.lineTo(W-PAD,yh); ctx.stroke(); ctx.setLineDash([]);
+        }
+        ctx.strokeStyle="rgba(84,104,156,.42)"; ctx.lineWidth=1*u;
+        ctx.strokeRect(PAD,top,pw,ph);
+      }
+    }
+  };
+}
+function makeTrace(){
+  var N=110;
+  return {
+    init:function(o){
+      var box=o.el.querySelector(".pfd-labels");
+      box.innerHTML="";
+      function put(txt,l,tp,cls){
+        var sp=document.createElement("span");
+        sp.textContent=txt; if(cls) sp.className=cls;
+        sp.style.left=l; sp.style.top=tp; sp.style.transform="none";
+        box.appendChild(sp); return sp;
+      }
+      put("1.0","12px","4px"); put("0.5","12px","45%"); put("0","12px","calc(100% - 30px)");
+      var a=put("0 m","7%","calc(100% - 15px)"); a.style.transform="translateX(-50%)";
+      var b=put("8 m","49%","calc(100% - 15px)"); b.style.transform="translateX(-50%)";
+      var c=put("17 m","92%","calc(100% - 15px)"); c.style.transform="translateX(-50%)";
+      put("1.5 m above the bus underside","34%","4px","key");
+    },
+    layout:function(){},
+    render:function(o,t){
+      var ctx=o.ctx,W=o.W,H=o.H,u=o.res,i;
+      ctx.fillStyle="#090c15"; ctx.fillRect(0,0,W,H);
+      var L=30*u, R=W-8*u, B=H-16*u, T=16*u;
+      ctx.strokeStyle="rgba(84,104,156,.24)"; ctx.lineWidth=1*u;
+      for(i=0;i<=4;i++){
+        var gy=T+(B-T)*i/4;
+        ctx.beginPath(); ctx.moveTo(L,gy); ctx.lineTo(R,gy); ctx.stroke();
+      }
+      if(!SIM) return;
+      var prof=SIM.profile(SIM.by1+1.5,N);
+      ctx.beginPath();
+      for(i=0;i<N;i++){
+        var x=L+(R-L)*i/(N-1), y=B-(B-T)*Math.min(1,prof[i]);
+        if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle=rgba(C.orange,.95); ctx.lineWidth=1.8*u; ctx.lineJoin="round"; ctx.stroke();
+      ctx.lineTo(R,B); ctx.lineTo(L,B); ctx.closePath();
+      ctx.fillStyle=rgba(C.orange,.15); ctx.fill();
+      var xm=L+(R-L)*(10/17);
+      ctx.strokeStyle="rgba(232,238,252,.45)"; ctx.setLineDash([4*u,4*u]); ctx.lineWidth=1.2*u;
+      ctx.beginPath(); ctx.moveTo(xm,T); ctx.lineTo(xm,B); ctx.stroke(); ctx.setLineDash([]);
+    }
+  };
+}
+
+/* ============================================================
+   BAR AND DOT CHARTS
+   ============================================================ */
+var BARS = {
+  greenscope:{ unit:" %", max:100, accent:"var(--lime)", rows:[
+    ["Chemical exposure index",88.95],["Global warming potential",82.72],["Water use index",82.72],
+    ["Hazardous material mass",64.46],["Chronic human toxicity",50.54,"low"]]},
+  exergy:{ unit:" %", max:100, accent:"var(--mint)", rows:[
+    ["PEM electrolyser",60],["Steam methane reformer",57]]},
+  flpfeat:{ unit:"", max:0.26, dec:3, accent:"var(--spring)", rows:[
+    ["LUMO (eV)",0.2424],["HOMO (eV)",0.2059],["Sterimol B5",0.1840],
+    ["Sterimol L",0.1574],["HOMO–LUMO gap",0.1291],["Sterimol B1",0.0811]]},
+  flpmodels:{ unit:" kJ/mol", max:50, dec:1, accent:"var(--spring)", rows:[
+    ["Random forest",33.0,null,"R² = 0.41"],["Gradient boosting",40.3,null,"R² = 0.12"],
+    ["Support vector regression",43.9,"low","R² = −0.05"],["Linear regression",46.9,"low","R² = −0.20"],
+    ["Ridge",47.0,"low","R² = −0.20"],["Elastic net",47.0,"low","R² = −0.20"],["Lasso",47.0,"low","R² = −0.20"]]},
+  solvers:{ dot:true, lo:-4700, hi:-4500, accent:"var(--violet)", rows:[
+    ["SCIP",-4640.082,null,"3.330 s"],["SBB",-4556.350,null,"2.720 s"],
+    ["KNITRO",-4556.350,null,"1.623 s"],["DICOPT",-4556.350,null,"0.943 s"]]}
+};
+function buildBars(){
+  var hosts=document.querySelectorAll("[data-bars]");
+  for(var h=0;h<hosts.length;h++){
+    var host=hosts[h], spec=BARS[host.getAttribute("data-bars")];
+    if(!spec) continue;
+    var frag=document.createDocumentFragment();
+    for(var i=0;i<spec.rows.length;i++){
+      var r=spec.rows[i], row=document.createElement("div");
+      row.className="bar-row";
+      var lab=document.createElement("span"); lab.className="lab"; lab.textContent=r[0];
+      var track=document.createElement("div"); track.className="bar-track";
+      var fill=document.createElement("div");
+      if(spec.dot){
+        fill.className="bar-fill dot";
+        var pc=(r[1]-spec.lo)/(spec.hi-spec.lo);
+        fill.style.left=(pc*100)+"%"; fill.style.width="8px"; fill.style.transform="translateX(-50%)";
+        fill.style.background=spec.accent;
+      } else {
+        fill.className="bar-fill"+(r[2]==="low"?" neg":"");
+        fill.style.width=Math.max(1,(r[1]/spec.max)*100)+"%";
+        if(r[2]!=="low") fill.style.background=spec.accent;
+      }
+      track.appendChild(fill);
+      var val=document.createElement("span"); val.className="val";
+      var dec=spec.dec===undefined?2:spec.dec;
+      var num=spec.dot? r[1].toFixed(3) : r[1].toFixed(dec)+(spec.unit||"");
+      val.innerHTML=num+(r[3]?" <em>"+r[3]+"</em>":"");
+      row.appendChild(lab); row.appendChild(track); row.appendChild(val);
+      row.title=r[0]+": "+num+(r[3]?" ("+r[3]+")":"");
+      frag.appendChild(row);
+    }
+    host.appendChild(frag);
+  }
+}
+
+/* ============================================================
+   figure viewer
+   ============================================================ */
+function initPlates(){
+  var lb=document.getElementById("lb");
+  if(!lb) return;
+  var img=lb.querySelector("img"), cap=lb.querySelector("p"), last=null;
+  function open(src,alt,text,btn){
+    last=btn; img.src=src; img.alt=alt; cap.textContent=text;
+    lb.classList.remove("zoomed"); lb.hidden=false;
+    lb.querySelector(".close").focus();
+  }
+  function close(){ lb.hidden=true; img.src=""; if(last) last.focus(); }
+  var btns=document.querySelectorAll(".plate-btn");
+  for(var i=0;i<btns.length;i++){
+    (function(b){
+      b.addEventListener("click",function(){
+        var im=b.querySelector("img");
+        open(im.getAttribute("src"), im.getAttribute("alt"), b.getAttribute("data-cap")||"", b);
+      });
+    })(btns[i]);
+  }
+  img.addEventListener("click",function(){ lb.classList.toggle("zoomed"); });
+  lb.querySelector("[data-lb-close]").addEventListener("click",close);
+  lb.addEventListener("click",function(e){ if(e.target===lb) close(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape" && !lb.hidden) close(); });
+}
+
+/* ============================================================
+   initialisation
+   ============================================================ */
+function boot(){
+  buildBars();
+  initPlates();
+
+  var hero=document.getElementById("plant");
+  if(hero) register(hero, makePlant(), 1.6);
+
+  var stages=document.querySelectorAll("[data-pfd]");
+  for(var i=0;i<stages.length;i++){
+    var key=stages[i].getAttribute("data-pfd");
+    if(PFD[key]) register(stages[i], makePfd(PFD[key]), 2);
+  }
+  var ssEl=document.querySelector("[data-ss-stage]");
+  if(ssEl){
+    var ss=makeSuper();
+    register(ssEl, ss, 2);
+    var btns=document.querySelectorAll("[data-ss]"), note=document.querySelector("[data-ss-note]");
+    for(var b=0;b<btns.length;b++){
+      (function(btn){
+        btn.addEventListener("click",function(){
+          for(var z=0;z<btns.length;z++) btns[z].setAttribute("aria-pressed", btns[z]===btn?"true":"false");
+          ss.setExample(parseInt(btn.getAttribute("data-ss"),10));
+          if(note) note.textContent="SCIP, objective "+ss.getObj();
+        });
+      })(btns[b]);
+    }
+  }
+  var cfdEl=document.querySelector("[data-cfd]");
+  if(cfdEl) register(cfdEl, makeCfd(), 1.5);
+  var trEl=document.querySelector("[data-trace]");
+  if(trEl) register(trEl, makeTrace(), 2);
+
+  if(!REDUCED) requestAnimationFrame(tick);
+
+  var links=document.querySelectorAll(".nav-links a");
+  if(window.IntersectionObserver){
+    var obs=new IntersectionObserver(function(es){
+      for(var j=0;j<es.length;j++){
+        if(!es[j].isIntersecting) continue;
+        var id="#"+es[j].target.id;
+        for(var m=0;m<links.length;m++) links[m].classList.toggle("on", links[m].getAttribute("href")===id);
+      }
+    },{rootMargin:"-45% 0px -45% 0px"});
+    var secs=document.querySelectorAll("section[id]");
+    for(var s=0;s<secs.length;s++) obs.observe(secs[s]);
+  }
+}
+if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot);
+else boot();
+})();
+</script>
+
+</body></html>

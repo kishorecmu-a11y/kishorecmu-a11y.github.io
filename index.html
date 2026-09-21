@@ -171,7 +171,7 @@ figcaption{font-family:var(--mono);font-size:12.5px;letter-spacing:0;color:var(-
 .ramp.div i{background:linear-gradient(90deg,#ff35c8,#5b1d55,#07090f,#0c3f46,#22f0ff)}
 .ramp.seq i{background:linear-gradient(90deg,#07090f,#3b1a6b,#a02597,#ff6a2a,#ffe9b0)}
 
-/* ---------- lot-selection solver ---------- */
+/* ---------- lot-selection scenarios ---------- */
 .ls{min-width:760px;padding:16px 18px 18px}
 .ls-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px}
 .ls-head .t{font-family:var(--pix);font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--a)}
@@ -179,38 +179,60 @@ figcaption{font-family:var(--mono);font-size:12.5px;letter-spacing:0;color:var(-
 .ls-status b{font-weight:600;color:var(--ink)}
 .ls-status b.ok{color:var(--spring);margin-right:8px;letter-spacing:.08em}
 .ls-status b.bad{color:var(--rose);margin-right:8px;letter-spacing:.08em}
-.ls-reset{
-  margin-left:auto;font-family:var(--pix);font-size:10.5px;letter-spacing:.12em;
-  background:transparent;color:var(--dim);border:1px solid var(--rule2);padding:6px 10px;cursor:pointer;
+.ls-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.ls-tabs button{
+  text-align:left;padding:9px 11px;cursor:pointer;background:transparent;
+  border:1px solid var(--rule2);transition:border-color .15s,background .15s;
 }
-.ls-reset:hover{color:var(--ink);border-color:var(--a)}
-.ls-body{display:grid;grid-template-columns:404px minmax(0,1fr);gap:26px;align-items:start}
+.ls-tabs button b{display:block;font-family:var(--pix);font-size:10.5px;font-weight:600;
+  letter-spacing:.1em;color:var(--dim)}
+.ls-tabs button span{display:block;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:3px}
+.ls-tabs button:hover{border-color:var(--a)}
+.ls-tabs button[aria-pressed="true"]{background:rgba(255,53,200,.12);border-color:var(--a)}
+.ls-tabs button[aria-pressed="true"] b{color:var(--a)}
+.ls-tabs button[aria-pressed="true"] span{color:var(--ink)}
+.ls-body{display:grid;grid-template-columns:330px minmax(0,1fr);gap:26px;align-items:start}
 .ls-sub{font-family:var(--pix);font-size:10.5px;letter-spacing:.14em;color:var(--dim);margin-bottom:10px}
-.ls-spec{display:grid;grid-template-columns:76px minmax(0,1fr) 74px;gap:10px;align-items:center;padding:4px 0}
-.ls-lab{font-family:var(--pix);font-size:10px;font-weight:600;letter-spacing:.06em;color:var(--ink)}
-.ls-pair{display:grid;gap:3px}
-.ls-pair label{display:grid;grid-template-columns:24px minmax(0,1fr);gap:6px;align-items:center}
-.ls-pair i{font-family:var(--mono);font-style:normal;font-size:9.5px;color:var(--faint)}
-.ls-spec .ls-val{font-family:var(--mono);font-size:11px;color:var(--dim);text-align:right;white-space:nowrap}
-.ls-spec .ls-val b{color:var(--a);font-weight:600}
-.ls input[type=range]{
-  -webkit-appearance:none;appearance:none;width:100%;height:3px;background:var(--rule2);
-  border-radius:2px;outline:none;cursor:pointer;margin:0;
+.ls-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px}
+.ls-table th{
+  font-family:var(--pix);font-size:9.5px;font-weight:600;letter-spacing:.12em;color:var(--faint);
+  text-align:right;padding:0 0 7px;border-bottom:1px solid var(--rule2);
 }
-.ls input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;
-  background:var(--a);border:2px solid var(--void);cursor:grab;
-}
-.ls input[type=range]::-moz-range-thumb{
-  width:13px;height:13px;border-radius:50%;background:var(--a);border:2px solid var(--void);cursor:grab;
-}
-.ls-note{font-family:var(--mono);font-size:10.5px;line-height:1.6;color:var(--dim);margin-top:14px;
+.ls-table th:first-child{text-align:left}
+.ls-table td{padding:6px 0;border-bottom:1px solid var(--rule);text-align:right;color:var(--ink);
+  font-variant-numeric:tabular-nums}
+.ls-table td.k{text-align:left;font-family:var(--pix);font-size:10px;font-weight:600;
+  letter-spacing:.06em;color:var(--dim)}
+.ls-table td.chg{color:var(--a);font-weight:600}
+.ls-table td.chg::after{content:"◂";margin-left:5px;font-size:9px;vertical-align:1px}
+.ls-why{font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--dim);margin-top:14px}
+.ls-note{font-family:var(--mono);font-size:10.5px;line-height:1.6;color:var(--dim);margin-top:16px;
   padding-top:12px;border-top:1px solid var(--rule)}
 .ls-viz svg{width:100%;height:auto;display:block;overflow:visible}
 .ls-hint{font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--dim);
   margin-top:12px;padding-top:12px;border-top:1px solid var(--rule)}
 .ls-hint b{color:var(--rose);font-weight:600}
-.ls-hint .ls-try{color:var(--faint)}
+/* the notification that names the excluded lot */
+.ls-alert{
+  display:flex;gap:11px;align-items:flex-start;margin-top:14px;padding:12px 15px;
+  background:linear-gradient(90deg,rgba(255,53,200,.16),rgba(255,53,200,.05));
+  border:1px solid var(--a);border-left-width:3px;
+}
+.ls-alert i{
+  flex:none;width:9px;height:9px;margin-top:5px;border-radius:50%;background:var(--a);
+  box-shadow:0 0 0 4px rgba(255,53,200,.22);animation:lsping 1.8s ease-out infinite;
+}
+.ls-alert span{font-family:var(--mono);font-size:12px;line-height:1.58;color:var(--ink)}
+.ls-alert b{color:var(--a);font-weight:600}
+.ls-alert.pop{animation:lspop .42s cubic-bezier(.16,1,.3,1) both}
+@keyframes lspop{from{opacity:0;transform:translateY(8px) scale(.975)}to{opacity:1;transform:none}}
+@keyframes lsping{0%{box-shadow:0 0 0 0 rgba(255,53,200,.5)}70%,100%{box-shadow:0 0 0 9px rgba(255,53,200,0)}}
+.ls-lot.off.out .ls-lotc{stroke:var(--a);stroke-opacity:.9;animation:lsring 1.8s ease-out infinite}
+.ls-lot.off.out .ls-lotn,.ls-lot.off.out .ls-lotlab{fill:var(--a);opacity:1}
+@keyframes lsring{0%{stroke-width:2}50%{stroke-width:3.4}100%{stroke-width:2}}
+@media(prefers-reduced-motion:reduce){
+  .ls-alert.pop{animation:none}.ls-alert i{animation:none}.ls-lot.off.out .ls-lotc{animation:none}
+}
 /* diagram */
 .ls-lotc{fill:var(--a);fill-opacity:.16;stroke:var(--a);stroke-width:2;transition:fill-opacity .25s,stroke-opacity .25s}
 .ls-lot.off .ls-lotc{fill-opacity:0;stroke:var(--rule2)}
@@ -474,23 +496,24 @@ footer{
         <div class="ls-head">
           <span class="t">LOT SELECTION · MODEL 1 (MILP)</span>
           <span class="ls-status" data-ls-status></span>
-          <button type="button" class="ls-reset" data-ls-reset>RESET TO THE REPORT</button>
         </div>
+        <div class="ls-tabs" data-ls-tabs role="group" aria-label="Specification scenario"></div>
         <div class="ls-body">
           <div>
-            <p class="ls-sub">SPECIFICATIONS — DRAG TO CHANGE</p>
-            <div data-ls-specs></div>
-            
+            <p class="ls-sub">SPECIFICATIONS · % OF STREAM</p>
+            <table class="ls-table" data-ls-table></table>
+            <p class="ls-why" data-ls-why></p>
           </div>
           <div class="ls-viz">
             <svg viewBox="0 0 1016 416" role="img" aria-label="Five candidate lots feeding a blender and a smelter, with the metal and slag analyses" data-ls-svg></svg>
+            <div class="ls-alert" data-ls-alert role="status" aria-live="polite"></div>
             <p class="ls-hint" data-ls-hint></p>
           </div>
         </div>
-        <p class="ls-note">Five lots, stock amounts and assays fixed as in the report's motivating example. Distribution coefficients: Cu 70 % to metal and 30 % to slag; Ni 20 % to metal and 80 % to slag. Blend weight bounded between 1,000 and 2,000 kg. The model maximises total blend weight subject to every blend and product specification, and is solved here by complete enumeration of the 32 lot combinations.</p>
+        <p class="ls-note">Five lots, stock amounts and assays fixed as in the report's motivating example. Distribution coefficients: Cu 70 % to metal and 30 % to slag; Ni 20 % to metal and 80 % to slag. Blend weight bounded between 1,000 and 2,000 kg. Each scenario was solved in advance by maximising total blend weight over all 32 lot combinations subject to every blend and product specification; the page plays back the stored result.</p>
       </div>
     </div>
-    <figcaption>Fig. 2 — the lot-selection model, live. Move any specification and the MILP is re-solved: the lots that enter the blend, the blend composition and both product analyses all follow. The plant's reported analyses, shown blinking, sit two to three percent away from the prediction — the discrepancy the calibration layer exists to correct.</figcaption>
+    <figcaption>Fig. 2 — the lot-selection model. Four specification scenarios, each solved beforehand: pick one and the lots entering the blend, the blend composition and both product analyses follow. The plant's reported analyses, shown blinking, sit two to three percent away from the prediction — the discrepancy the calibration layer exists to correct.</figcaption>
   </figure>
 
   <figure>
@@ -2491,178 +2514,106 @@ function buildBars(){
    ============================================================ */
 /* ============================================================
    lot selection - Model 1 (MILP), motivating example
-   Five lots with fixed stock and assay; the user moves the blend and
-   product specifications and the widget re-solves. With only five lots
-   the MILP is solved exactly by enumerating all 32 subsets, applying
-   equations (1)-(14): blender mass and elemental balance, all-or-nothing
-   lot usage, blend and product specification, and max total blend weight.
+   Five lots, stock and assay fixed. Four specification scenarios, each
+   solved beforehand from equations (1)-(14): blender mass and elemental
+   balance, all-or-nothing lot usage, blend and product specification,
+   maximise total blend weight. The page only plays the stored results,
+   so nothing is solved in the browser.
    ============================================================ */
 function initLotSel(){
   var root=document.querySelector("[data-lotsel]");
   if(!root) return;
 
-  var EL=["Cu","Ni"], PR=["metal","slag"];
   var LOTS=[{n:"Lot 1",s:600,Cu:95,Ni:5},
             {n:"Lot 2",s:300,Cu:88,Ni:12},
             {n:"Lot 3",s:500,Cu:55,Ni:45},
             {n:"Lot 4",s:400,Cu:72,Ni:28},
             {n:"Lot 5",s:200,Cu:40,Ni:60}];
-  /* fraction of each element reporting to each product */
-  var DC={metal:{Cu:70,Ni:20}, slag:{Cu:30,Ni:80}};
-  var BTMIN=1000, BTMAX=2000;
+  var SCEN=[{"id":"A","name":"BASE SPECIFICATION","note":"The blend and product specifications as published: metal held between 10 and 20 % nickel.","alert":"<b>Lot 2 is left out.</b> Adding its 300 kg would take the metal to 9.19 % nickel — under the 10 % floor. The richest-looking blend is not the feasible one.","out":2,"spec":{"blend":{"Cu":[70,90],"Ni":[10,30]},"metal":{"Cu":[80,100],"Ni":[10,20]},"slag":{"Cu":[40,60],"Ni":[40,60]}},"feasible":true,"sel":[1,3,4,5],"BT":1700,"BF":{"Cu":1213.0,"Ni":487.0},"prod":{"metal":{"amt":946.5,"model":[89.71,10.29],"plant":[92.04,10.05],"err":[2.6,2.3]},"slag":{"amt":753.5,"model":[48.29,51.71],"plant":[46.94,53.05],"err":[2.8,2.6]}}},{"id":"B","name":"HIGH-GRADE METAL","note":"A premium metal demanded: copper raised to at least 92 %, with the nickel window widened to 2–20 %.","alert":"<b>Lot 5 is left out.</b> At 40 % copper it drags the metal below the new 92 % floor, so the model trades it for Lot 2 and gains 100 kg of blend.","out":5,"spec":{"blend":{"Cu":[70,90],"Ni":[10,30]},"metal":{"Cu":[92,100],"Ni":[2,20]},"slag":{"Cu":[40,60],"Ni":[40,60]}},"feasible":true,"sel":[1,2,3,4],"BT":1800,"BF":{"Cu":1397.0,"Ni":403.0},"prod":{"metal":{"amt":1058.5,"model":[92.39,7.61],"plant":[94.42,7.41],"err":[2.2,2.7]},"slag":{"amt":741.5,"model":[56.52,43.48],"plant":[55.39,44.52],"err":[2.0,2.4]}}},{"id":"C","name":"COPPER-CAPPED BLEND","note":"A blend the converter can take: copper capped at 70 %, with the nickel window opened to 10–40 %.","alert":"<b>Lot 1 is left out</b> — the richest lot on the quay. Its 95 % copper would push the blend straight through the 70 % ceiling, so the four leaner lots are bought instead.","out":1,"spec":{"blend":{"Cu":[60,70],"Ni":[10,40]},"metal":{"Cu":[80,100],"Ni":[10,20]},"slag":{"Cu":[40,60],"Ni":[40,60]}},"feasible":true,"sel":[2,3,4,5],"BT":1400,"BF":{"Cu":907.0,"Ni":493.0},"prod":{"metal":{"amt":733.5,"model":[86.56,13.44],"plant":[84.39,13.74],"err":[2.5,2.2]},"slag":{"amt":666.5,"model":[40.83,59.17],"plant":[41.81,57.93],"err":[2.4,2.1]}}}];
+  var ROWS=[["blend","Cu","BLEND · Cu"],["blend","Ni","BLEND · Ni"],
+            ["metal","Cu","METAL · Cu"],["metal","Ni","METAL · Ni"],
+            ["slag","Cu","SLAG · Cu"],["slag","Ni","SLAG · Ni"]];
+  var BASE=SCEN[0].spec;
+  var cur=null;
 
-  var SPEC=[
-    {k:"blend", e:"Cu", lab:"BLEND · Cu", lo:70, hi:90,  min:40, max:100},
-    {k:"blend", e:"Ni", lab:"BLEND · Ni", lo:10, hi:30,  min:0,  max:60},
-    {k:"metal", e:"Cu", lab:"METAL · Cu", lo:80, hi:100, min:50, max:100},
-    {k:"metal", e:"Ni", lab:"METAL · Ni", lo:10, hi:20,  min:0,  max:40},
-    {k:"slag",  e:"Cu", lab:"SLAG · Cu",  lo:40, hi:60,  min:0,  max:100},
-    {k:"slag",  e:"Ni", lab:"SLAG · Ni",  lo:40, hi:60,  min:0,  max:100}
-  ];
-  var DEF=[]; for(var q=0;q<SPEC.length;q++) DEF.push([SPEC[q].lo, SPEC[q].hi]);
-
-  function spec(k,e){
-    for(var i=0;i<SPEC.length;i++) if(SPEC[i].k===k && SPEC[i].e===e) return SPEC[i];
-    return null;
+  /* ---------------- scenario buttons ---------------- */
+  var tabs=root.querySelector("[data-ls-tabs]"), tabEls=[];
+  for(var i=0;i<SCEN.length;i++){
+    (function(sc,idx){
+      var b=document.createElement("button");
+      b.type="button"; b.setAttribute("aria-pressed", idx===0?"true":"false");
+      b.innerHTML='<b>'+sc.name+'</b><span>'+(sc.feasible
+        ? "lots "+sc.sel.join(", ")+" · "+sc.BT.toLocaleString()+" kg"
+        : "no feasible blend")+'</span>';
+      b.addEventListener("click",function(){ select(idx); });
+      tabs.appendChild(b); tabEls.push(b);
+    })(SCEN[i], i);
   }
 
-  /* ---- the MILP, solved by complete enumeration ---- */
-  function solve(){
-    var best=null;
-    for(var m=0;m<32;m++){
-      var sel=[], BT=0, i, e, p;
-      for(i=0;i<5;i++) if(m>>i & 1){ sel.push(i); BT+=LOTS[i].s; }
-      if(BT<BTMIN-1e-9 || BT>BTMAX+1e-9) continue;               // eq. 6-7
-      var BF={}, ok=true;
-      for(e=0;e<EL.length;e++){                                   // eq. 2
-        var t=0;
-        for(i=0;i<sel.length;i++) t += LOTS[sel[i]].s*LOTS[sel[i]][EL[e]]/100;
-        BF[EL[e]]=t;
-      }
-      for(e=0;e<EL.length;e++){                                   // eq. 4-5
-        var sp=spec("blend",EL[e]);
-        if(BF[EL[e]] < sp.lo*BT/100-1e-7 || BF[EL[e]] > sp.hi*BT/100+1e-7){ ok=false; break; }
-      }
-      if(!ok) continue;
-      var PEF={}, PT={};
-      for(p=0;p<PR.length;p++){                                   // eq. 8-9
-        var tot=0; PEF[PR[p]]={};
-        for(e=0;e<EL.length;e++){
-          var v=BF[EL[e]]*DC[PR[p]][EL[e]]/100;
-          PEF[PR[p]][EL[e]]=v; tot+=v;
-        }
-        PT[PR[p]]=tot;
-      }
-      for(p=0;p<PR.length && ok;p++){                             // eq. 11-12
-        for(e=0;e<EL.length;e++){
-          var s2=spec(PR[p],EL[e]), lim=PT[PR[p]];
-          if(PEF[PR[p]][EL[e]] < s2.lo*lim/100-1e-7 ||
-             PEF[PR[p]][EL[e]] > s2.hi*lim/100+1e-7){ ok=false; break; }
-        }
-      }
-      if(!ok) continue;
-      if(!best || BT>best.BT) best={sel:sel,BT:BT,BF:BF,PEF:PEF,PT:PT};   // eq. 14
-    }
-    return best;
-  }
-
-  /* plant-reported analyses sit 2-3% away from what the model predicts */
-  function plantErr(seed){
-    var x=Math.sin(seed*12.9898)*43758.5453;
-    x=x-Math.floor(x);
-    return (0.02+0.01*x)*(seed%2 ? -1 : 1);
-  }
-
-  /* ---------------- specification controls ---------------- */
-  var specHost=root.querySelector("[data-ls-specs]");
-  var rowEls=[];
-  for(var r=0;r<SPEC.length;r++){
-    (function(sp,idx){
-      var row=document.createElement("div"); row.className="ls-spec";
-      row.innerHTML='<span class="ls-lab">'+sp.lab+'</span>'+
-        '<span class="ls-pair"><label><i>min</i>'+
-        '<input type="range" min="'+sp.min+'" max="'+sp.max+'" step="0.5" value="'+sp.lo+'"'+
-        ' aria-label="'+sp.lab+' minimum"></label>'+
-        '<label><i>max</i>'+
-        '<input type="range" min="'+sp.min+'" max="'+sp.max+'" step="0.5" value="'+sp.hi+'"'+
-        ' aria-label="'+sp.lab+' maximum"></label></span>'+
-        '<span class="ls-val"><b></b>–<b></b> %</span>';
-      var ins=row.querySelectorAll("input"), outs=row.querySelectorAll(".ls-val b");
-      function pull(which){
-        var lo=parseFloat(ins[0].value), hi=parseFloat(ins[1].value);
-        if(which===0 && lo>hi){ hi=lo; ins[1].value=hi; }
-        if(which===1 && hi<lo){ lo=hi; ins[0].value=lo; }
-        sp.lo=lo; sp.hi=hi; render();
-      }
-      ins[0].addEventListener("input",function(){ pull(0); });
-      ins[1].addEventListener("input",function(){ pull(1); });
-      specHost.appendChild(row);
-      rowEls.push({sp:sp, ins:ins, outs:outs});
-    })(SPEC[r], r);
+  /* ---------------- specification table ---------------- */
+  var table=root.querySelector("[data-ls-table]");
+  table.innerHTML='<thead><tr><th>Specification</th><th>Min</th><th>Max</th></tr></thead><tbody></tbody>';
+  var tbody=table.querySelector("tbody"), cellEls=[];
+  for(i=0;i<ROWS.length;i++){
+    var tr=document.createElement("tr");
+    tr.innerHTML='<td class="k">'+ROWS[i][2]+'</td><td></td><td></td>';
+    tbody.appendChild(tr);
+    cellEls.push(tr.querySelectorAll("td"));
   }
 
   /* ---------------- diagram ---------------- */
   var NS="http://www.w3.org/2000/svg";
   function node(t,a){ var n=document.createElementNS(NS,t); for(var k in a) n.setAttribute(k,a[k]); return n; }
-  function text(x,y,s,cls,anchor){
+  function text(x,y,s2,cls,anchor){
     var n=node("text",{x:x,y:y,class:cls||"",'text-anchor':anchor||"start"});
-    n.textContent=s; return n;
+    n.textContent=s2; return n;
   }
 
   var svg=root.querySelector("[data-ls-svg]");
-  var BX=412, BY=210, BR=56, BH=104;        // blender
-  var SX=700, SY=210, SW=124, SH=76;        // smelter
+  var BX=412, BY=210, BR=56, BH=104;
+  var SX=700, SY=210, SW=124, SH=76;
   var lotY=[56,132,208,284,360], LOTX=64, LR=26;
   var gStatic=node("g",{}), gFlow=node("g",{}), gLive=node("g",{});
 
-  // lots
   var lotNodes=[];
-  for(var i=0;i<5;i++){
+  for(i=0;i<5;i++){
     var g=node("g",{class:"ls-lot"});
-    var c=node("circle",{cx:LOTX,cy:lotY[i],r:LR,class:"ls-lotc"});
-    g.appendChild(c);
+    g.appendChild(node("circle",{cx:LOTX,cy:lotY[i],r:LR,class:"ls-lotc"}));
     g.appendChild(text(LOTX,lotY[i]+5,String(i+1),"ls-lotn","middle"));
     g.appendChild(text(LOTX+38,lotY[i]-3,LOTS[i].n+"  ·  "+LOTS[i].s+" kg","ls-lotlab"));
     g.appendChild(text(LOTX+38,lotY[i]+14,"Cu "+LOTS[i].Cu+"  ·  Ni "+LOTS[i].Ni,"ls-lotsub"));
-    gStatic.appendChild(g);
-    lotNodes.push(g);
+    gStatic.appendChild(g); lotNodes.push(g);
   }
-  // arrows lot -> blender
   var lotLine=[];
   for(i=0;i<5;i++){
     var x1=LOTX+160, y1=lotY[i], x2=BX-BR-8, y2=BY-46+23*i;
-    var ln=node("line",{x1:x1,y1:y1,x2:x2,y2:y2,class:"ls-arc"});
-    gStatic.appendChild(ln);
+    gStatic.appendChild(node("line",{x1:x1,y1:y1,x2:x2,y2:y2,class:"ls-arc"}));
     lotLine.push([x1,y1,x2,y2]);
   }
-  // blender
   gStatic.appendChild(node("ellipse",{cx:BX,cy:BY-BH/2,rx:BR,ry:16,class:"ls-vessel"}));
   gStatic.appendChild(node("path",{d:"M"+(BX-BR)+" "+(BY-BH/2)+" L"+(BX-BR)+" "+(BY+BH/2)+
       " A"+BR+" 16 0 0 0 "+(BX+BR)+" "+(BY+BH/2)+" L"+(BX+BR)+" "+(BY-BH/2),class:"ls-vessel"}));
   gStatic.appendChild(text(BX,BY+5,"BLENDER","ls-unit","middle"));
-  // blender -> smelter
   var bsLine=[BX+BR+8,BY,SX-SW/2-8,SY];
   gStatic.appendChild(node("line",{x1:bsLine[0],y1:bsLine[1],x2:bsLine[2],y2:bsLine[3],class:"ls-arc main"}));
-  // smelter
   gStatic.appendChild(node("rect",{x:SX-SW/2,y:SY-SH/2,width:SW,height:SH,rx:3,class:"ls-smelt"}));
   gStatic.appendChild(text(SX,SY+5,"SMELTER","ls-unit","middle"));
-  // smelter -> products
-  var PXL=800, pY=[112,308];
-  var spLine=[[SX+SW/2+8,SY-14,PXL-10,pY[0]+6],[SX+SW/2+8,SY+14,PXL-10,pY[1]+6]];
-  for(i=0;i<2;i++) gStatic.appendChild(node("line",{x1:spLine[i][0],y1:spLine[i][1],
-      x2:spLine[i][2],y2:spLine[i][3],class:"ls-arc main"}));
-  gStatic.appendChild(text(PXL+206, 380, "model = MILP prediction   ·   plant = reported by the smelter   ·   analyses in %", "ls-foot", "end"));
+  var PXL=800, pY=[112,308], spLine=[];
+  for(i=0;i<2;i++){
+    spLine.push([SX+SW/2+8, SY+(i?14:-14), PXL-10, pY[i]+6]);
+    gStatic.appendChild(node("line",{x1:spLine[i][0],y1:spLine[i][1],x2:spLine[i][2],y2:spLine[i][3],class:"ls-arc main"}));
+  }
+  gStatic.appendChild(text(PXL+206, 380,
+    "model = MILP prediction   ·   plant = reported by the smelter   ·   analyses in %","ls-foot","end"));
   svg.appendChild(gStatic); svg.appendChild(gFlow); svg.appendChild(gLive);
 
-  // live text on the blend line and the product panels
   var tBlend=text((bsLine[0]+bsLine[2])/2, BY-18,"","ls-flow","middle");
   var tBlend2=text((bsLine[0]+bsLine[2])/2, BY+30,"","ls-flowsub","middle");
   gLive.appendChild(tBlend); gLive.appendChild(tBlend2);
 
-  var panels={};
+  var PR=["metal","slag"], panels={};
   for(i=0;i<2;i++){
-    var p=PR[i], y0=pY[i]-44;
-    var g2=node("g",{class:"ls-panel "+p});
+    var p=PR[i], y0=pY[i]-44, g2=node("g",{class:"ls-panel "+p});
     g2.appendChild(node("rect",{x:PXL,y:y0,width:206,height:100,rx:3,class:"ls-pbox"}));
     var tt=text(PXL+12,y0+22,p.toUpperCase(),"ls-ptitle");
     var am=text(PXL+194,y0+22,"","ls-pamt","end");
@@ -2671,110 +2622,95 @@ function initLotSel(){
     var dl=text(PXL+12,y0+90,"","ls-pdelta");
     g2.appendChild(tt); g2.appendChild(am); g2.appendChild(md); g2.appendChild(pl); g2.appendChild(dl);
     gLive.appendChild(g2);
-    panels[p]={amt:am, model:md, plant:pl, delta:dl, box:g2};
+    panels[p]={amt:am, model:md, plant:pl, delta:dl};
   }
 
   var statusEl=root.querySelector("[data-ls-status]");
+  var alertEl=root.querySelector("[data-ls-alert]");
+  var whyEl=root.querySelector("[data-ls-why]");
   var hintEl=root.querySelector("[data-ls-hint]");
-  var cur=null;
 
-  function render(){
-    for(var r2=0;r2<rowEls.length;r2++){
-      rowEls[r2].outs[0].textContent=rowEls[r2].sp.lo;
-      rowEls[r2].outs[1].textContent=rowEls[r2].sp.hi;
+  function select(idx){
+    var sc=SCEN[idx]; cur=sc;
+    for(var t=0;t<tabEls.length;t++) tabEls[t].setAttribute("aria-pressed", t===idx?"true":"false");
+
+    for(var r=0;r<ROWS.length;r++){
+      var p=ROWS[r][0], e=ROWS[r][1];
+      var v=sc.spec[p][e], b=BASE[p][e];
+      cellEls[r][1].textContent=v[0]; cellEls[r][2].textContent=v[1];
+      cellEls[r][1].className=(v[0]!==b[0]?"chg":"");
+      cellEls[r][2].className=(v[1]!==b[1]?"chg":"");
     }
-    var sol=solve();
-    cur=sol;
-    root.classList.toggle("infeasible", !sol);
-    for(var i=0;i<5;i++){
-      var on = sol && sol.sel.indexOf(i)>=0;
-      lotNodes[i].setAttribute("class","ls-lot"+(on?" on":" off"));
-      gStatic.querySelectorAll(".ls-arc")[i].setAttribute("class","ls-arc"+(on?" on":""));
+    whyEl.textContent=sc.note;
+    root.classList.toggle("infeasible", !sc.feasible);
+
+    for(var i2=0;i2<5;i2++){
+      var on = sc.feasible && sc.sel.indexOf(i2+1)>=0;
+      lotNodes[i2].setAttribute("class","ls-lot"+(on?" on":" off")+(sc.out===i2+1?" out":""));
+      gStatic.querySelectorAll(".ls-arc")[i2].setAttribute("class","ls-arc"+(on?" on":""));
     }
-    if(!sol){
+
+    /* the reason this scenario differs, announced */
+    if(alertEl){
+      alertEl.innerHTML='<i aria-hidden="true"></i><span>'+(sc.alert||"")+'</span>';
+      alertEl.classList.remove("pop");
+      void alertEl.offsetWidth;            // restart the animation
+      alertEl.classList.add("pop");
+    }
+
+    if(!sc.feasible){
       statusEl.innerHTML='<b class="bad">INFEASIBLE</b> no combination of the five lots meets these specifications';
-      tBlend.textContent=""; tBlend2.textContent="";
-      for(var p2=0;p2<PR.length;p2++){
-        var pn=panels[PR[p2]];
-        pn.amt.textContent=""; pn.model.textContent=""; pn.plant.textContent=""; pn.delta.textContent="";
+      tBlend.textContent="—"; tBlend2.textContent="";
+      for(var k=0;k<PR.length;k++){
+        var pn=panels[PR[k]];
+        pn.amt.textContent="—"; pn.model.textContent=""; pn.plant.textContent=""; pn.delta.textContent="";
       }
-      hintEl.textContent="Widen a range until a feasible blend appears — the report's own specifications select Lots 1, 3, 4 and 5.";
+      hintEl.textContent="";
       return;
     }
-    var names=[]; for(i=0;i<sol.sel.length;i++) names.push(String(sol.sel[i]+1));
-    statusEl.innerHTML='<b class="ok">OPTIMAL</b> lots '+names.join(", ")+
-                       ' · blend <b>'+sol.BT.toLocaleString()+' kg</b>';
-    tBlend.textContent=sol.BT.toLocaleString()+" kg";
-    tBlend2.textContent="Cu "+sol.BF.Cu.toFixed(0)+" · Ni "+sol.BF.Ni.toFixed(0)+" kg";
 
-    var k=0, worst=0;
-    for(var p3=0;p3<PR.length;p3++){
-      var pr=PR[p3], PT=sol.PT[pr], pn2=panels[pr];
-      var mCu=100*sol.PEF[pr].Cu/PT, mNi=100*sol.PEF[pr].Ni/PT;
-      var eCu=plantErr(sol.BT/100+k+1); k++;
-      var eNi=plantErr(sol.BT/100+k+1); k++;
-      var aCu=mCu*(1+eCu), aNi=mNi*(1+eNi);
-      worst=Math.max(worst, Math.abs(eCu), Math.abs(eNi));
-      pn2.amt.textContent=PT.toFixed(1)+" kg";
-      pn2.model.textContent="model   Cu "+mCu.toFixed(2)+"   Ni "+mNi.toFixed(2);
-      pn2.plant.textContent="plant   Cu "+aCu.toFixed(2)+"   Ni "+aNi.toFixed(2);
-      pn2.delta.textContent="Δ "+(Math.abs(eCu)*100).toFixed(1)+" %  ·  "+(Math.abs(eNi)*100).toFixed(1)+" %";
+    statusEl.innerHTML='<b class="ok">OPTIMAL</b> lots '+sc.sel.join(", ")+
+                       ' · blend <b>'+sc.BT.toLocaleString()+' kg</b>';
+    tBlend.textContent=sc.BT.toLocaleString()+" kg";
+    tBlend2.textContent="Cu "+sc.BF.Cu+" · Ni "+sc.BF.Ni+" kg";
+    var worst=0;
+    for(var k2=0;k2<PR.length;k2++){
+      var pr=PR[k2], d=sc.prod[pr], pn2=panels[pr];
+      worst=Math.max(worst, d.err[0], d.err[1]);
+      pn2.amt.textContent=d.amt.toFixed(1)+" kg";
+      pn2.model.textContent="model   Cu "+d.model[0].toFixed(2)+"   Ni "+d.model[1].toFixed(2);
+      pn2.plant.textContent="plant   Cu "+d.plant[0].toFixed(2)+"   Ni "+d.plant[1].toFixed(2);
+      pn2.delta.textContent="Δ "+d.err[0].toFixed(1)+" %  ·  "+d.err[1].toFixed(1)+" %";
     }
-    hintEl.innerHTML="The plant reports analyses <b>"+(worst*100).toFixed(1)+
-      " %</b> away from the prediction — the error is in the lot assays, not the model. "+
-      "That is what the calibration layer below corrects. "+
-      "<span class=\"ls-try\">Try: drop METAL · Ni min below 9.2 % and all five lots are selected.</span>";
+    hintEl.innerHTML="Whichever lots are bought, the plant then reports analyses up to <b>"+worst.toFixed(1)+
+      " %</b> away from the prediction — an error in the lot assays, not in the model, and the reason for the calibration layer below.";
   }
 
   /* ---------------- flow animation ---------------- */
   var dots=[];
-  function dot(cls){ var d=node("circle",{r:3.1,class:"ls-dot "+cls}); gFlow.appendChild(d); return d; }
-  for(var i2=0;i2<5;i2++) for(var j=0;j<2;j++) dots.push({el:dot("lot"), path:i2, off:j/2});
-  for(var j2=0;j2<4;j2++) dots.push({el:dot("main"), path:5, off:j2/4});
-  for(var j3=0;j3<3;j3++) dots.push({el:dot("metal"), path:6, off:j3/3});
-  for(var j4=0;j4<3;j4++) dots.push({el:dot("slag"),  path:7, off:j4/3});
+  function dot(cls){ var d2=node("circle",{r:3.1,class:"ls-dot "+cls}); gFlow.appendChild(d2); return d2; }
+  for(var a=0;a<5;a++) for(var b2=0;b2<2;b2++) dots.push({el:dot("lot"), path:a, off:b2/2});
+  for(var c=0;c<4;c++) dots.push({el:dot("main"),  path:5, off:c/4});
+  for(var d3=0;d3<3;d3++) dots.push({el:dot("metal"),path:6, off:d3/3});
+  for(var e2=0;e2<3;e2++) dots.push({el:dot("slag"), path:7, off:e2/3});
 
-  function pathOf(k){
-    if(k<5) return lotLine[k];
-    if(k===5) return bsLine;
-    return spLine[k-6];
+  function pathOf(k){ return k<5 ? lotLine[k] : (k===5 ? bsLine : spLine[k-6]); }
+  function place(u){
+    for(var d4=0;d4<dots.length;d4++){
+      var it=dots[d4], live = cur && cur.feasible &&
+        (it.path<5 ? cur.sel.indexOf(it.path+1)>=0 : true);
+      if(!live){ it.el.setAttribute("opacity","0"); continue; }
+      var w=(u+it.off)%1, pth=pathOf(it.path);
+      it.el.setAttribute("cx", pth[0]+(pth[2]-pth[0])*w);
+      it.el.setAttribute("cy", pth[1]+(pth[3]-pth[1])*w);
+      it.el.setAttribute("opacity", String(0.25+0.75*Math.sin(Math.PI*w)));
+    }
   }
   var t0=0;
-  function frame(ts){
-    if(!t0) t0=ts;
-    var t=((ts-t0)/2600)%1;
-    for(var d=0;d<dots.length;d++){
-      var it=dots[d], k=it.path, live;
-      if(k<5) live = !!(cur && cur.sel.indexOf(k)>=0);
-      else    live = !!cur;
-      if(!live){ it.el.setAttribute("opacity","0"); continue; }
-      var u=(t+it.off)%1, pth=pathOf(k);
-      it.el.setAttribute("cx", pth[0]+(pth[2]-pth[0])*u);
-      it.el.setAttribute("cy", pth[1]+(pth[3]-pth[1])*u);
-      it.el.setAttribute("opacity", String(0.25+0.75*Math.sin(Math.PI*u)));
-    }
-    requestAnimationFrame(frame);
-  }
-  if(!REDUCED) requestAnimationFrame(frame);
-  else { t0=0; var one=function(ts){ for(var d=0;d<dots.length;d++){ var it=dots[d];
-        var live = it.path<5 ? !!(cur&&cur.sel.indexOf(it.path)>=0) : !!cur;
-        if(!live){ it.el.setAttribute("opacity","0"); continue; }
-        var pth=pathOf(it.path), u=0.5;
-        it.el.setAttribute("cx",pth[0]+(pth[2]-pth[0])*u);
-        it.el.setAttribute("cy",pth[1]+(pth[3]-pth[1])*u);
-        it.el.setAttribute("opacity","0.8"); } };
-        setTimeout(one,60); }
+  function frame(ts){ if(!t0) t0=ts; place(((ts-t0)/2600)%1); requestAnimationFrame(frame); }
+  if(!REDUCED) requestAnimationFrame(frame); else setTimeout(function(){ place(0.5); },60);
 
-  var rst=root.querySelector("[data-ls-reset]");
-  if(rst) rst.addEventListener("click",function(){
-    for(var r3=0;r3<rowEls.length;r3++){
-      rowEls[r3].sp.lo=DEF[r3][0]; rowEls[r3].sp.hi=DEF[r3][1];
-      rowEls[r3].ins[0].value=DEF[r3][0]; rowEls[r3].ins[1].value=DEF[r3][1];
-    }
-    render();
-  });
-
-  render();
+  select(0);
 }
 
 /* ============================================================

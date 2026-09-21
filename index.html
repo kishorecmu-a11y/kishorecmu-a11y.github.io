@@ -179,7 +179,7 @@ figcaption{font-family:var(--mono);font-size:12.5px;letter-spacing:0;color:var(-
 .ls-status b{font-weight:600;color:var(--ink)}
 .ls-status b.ok{color:var(--spring);margin-right:8px;letter-spacing:.08em}
 .ls-status b.bad{color:var(--rose);margin-right:8px;letter-spacing:.08em}
-.ls-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.ls-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:18px}
 .ls-tabs button{
   text-align:left;padding:9px 11px;cursor:pointer;background:transparent;
   border:1px solid var(--rule2);transition:border-color .15s,background .15s;
@@ -212,27 +212,6 @@ figcaption{font-family:var(--mono);font-size:12.5px;letter-spacing:0;color:var(-
 .ls-hint{font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--dim);
   margin-top:12px;padding-top:12px;border-top:1px solid var(--rule)}
 .ls-hint b{color:var(--rose);font-weight:600}
-/* the notification that names the excluded lot */
-.ls-alert{
-  display:flex;gap:11px;align-items:flex-start;margin-top:14px;padding:12px 15px;
-  background:linear-gradient(90deg,rgba(255,53,200,.16),rgba(255,53,200,.05));
-  border:1px solid var(--a);border-left-width:3px;
-}
-.ls-alert i{
-  flex:none;width:9px;height:9px;margin-top:5px;border-radius:50%;background:var(--a);
-  box-shadow:0 0 0 4px rgba(255,53,200,.22);animation:lsping 1.8s ease-out infinite;
-}
-.ls-alert span{font-family:var(--mono);font-size:12px;line-height:1.58;color:var(--ink)}
-.ls-alert b{color:var(--a);font-weight:600}
-.ls-alert.pop{animation:lspop .42s cubic-bezier(.16,1,.3,1) both}
-@keyframes lspop{from{opacity:0;transform:translateY(8px) scale(.975)}to{opacity:1;transform:none}}
-@keyframes lsping{0%{box-shadow:0 0 0 0 rgba(255,53,200,.5)}70%,100%{box-shadow:0 0 0 9px rgba(255,53,200,0)}}
-.ls-lot.off.out .ls-lotc{stroke:var(--a);stroke-opacity:.9;animation:lsring 1.8s ease-out infinite}
-.ls-lot.off.out .ls-lotn,.ls-lot.off.out .ls-lotlab{fill:var(--a);opacity:1}
-@keyframes lsring{0%{stroke-width:2}50%{stroke-width:3.4}100%{stroke-width:2}}
-@media(prefers-reduced-motion:reduce){
-  .ls-alert.pop{animation:none}.ls-alert i{animation:none}.ls-lot.off.out .ls-lotc{animation:none}
-}
 /* diagram */
 .ls-lotc{fill:var(--a);fill-opacity:.16;stroke:var(--a);stroke-width:2;transition:fill-opacity .25s,stroke-opacity .25s}
 .ls-lot.off .ls-lotc{fill-opacity:0;stroke:var(--rule2)}
@@ -506,7 +485,6 @@ footer{
           </div>
           <div class="ls-viz">
             <svg viewBox="0 0 1016 416" role="img" aria-label="Five candidate lots feeding a blender and a smelter, with the metal and slag analyses" data-ls-svg></svg>
-            <div class="ls-alert" data-ls-alert role="status" aria-live="polite"></div>
             <p class="ls-hint" data-ls-hint></p>
           </div>
         </div>
@@ -2529,7 +2507,7 @@ function initLotSel(){
             {n:"Lot 3",s:500,Cu:55,Ni:45},
             {n:"Lot 4",s:400,Cu:72,Ni:28},
             {n:"Lot 5",s:200,Cu:40,Ni:60}];
-  var SCEN=[{"id":"A","name":"BASE SPECIFICATION","note":"The blend and product specifications as published: metal held between 10 and 20 % nickel.","alert":"<b>Lot 2 is left out.</b> Adding its 300 kg would take the metal to 9.19 % nickel — under the 10 % floor. The richest-looking blend is not the feasible one.","out":2,"spec":{"blend":{"Cu":[70,90],"Ni":[10,30]},"metal":{"Cu":[80,100],"Ni":[10,20]},"slag":{"Cu":[40,60],"Ni":[40,60]}},"feasible":true,"sel":[1,3,4,5],"BT":1700,"BF":{"Cu":1213.0,"Ni":487.0},"prod":{"metal":{"amt":946.5,"model":[89.71,10.29],"plant":[92.04,10.05],"err":[2.6,2.3]},"slag":{"amt":753.5,"model":[48.29,51.71],"plant":[46.94,53.05],"err":[2.8,2.6]}}},{"id":"B","name":"HIGH-GRADE METAL","note":"A premium metal demanded: copper raised to at least 92 %, with the nickel window widened to 2–20 %.","alert":"<b>Lot 5 is left out.</b> At 40 % copper it drags the metal below the new 92 % floor, so the model trades it for Lot 2 and gains 100 kg of blend.","out":5,"spec":{"blend":{"Cu":[70,90],"Ni":[10,30]},"metal":{"Cu":[92,100],"Ni":[2,20]},"slag":{"Cu":[40,60],"Ni":[40,60]}},"feasible":true,"sel":[1,2,3,4],"BT":1800,"BF":{"Cu":1397.0,"Ni":403.0},"prod":{"metal":{"amt":1058.5,"model":[92.39,7.61],"plant":[94.42,7.41],"err":[2.2,2.7]},"slag":{"amt":741.5,"model":[56.52,43.48],"plant":[55.39,44.52],"err":[2.0,2.4]}}},{"id":"C","name":"COPPER-CAPPED BLEND","note":"A blend the converter can take: copper capped at 70 %, with the nickel window opened to 10–40 %.","alert":"<b>Lot 1 is left out</b> — the richest lot on the quay. Its 95 % copper would push the blend straight through the 70 % ceiling, so the four leaner lots are bought instead.","out":1,"spec":{"blend":{"Cu":[60,70],"Ni":[10,40]},"metal":{"Cu":[80,100],"Ni":[10,20]},"slag":{"Cu":[40,60],"Ni":[40,60]}},"feasible":true,"sel":[2,3,4,5],"BT":1400,"BF":{"Cu":907.0,"Ni":493.0},"prod":{"metal":{"amt":733.5,"model":[86.56,13.44],"plant":[84.39,13.74],"err":[2.5,2.2]},"slag":{"amt":666.5,"model":[40.83,59.17],"plant":[41.81,57.93],"err":[2.4,2.1]}}}];
+  var SCEN=[{"id":"A","name":"AS PUBLISHED","note":"The specifications printed in the report.","spec":{"blend":{"Cu":[70,90],"Ni":[10,30]},"metal":{"Cu":[80,100],"Ni":[10,20]},"slag":{"Cu":[40,60],"Ni":[40,60]}},"feasible":true,"sel":[1,3,4,5],"BT":1700,"BF":{"Cu":1213.0,"Ni":487.0},"prod":{"metal":{"amt":946.5,"model":[89.71,10.29],"plant":[92.04,10.05],"err":[2.6,2.3]},"slag":{"amt":753.5,"model":[48.29,51.71],"plant":[46.94,53.05],"err":[2.8,2.6]}},"why":"Lots 1, 3, 4 and 5 enter the blend. Lot 2 is left out because adding it would take the metal to 9.19 % nickel — just under the 10 % minimum."},{"id":"B","name":"RELAXED METAL Ni","note":"Metal nickel minimum lowered from 10 % to 9 %. Nothing else changes.","spec":{"blend":{"Cu":[70,90],"Ni":[10,30]},"metal":{"Cu":[80,100],"Ni":[9,20]},"slag":{"Cu":[40,60],"Ni":[40,60]}},"feasible":true,"sel":[1,2,3,4,5],"BT":2000,"BF":{"Cu":1477.0,"Ni":523.0},"prod":{"metal":{"amt":1138.5,"model":[90.81,9.19],"plant":[88.63,9.45],"err":[2.4,2.9]},"slag":{"amt":861.5,"model":[51.43,48.57],"plant":[52.51,47.35],"err":[2.1,2.5]}},"why":"One percentage point of nickel is the whole difference: Lot 2 now qualifies and the blend grows by 300 kg."},{"id":"C","name":"PREMIUM METAL","note":"A richer metal demanded: Cu at least 92 %, with the nickel window widened to 2–20 %.","spec":{"blend":{"Cu":[70,90],"Ni":[10,30]},"metal":{"Cu":[92,100],"Ni":[2,20]},"slag":{"Cu":[40,60],"Ni":[40,60]}},"feasible":true,"sel":[1,2,3,4],"BT":1800,"BF":{"Cu":1397.0,"Ni":403.0},"prod":{"metal":{"amt":1058.5,"model":[92.39,7.61],"plant":[94.42,7.41],"err":[2.2,2.7]},"slag":{"amt":741.5,"model":[56.52,43.48],"plant":[55.39,44.52],"err":[2.0,2.4]}},"why":"A 92 % copper metal forces out Lot 5, the low-copper high-nickel lot; Lot 2 takes its place and the blend rises to 1,800 kg."},{"id":"D","name":"RICHER BLEND","note":"Blend copper minimum raised from 70 % to 75 %, product specifications unchanged.","spec":{"blend":{"Cu":[75,90],"Ni":[10,30]},"metal":{"Cu":[80,100],"Ni":[10,20]},"slag":{"Cu":[40,60],"Ni":[40,60]}},"feasible":false,"why":"No combination of the five lots reaches 75 % copper in the blend while keeping the metal inside its 10–20 % nickel window. The two specifications pull against each other."}];
   var ROWS=[["blend","Cu","BLEND · Cu"],["blend","Ni","BLEND · Ni"],
             ["metal","Cu","METAL · Cu"],["metal","Ni","METAL · Ni"],
             ["slag","Cu","SLAG · Cu"],["slag","Ni","SLAG · Ni"]];
@@ -2626,7 +2604,6 @@ function initLotSel(){
   }
 
   var statusEl=root.querySelector("[data-ls-status]");
-  var alertEl=root.querySelector("[data-ls-alert]");
   var whyEl=root.querySelector("[data-ls-why]");
   var hintEl=root.querySelector("[data-ls-hint]");
 
@@ -2646,16 +2623,8 @@ function initLotSel(){
 
     for(var i2=0;i2<5;i2++){
       var on = sc.feasible && sc.sel.indexOf(i2+1)>=0;
-      lotNodes[i2].setAttribute("class","ls-lot"+(on?" on":" off")+(sc.out===i2+1?" out":""));
+      lotNodes[i2].setAttribute("class","ls-lot"+(on?" on":" off"));
       gStatic.querySelectorAll(".ls-arc")[i2].setAttribute("class","ls-arc"+(on?" on":""));
-    }
-
-    /* the reason this scenario differs, announced */
-    if(alertEl){
-      alertEl.innerHTML='<i aria-hidden="true"></i><span>'+(sc.alert||"")+'</span>';
-      alertEl.classList.remove("pop");
-      void alertEl.offsetWidth;            // restart the animation
-      alertEl.classList.add("pop");
     }
 
     if(!sc.feasible){
@@ -2665,7 +2634,7 @@ function initLotSel(){
         var pn=panels[PR[k]];
         pn.amt.textContent="—"; pn.model.textContent=""; pn.plant.textContent=""; pn.delta.textContent="";
       }
-      hintEl.textContent="";
+      hintEl.textContent=sc.why;
       return;
     }
 
@@ -2682,7 +2651,7 @@ function initLotSel(){
       pn2.plant.textContent="plant   Cu "+d.plant[0].toFixed(2)+"   Ni "+d.plant[1].toFixed(2);
       pn2.delta.textContent="Δ "+d.err[0].toFixed(1)+" %  ·  "+d.err[1].toFixed(1)+" %";
     }
-    hintEl.innerHTML="Whichever lots are bought, the plant then reports analyses up to <b>"+worst.toFixed(1)+
+    hintEl.innerHTML=sc.why+" The plant then reports analyses up to <b>"+worst.toFixed(1)+
       " %</b> away from the prediction — an error in the lot assays, not in the model, and the reason for the calibration layer below.";
   }
 
